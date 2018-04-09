@@ -130,7 +130,7 @@
 									aria-selected="true"> 개요 </a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="#dashboard-2" role="tab" data-toggle="tab"
-									aria-selected="true">경력 및 학력</a></li>
+									aria-selected="false">경력 및 학력</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="#dashboard-3" role="tab" data-toggle="tab"
 									aria-selected="true"> 거주했던 장소</a></li>

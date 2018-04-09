@@ -126,7 +126,7 @@
            		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
 				<!--여기서부터 입니다.  -->
 			<div class="container"
-				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;"">
+				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;">
 					<div class="row"
 						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
 						<div class="col-md-6"
@@ -150,8 +150,8 @@
 								</form>
 								</div>
 								<!--반복되는 부분 -->
-								<div class="f_info col-md-12">
-									<div><a class="f_link"style="display: block;" href="">
+								<div class="f_info col-md-12" style="height: 485px; overflow: auto;">
+									<div><a class="f_link"style="display: block; " href="">
 										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
 									class="f_img rounded-circle img-fluid"></a>
 										<div class="login"></div>
@@ -176,7 +176,7 @@
 								</form>
 								</div>
 								<!--반복되는 부분 -->
-								<div class="f_info col-md-12">
+								<div class="f_info col-md-12" style="height: 485px; overflow: auto;">
 									<div><a class="f_link"style="display: block;" href="">
 										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
 									class="f_img rounded-circle img-fluid"></a>
