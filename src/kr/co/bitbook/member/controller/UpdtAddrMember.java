@@ -1,5 +1,5 @@
 package kr.co.bitbook.member.controller;
 
-public class UpdateEventMember {
+public class UpdtAddrMember {
 
 }

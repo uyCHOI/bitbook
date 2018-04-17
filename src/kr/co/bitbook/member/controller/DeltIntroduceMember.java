@@ -1,5 +1,5 @@
 package kr.co.bitbook.member.controller;
 
-public class UpdateIntroduceMember {
+public class DeltIntroduceMember {
 
 }

@@ -1,5 +1,5 @@
 package kr.co.bitbook.member.controller;
 
-public class DeleteEventMember {
+public class DeltEventMember {
 
 }

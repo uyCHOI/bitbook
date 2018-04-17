@@ -1,5 +1,5 @@
 package kr.co.bitbook.member.controller;
 
-public class UpdateAddrMember {
+public class ListOutlineMember {
 
 }

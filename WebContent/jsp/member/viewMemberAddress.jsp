@@ -12,7 +12,6 @@
     background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
     background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
     background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
-    .bmd-form-group { display: inline-block !important; padding-top: 0;}
     
     </style>
     <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">
@@ -21,13 +20,6 @@
         Material Kit by Creative Tim
     </title>
     <!--     Fonts and icons     -->
-   <link rel="stylesheet" type="text/css"
-	href="../assets/assets-for-demo/common.css">
-<link rel="stylesheet" type="text/css"
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
@@ -123,72 +115,56 @@
 					  </div>
 					</nav>
            		</div>
-           		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
-				<!--여기서부터 입니다.  -->
-			<div class="container"
-				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;">
-					<div class="row"
-						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
-						<div class="col-md-6"
-							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
-							<div class="friendList">
-								<div class="f_title col-md-12" style="height: 100px;">
-								<h5>내 친구들</h5>
-								<form action="#" style="margin-top:30px;">
-								 <div class="form-group" style="width: 180px; float: left; padding-top: 0;">
-						            <input type="text" class="form-control" placeholder="내 친구 검색하기" style="width: 180px; color:#000;">
-						          </div>
-								<button type="submit" style="margin-bottom:0px;"class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
-						              <i class="material-icons" >search</i>
-						          </button>
-						            <select class="select_info">
-									<option>최근 친구순 보기</option>
-									<option>생일</option>
-									<option>직장</option>
-									<option>대학교</option>
-									</select>
-								</form>
-								</div>
-								<!--반복되는 부분 -->
-								<div class="f_info col-md-12" style="height: 485px; overflow: auto;">
-									<div><a class="f_link"style="display: block; " href="">
-										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="f_img rounded-circle img-fluid"></a>
-										<div class="login"></div>
-										<p><a href=""><span class="f_name c_info" >박보영</span></a></p>
-										<p class="friendInfo">4시간전까지 활동했습니다.</p>
-									</div>
-								</div>
-							</div>
+           		<div class="col-md-12" style="border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
+					<p class="nav-link" style="color :#9c27b0; margin:0 12px 5px; padding:0; font-weight:700; font-size: 20px;margin-top: 10px;    background: #f6f7f9;
+    border-bottom: 1px solid #d3d6db;
+    border-radius: 2px 2px 0 0;
+    margin-bottom: 15px;
+    min-height: 66px;
+    padding-top: 16px;"> 정보</p>
+					<div style="    position: relative;
+    ">
+							<ul class="nav   flex-column" role="tablist" style="width: 242px;float: left">
+								<li class="nav-item"><a class="nav-link"
+									href="viewMemberOutline" role="tab" data-toggle="tab"
+									aria-selected="true"> 개요 </a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="viewMemberCareer" role="tab" data-toggle="tab"
+									aria-selected="false">경력 및 학력</a></li>
+								<li class="nav-item"><a class="nav-link active show"
+									href="viewMemberAddress" role="tab" data-toggle="tab"
+									aria-selected="true"> 거주했던 장소</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="viewMemberContact" role="tab" data-toggle="tab"
+									aria-selected="true"> 연락처 및 기본 정보</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="viewMemberFamily" role="tab" data-toggle="tab"
+									aria-selected="true"> 가족 및 결혼/연애 상태</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="viewMemberDetail" role="tab" data-toggle="tab"
+									aria-selected="true"> 자세한 내 소개</a></li>
+							</ul>
+							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
+    min-height: 280px;
+    padding: 30px 24px 0;
+    position: relative;
+    width: 408px;
+}">
+							  <li class="nav-item">
+							    <a class="nav-link active" href="#">Active</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" href="#">Link</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" href="#">Link</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link disabled" href="#">Disabled</a>
+							  </li>
+							</ul>
+			
 						</div>
-						<div class="col-md-6"
-							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
-							<div class="friendList">
-								<div class="f_title col-md-12" style="height: 100px;">
-								<h5>내 친구들</h5>
-								<form action="#" style="margin-top:30px;">
-								 <div class="form-group" style="width: 180px; float: left; padding-top: 0;">
-						            <input type="text" class="form-control" placeholder="새로운 친구 검색하기" style="width: 180px; color:#000;">
-						          </div>
-								<button type="submit" style="margin-bottom:0px;"class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
-						              <i class="material-icons" >search</i>
-						          </button>
-								</form>
-								</div>
-								<!--반복되는 부분 -->
-								<div class="f_info col-md-12" style="height: 485px; overflow: auto;">
-									<div><a class="f_link"style="display: block;" href="">
-										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="f_img rounded-circle img-fluid"></a>
-										<div class="login"></div>
-										<p><a href=""><span class="f_name c_info" >박보영</span></a></p>
-										<p class="friendInfo">4시간전까지 활동했습니다.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				</div>
            		</div>
 

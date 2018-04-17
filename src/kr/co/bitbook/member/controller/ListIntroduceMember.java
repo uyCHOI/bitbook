@@ -1,5 +1,5 @@
 package kr.co.bitbook.member.controller;
 
-public class DeleteCareerMember {
+public class ListIntroduceMember {
 
 }
