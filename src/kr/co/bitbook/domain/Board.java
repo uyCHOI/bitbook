@@ -1,5 +1,5 @@
 package kr.co.bitbook.domain;
 
-public class Member {
+public class Board {
 
 }
