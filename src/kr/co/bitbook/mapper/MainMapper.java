@@ -1,5 +1,5 @@
 package kr.co.bitbook.mapper;
 
-public class BoardMapper {
+public class MainMapper {
 
 }
