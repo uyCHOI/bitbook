@@ -1,5 +1,5 @@
 package kr.co.bitbook.gallery;
 
-public class DeleteGallery {
+public class DeltGallery {
 
 }

@@ -1,5 +1,5 @@
 package kr.co.bitbook.main.controller;
 
-public class DeleteBoardController {
+public class UpdtBoardController {
 
 }

@@ -1,5 +1,5 @@
 package kr.co.bitbook.main.controller;
 
-public class UpdateBoardController {
+public class UpdtFormBoardController {
 
 }
