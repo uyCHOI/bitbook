@@ -221,6 +221,13 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
+				<!-- 게시글 끝 -->
+			
+				
+				
+=======
+>>>>>>> 2ae628c499f66eeff0b79d96f683350f0e448376
 				<div id="buttons" class="cd-section"
 					style="width: 30%; height: 100%; top: 0; position: absolute; right: 22px;">
 					<div class="row"
