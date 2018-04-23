@@ -171,7 +171,7 @@ a img:hover {
 </head>
 
 <body class="index-page ">
-	<div id="lay_pop">
+	<div id="lay_pop" style="z-index:1250 !important;">
 
 		<div class="row">
 			<span style="color: #4b4f56; font-size: 12px; padding: 17px;"><a
@@ -209,7 +209,7 @@ a img:hover {
 			</div>
 		</div>
 	</div>
-	<div id="all_body"></div>
+	<div id="all_body" style="z-index:1200;"></div>
 	
 		<div id="img_pop">
 
