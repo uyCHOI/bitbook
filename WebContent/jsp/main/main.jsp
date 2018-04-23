@@ -111,7 +111,6 @@
 			
 				
 				
-				
 				<div id="buttons" class="cd-section"
 					style="width: 30%; height: 100%; top: 0; position: absolute; right: 22px;">
 					<div class="row"
