@@ -38,55 +38,7 @@
 </head>
 
 <body class="index-page ">
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
-		id="sectionsNav" style="position: fixed;">
-		<div class="container">
-			<div class="navbar-translate">
-				<a class="navbar-brand" href="../main/main.jsp" style="color:#fff;">Bit book </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> <span
-							class="glyphicon glyphicon-user">홍길동</span>
-							<div class="ripple-container"></div></a></li>
-					<li class="dropdown nav-item"><a href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> <i class="material-icons">apps</i> 알림
-							<div class="ripple-container"></div></a>
-						<div class="dropdown-menu dropdown-with-icons">
-							<a href="./index.html" class="dropdown-item"> <i
-								class="material-icons">layers</i>
-								친구로 부터 메세지가 도착했습니다.
-							</a> 
-							<a	href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html"
-								class="dropdown-item"> <i class="material-icons">content_paste</i>
-								친구 신청 되었습니다.
-							</a>
-						</div>
-						</li>
-											<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 친구 찾기
-							<div class="ripple-container"></div>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 로그인
-							<div class="ripple-container"></div>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-		</div>
-	</nav>
+	
     <div class="main main-raised">
         <div class="section section-basic">
 
@@ -127,6 +79,7 @@
            		</div>
            		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
 				<!--여기서부터 입니다.  -->
+			
 			<div class="container"
 				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;">
 					<div class="row"
