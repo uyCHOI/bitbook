@@ -38,7 +38,7 @@
 </head>
 
 <body class="index-page ">
-	
+
     <div class="main main-raised">
         <div class="section section-basic">
 
@@ -79,7 +79,6 @@
            		</div>
            		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
 				<!--여기서부터 입니다.  -->
-			
 			<div class="container"
 				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;">
 					<div class="row"

@@ -1,5 +1,5 @@
 package kr.co.bitbook.mapper;
 
-public class MemberMapper {
+public interface MemberMapper {
 
 }
