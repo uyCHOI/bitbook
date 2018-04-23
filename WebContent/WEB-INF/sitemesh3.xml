@@ -9,9 +9,6 @@
   <mapping path="/jsp/main/comment.jsp" exclude="true"/>
   <mapping path="/jsp/main/post.jsp" exclude="true"/>
 
-
-	<mapping path="/*" decorator="/jsp/template/decorator.jsp"/>
-
 </sitemesh>
 
 
