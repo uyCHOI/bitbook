@@ -1,0 +1,19 @@
+diff a/WebContent/WEB-INF/sitemesh3.xml b/WebContent/WEB-INF/sitemesh3.xml	(rejected hunks)
+@@ -1,6 +1,17 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <sitemesh>
++<<<<<<< HEAD
++  <mapping path="/*" decorator="/jsp/template/decorator.jsp"/>
++  <!-- sitemesh 적용 하기 싫을때 패턴 -->
++ <!-- <mapping path="URL주소" exclude="true"/> --> 
++  <!-- sitemesh 적용 하기 싫을때 패턴 --> 
++  
++  <mapping path="/jsp/main/comment.jsp" exclude="true"/>
++  <mapping path="/jsp/main/post.jsp" exclude="true"/>
++
++=======
+ 	<mapping path="/*" decorator="/jsp/template/decorator.jsp"/>
++>>>>>>> 2ae628c499f66eeff0b79d96f683350f0e448376
+ </sitemesh>
+ 
+ 

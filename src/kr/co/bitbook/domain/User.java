@@ -8,10 +8,22 @@ public class User {
 	private String memPass;
 	private String memName;
 	private String memEmail;
-	private char login;
+	private char join;
+	public char getJoin() {
+		return join;
+	}
+	public void setJoin(char join) {
+		this.join = join;
+	}
 	private Date logoutDate;
 	
 	
+	public Date getLogoutDate() {
+		return logoutDate;
+	}
+	public void setLogoutDate(Date logoutDate) {
+		this.logoutDate = logoutDate;
+	}
 	public int getMemNo() {
 		return memNo;
 	}

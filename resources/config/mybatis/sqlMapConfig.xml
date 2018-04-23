@@ -7,10 +7,19 @@
 	<properties resource="config/mybatis/db.properties" />
 	
 	<typeAliases>
-		<typeAlias alias="board" type="kr.co.mlec.repository.domain.Board" />
-		<typeAlias alias="comment" type="kr.co.mlec.repository.domain.Comment" />
-		<typeAlias alias="file" type="kr.co.mlec.repository.domain.FileVO" />
-		<typeAlias alias="login" type="kr.co.mlec.repository.domain.Login" />
+		<typeAlias alias="comment" type="kr.co.bitbook.domain.Comment" />
+		<typeAlias alias="commentLike" type="kr.co.bitbook.domain.CommentLike" />
+		<typeAlias alias="commentTag" type="kr.co.bitbook.domain.CommentTag" />
+		<typeAlias alias="file" type="kr.co.bitbook.domain.File" />
+		<typeAlias alias="friends" type="kr.co.bitbook.domain.Friends" />
+		<typeAlias alias="gallery" type="kr.co.bitbook.domain.Gallery" />
+		<typeAlias alias="job" type="kr.co.bitbook.domain.Job" />
+		<typeAlias alias="member" type="kr.co.bitbook.domain.Member" />
+		<typeAlias alias="notification" type="kr.co.bitbook.domain.Notification" />
+		<typeAlias alias="post" type="kr.co.bitbook.domain.Post" />
+		<typeAlias alias="postLike" type="kr.co.bitbook.domain.PostLike" />
+		<typeAlias alias="postTag" type="kr.co.bitbook.domain.PostTag" />
+		<typeAlias alias="user" type="kr.co.bitbook.domain.User" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -29,8 +38,13 @@
 		개별적으로 작성한 mapper.xml(SQL)의 위치를 알려준다.
 	 -->
 	<mappers>
-		<mapper resource="config/sqlmap/oracle/board.xml"/>
+		<mapper resource="config/sqlmap/oracle/file.xml"/>
+		<mapper resource="config/sqlmap/oracle/friends.xml"/>
+		<mapper resource="config/sqlmap/oracle/gallery.xml"/>
+		<mapper resource="config/sqlmap/oracle/join.xml"/>
 		<mapper resource="config/sqlmap/oracle/login.xml"/>
+		<mapper resource="config/sqlmap/oracle/main.xml"/>
+		<mapper resource="config/sqlmap/oracle/member.xml"/>
 	</mappers>
 </configuration>
 
