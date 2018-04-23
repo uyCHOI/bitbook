@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,53 +28,7 @@
 </style>
 </head>
 <body class="index-page " style="background:#fff;">
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
-		id="sectionsNav" style="position: fixed; background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important; ">
-		<div class="container">
-			<div class="navbar-translate">
-				<a class="navbar-brand" href="main.jsp" style="color:#fff;">Bit book </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item"><a class="nav-link"
-						href="../member/infoMember.jsp" onclick="scrollToDownload()"> <span
-							class="glyphicon glyphicon-user" style="color:#fff;">홍길동</span>
-							<div class="ripple-container"></div></a></li>
-					<li class="dropdown nav-item"><a href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false" style="color:#fff;"> <i class="material-icons">apps</i> 알림
-							<div class="ripple-container"></div></a>
-						<div class="dropdown-menu dropdown-with-icons">
-							<a href="../login/index.jsp" class="dropdown-item"> <i
-								class="material-icons">layers</i>친구로 부터 메세지가 도착했습니다.
-							</a> <a
-								href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html"
-								class="dropdown-item"> <i class="material-icons">content_paste</i>
-								친구 신청 되었습니다.
-							</a>
-						</div></li>
-											<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"style="color:#fff;"> 친구 찾기
-							<div class="ripple-container"></div>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="../login/index.jsp" onclick="scrollToDownload()"style="color:#fff;"> 로그아웃
-							<div class="ripple-container"></div>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-		</div>
-	</nav>
+	
 	<div class="main main-raised" style="box-shadow:none;">
 		<div class="section section-basic" style="padding: 140px 0;">
 			<div class="container"
@@ -135,96 +90,32 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" style="margin-top: 0px; height: 600px;">
-						<div class="col-md-12" >
-							<div class="content">
-								<div class="title_head">
-									<h5 class="title">피드</h5>
-								</div>
-								<div class="min_content">
-									<a href="#"> <img class="profile rounded-circle img-fluid"
-										src="assets/img/kit/faces/avatar.jpg" alt="Circle Image">
-									</a>
-									<div class="board_wrap" style="margin-left: 75px;">
-										<div class="p_info">
-											<span class="c_info" >박보영</span> <span>2018-11-11-12-32-33</span>
-										</div>
-										<div class="board_content">
-											내용입니다. <br> 내용입니다. <br> 내용입니다. <br>
-										</div>
-										<div style="height: 40px;">
-											<div class="tag_wrap">
-												<span
-													style="font-weight: bold; padding-right: 10px; display: inline-block;">함께한
-													친구</span> <a class="tag" href="#">홍길동</a> <a class="tag" href="#">홍홍</a>
-											</div>
-											<div style="display: inline-block;">
-												<button type="submit" class="btnA">수정</button>
-												<span>|</span>
-												<button type="submit" class="btnB">삭제</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="title_head" style="">
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
-										style="border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
-									<button type="button" class="c_c_write btn btn-primary">
-										댓글 <span>11개</span>
-									</button>
-								</div>
-							</div>
-							<!-- 댓글  -->
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
-								</div>
-								<div
-									style="margin-left: 70px; margin-top: 5px; position: relative;">
-									<button class="btnA">수정</button>
-									<span>|</span>
-									<button class="btnB">삭제</button>
-									<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
-										style="left:324px !important;bottom:-22px; border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
-								</div>
-							</div>
-							<!-- 댓글쓰기 -->
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info" style="width: 42px;">박보영</span> <span
-										class="c_content" style="width: 294px;"> <textarea
-											class="c_text" style="width: 270px;"></textarea>
-									</span>
-								</div>
-								<button class="c_submit btn btn-lg btn-primary"
-									disabled" type="submit" style="">등록</button>
-							</div>
-						</div>
-					</div>
+					
+					
+					
+					
+				<!-- 게시글 시작-->
+				<div>
+				<!-- 게시글 시작-->
+
+				<!-- 게시글 불러오기 -->
+				<c:import url="post.jsp" >
+				<c:param name="게시글번호"> 게시글번호 넘겨주기 </c:param>
+				</c:import>
+				 
+				<!-- 게시글 불러오기 -->
+				
+				<!-- 게시글 끝 -->
 				</div>
+				<!-- 게시글 끝 -->
+			
+				
+				
+				
 				<div id="buttons" class="cd-section"
 					style="width: 30%; height: 100%; top: 0; position: absolute; right: 22px;">
 					<div class="row"
-						style="width: 100%; height: 71%; position: relative; ">
+						style="width: 20%; height: 80%; top:55px; position: fixed; ">
 						<div class="col-md-12"
 							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList">

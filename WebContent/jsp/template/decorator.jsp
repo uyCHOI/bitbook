@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -17,7 +19,7 @@
 			<div class="header">
 				<c:import url="/jsp/decorator/topMenu.jsp"/>
 			</div>	
-			<div class="content">
+			<div class="content1">
 				<sitemesh:write property="body"/>
 			</div>
 		
