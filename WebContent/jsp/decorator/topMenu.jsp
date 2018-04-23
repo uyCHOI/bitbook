@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!-- Favicons -->
     <style>
-    .purple-filter:after {
+/*    .purple-filter:after {
     background: rgba(101, 47, 142, 0.64);
     background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
     background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
     background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
-    }
+    }*/
 
     </style>
     <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">

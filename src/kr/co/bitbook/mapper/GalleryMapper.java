@@ -1,5 +1,15 @@
 package kr.co.bitbook.mapper;
 
-public class GalleryMapper {
+import java.util.List;
 
+import kr.co.bitbook.domain.File;
+import kr.co.bitbook.domain.Gallery;
+
+public interface GalleryMapper {
+	List<Gallery> selectGallery();
+	void updateGallery(int galleryNo);
+	int deleteGallery(int galleryNo);
+	void insertGallery(Gallery g);
+
+	
 }
