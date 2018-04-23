@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
+<!-- 
 <html lang="en">
+ -->
 <head>
 <meta charset="utf-8">
 <meta
@@ -26,7 +28,12 @@
 <style>
 </style>
 </head>
+
+
+<!-- 개인 실행시 주석 열기
 <body class="index-page " style="background:#fff;">
+ -->
+ 
 							<!-- 댓글  -->
 							<div class="coment">
 								<a href="#" style="margin-left: 16px; display: block;"> <img
@@ -35,6 +42,10 @@
 									class="rounded-circle img-fluid">
 								</a>
 								<div class="c_wrap">
+								
+								
+								<%-- c_info 덧글 작성자 이름 // c_content 덧글내용--%>
+								
 									<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
 								</div>
 								<div
@@ -120,6 +131,7 @@
 								</div>
 								<button class="c_submit btn btn-lg btn-primary disabled" type="submit" style="">등록</button>
 							</div>
-					
+<!-- 개인 실행시 주석 열기
 </body>
 </html>
+ -->					

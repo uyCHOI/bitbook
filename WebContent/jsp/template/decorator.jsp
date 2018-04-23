@@ -19,7 +19,7 @@
 			<div class="header">
 				<c:import url="/jsp/decorator/topMenu.jsp"/>
 			</div>	
-			<div class="content">
+			<div class="content1">
 				<sitemesh:write property="body"/>
 			</div>
 		

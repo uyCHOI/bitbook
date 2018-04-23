@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<!-- 개인 실행시 주석 열기
 <html lang="en">
 <head>
+ -->
 <meta charset="utf-8">
 <meta
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -26,8 +28,11 @@
 <!-- iframe removal -->
 <style>
 </style>
+<!-- 개인 실행시 주석 열기
 </head>
 <body>
+
+  -->
 	<div class="row" style="margin-top: 0px; height: 600px;">
 		<!-- 게시글 -->
 		<div class="col-md-12" >
@@ -84,6 +89,13 @@
 						
 		</div>
 	</div>
-		
+	
+	
+	
+	
+<!-- 개인 실행시 주석 열기
+
+
 </body>
 </html>
+ -->		
