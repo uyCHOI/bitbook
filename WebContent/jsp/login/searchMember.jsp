@@ -30,7 +30,7 @@
 <!-- iframe removal -->
 </head>
 <body class="index-page ">
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" style="position: fixed; background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;">
+<!-- 	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" style="position: fixed; background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="main.jsp" style="color: #fff;">Bit book </a>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 		</div>
-	</nav>
+	</nav> -->
 	<div class="main main-raised">
 		<div class="section section-basic"></div>
 		<div class="section section-navbars cd-section" id="navigation">

@@ -10,14 +10,15 @@
     <style>
     body.index-page  {   background: #fff !important;/* -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;*/}
    /* .purple-filter:after {     background: none !important;}*/
-    .header { display:none !important;}
+  
    .purple-filter:after {
-    background: rgba(101, 47, 142, 0.64);
+  /*   background: rgba(101, 47, 142, 0.64);
     background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
     background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
+    background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important; */
     }
     .footer  { color:#fff;}
+    .purple-filter:after {opacity: 0.5 !important; }
     </style>
     <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">
     <link rel="icon" href="../assets/img/kit/free/favicon.png">
@@ -35,7 +36,7 @@
 </head>
 
 <body class="index-page ">
-    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('assets/img/kit/bg2.jpg');">
+    <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('../../img/bg.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto" style="line-height:420px;">
@@ -95,8 +96,21 @@
                     </div>
                 </div>
             </div>
+            
             </div>
-
+				<div>
+    <footer class="footer " style="    font-size: 12px;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #3a3a3a;
+    font-weight: 600;">
+        <div class="container">
+            <div class="copyright pull-right" >
+                © Bitbook 2018 박정아 정진솔 최운영
+            </div>
+        </div>
+    </footer>
+</div>
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
