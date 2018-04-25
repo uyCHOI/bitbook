@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+	a #data:hover{
+		
+	}
+</style>
 </head>
 <body class="index-page ">
 	
@@ -10,7 +15,7 @@
 		</div>
         <div class="section section-navbars cd-section" id="navigation">
             <div class="container" style=" position: relative; max-width: 851px;">
-           		<div class="col-md-12" style="border: 1px solid black; height: 875px; margin: 0 auto;">
+           		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
            		<div style="border: 1px solid black; height: 200px; margin: 0 auto; position: relative;"><button><i class="material-icons">camera</i>커버사진추가</button>
            		<div style="border: 1px solid black;  width:140px; height: 140px; overflow: visible; margin-left: 20px;" id="profil">
            		<button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="프로필 사진 업데이트">
@@ -44,7 +49,7 @@
 					  </div>
 					</nav>
            		</div>
-           		<div class="col-md-12" style="border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
+           		<div class="col-md-12" style="border: 1px solid black;min-height:868px; height: auto; margin: 30px 0px; position: relative;">
 					<p class="nav-link" style="color :#9c27b0; margin:0 12px 5px; padding:0; font-weight:700; font-size: 20px;margin-top: 10px;    background: #f6f7f9;
     border-bottom: 1px solid #d3d6db;
     border-radius: 2px 2px 0 0;
@@ -77,7 +82,7 @@
 }">
 						<h4>직장</h4>
 						<li><button type="button" class="btn btn-secondary" disabled>
-							<a href="">직장 추가</a></button>
+							<a href=""><i class="material-icons">create</i>직장 추가</a></button>
 						</li>
 						<div>
 						<form method='post' action='write' style="align-content: center">
@@ -101,16 +106,74 @@
 							<button type='button' class="btn btn-rose btn-sm">취소</button>
 						</form>
 						</div>
-						<li class="dropdown nav-item"><a>데이터들</a><a href="#"
+						<li class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">회사이름</a>
+						<p>회사설명 주저리주저리</p>
+						</div>
+						<a style="float:left" href="#"
 						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> 옵션
-						<div class="ripple-container"></div></a>
+						aria-expanded="false"> 옵션 </a>
 						<div class="dropdown-menu">
 							<a href="#" class="dropdown-item">수정</a> 
 							<a href="#" class="dropdown-item">삭제	</a>
 						</div></li>
-						</ul>
+						<h4>전문 기술</h4>
+						<li><button type="button" class="btn btn-secondary" disabled>
+							<a href=""><i class="material-icons">create</i>전문 기술</a></button>
+						</li>
+						<div>
+						<form method='post' action='write' style="align-content: center">
+							<div class="form-group">
+								    <label for="exampleInputPassword1">전문 기술</label>
+								    <input type="text" class="form-control" id="name" placeholder="전문 기술">
+							</div>
+							<button type='button' class="btn btn-success btn-sm">등록</button>
+							<button type='button' class="btn btn-rose btn-sm">취소</button>
+						</form>
 						</div>
+						<li class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">전문 기술 등 등 등</a>
+						</div>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="#" class="dropdown-item">수정</a> 
+							<a href="#" class="dropdown-item">삭제	</a>
+						</div></li>
+						<h4>대학교</h4>
+						<li><button type="button" class="btn btn-secondary" disabled>
+							<a href=""><i class="material-icons">create</i>대학교</a></button>
+						</li>
+						<div>
+						<form method='post' action='write' style="align-content: center">
+							<div class="form-group">
+								    <label for="exampleInputPassword1">대학교</label>
+								    <input type="text" class="form-control" id="name" placeholder="대학교">
+							</div>
+							<button type='button' class="btn btn-success btn-sm">등록</button>
+							<button type='button' class="btn btn-rose btn-sm">취소</button>
+						</form>
+						</div>
+						<li class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">비트대학교</a>
+						</div>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="#" class="dropdown-item">수정</a> 
+							<a href="#" class="dropdown-item">삭제	</a>
+						</div></li>
+						
+						
+						
+						
+						</ul>
+					</div>
 				</div>
            		</div>
 

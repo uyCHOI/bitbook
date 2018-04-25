@@ -41,11 +41,10 @@
 
     <div class="main main-raised">
         <div class="section section-basic">
-
         </div>
         <div class="section section-navbars cd-section" id="navigation">
             <div class="container" style="background: gray; position: relative; max-width: 851px;">
-           		<div class="col-md-12" style="border: 1px solid black; height: 875px; margin: 0 auto;">
+           		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
            			개인정보
            		<div style="border: 1px solid black; height: 200px; margin: 0 auto; position: relative;">상단 사진 커버 이름
            		<div style="border: 1px solid black;  width:140px; height: 140px; overflow: visible; margin-left: 20px;">프로필 사진</div>
@@ -81,6 +80,28 @@
 				<!--여기서부터 입니다.  -->
 			<div class="container"
 				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;">
+				<div class="row"
+						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
+						<div class="col-md-12"
+							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
+							<div class="friendList">
+								<div class="f_title col-md-12" style="height: 30px;">
+								<h5>##개의 친구요청에 답하기</h5>
+								</div>
+								<!--반복되는 부분 -->
+								<div class="f_info col-md-12" style="height: 240px; overflow: auto;">
+									<div><a class="f_link"style="display: block; " href="">
+										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+									class="f_img rounded-circle img-fluid"></a>
+										<div class="login"></div>
+										<p><a href=""><span class="f_name c_info" >박보영</span></a></p>
+										<p class="friendInfo">홍길동 님을 함께 알고 있습니다.</p>
+										<button class="btn btn-sm btn-success" style="position: absolute;right: 83px;top: 30px;">확인</button>
+										<button class="btn btn-sm" style="position: absolute;right:6px;top: 30px;">요청삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					<div class="row"
 						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
 						<div class="col-md-6"
