@@ -8,6 +8,8 @@
   
   <mapping path="/jsp/main/comment.jsp" exclude="true"/>
   <mapping path="/jsp/main/post.jsp" exclude="true"/>
+  <mapping path="/jsp/main/addPost.jsp" exclude="true"/>
+  <mapping path="/jsp/main/main.jsp" exclude="true"/>
 
 </sitemesh>
 
