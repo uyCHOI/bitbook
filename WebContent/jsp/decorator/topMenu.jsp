@@ -125,7 +125,10 @@
 </head>
 <body class="index-page ">
 	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
-		id="sectionsNav" style="position: fixed;">
+		id="sectionsNav" style="position: fixed;color: #fff;
+    background-color: #9c27b0!important;
+    -webkit-box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 7px 12px -5px rgba(156,39,176,0.46);
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,0.14), 0 7px 12px -5px rgba(156,39,176,0.46);">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="../main/main.jsp" style="color:#fff;">Bit book </a>

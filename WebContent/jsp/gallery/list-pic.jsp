@@ -49,18 +49,18 @@
 .list img {
 	margin: 6px;
 }
-
+/*
 a img:hover {
 	transform: scale(1.1, 1.1);
 	transition: 3s;
 }
-
+*/
 #lay_pop {
 	position: absolute;
-	z-index: 500;
+	z-index: 1200 !important;
 	width: 570px;
 	height: 300px;
-	overflow-y: scroll;
+	overflow-y: auto;
 	display: none;
 	background-color: #ffffff;
 	border: 2px solid #cccccc
@@ -68,7 +68,7 @@ a img:hover {
 
 #all_body {
 	position: absolute;
-	z-index: 9;
+	z-index: 1111;
 	display: block;
 	filter: alpha(opacity = 50);
 	opacity: 0.5;
@@ -80,7 +80,7 @@ a img:hover {
 
 #img_pop {
 	position: absolute;
-	z-index: 500;
+	z-index: 1200 !important;
 	width: 1124px;
 	height: 500px;
 	overflow-y: scroll;
@@ -91,7 +91,7 @@ a img:hover {
 
 #img_body {
 	position: absolute;
-	z-index: 9;
+	z-index: 1111;
 	display: block;
 	filter: alpha(opacity = 50);
 	opacity: 0.5;
@@ -101,10 +101,82 @@ a img:hover {
 	top: 0
 }
 
-.content {background: none !important;
-    padding-bottom: 0px !important;
-    height: auto;
-    min-height: 0px !important;}
+.btn-close {
+	color: #4b4f56;
+	font-size: 12px;
+	padding: 0px;
+	right: 0;
+	top: 0;
+	position: absolute;
+	z-index: 10;
+}
+
+.content {
+	background: none !important;
+	padding-bottom: 0px !important;
+	height: auto;
+	min-height: 0px !important;
+}
+/* 이미지 박스 */
+.box1, .box2, .box3, .box4 {
+	position: relative;
+	width: 750px;
+	height: 480px;
+	margin-right: 20px;
+	float: left;
+	overflow: hidden; /* 박스 Clipping 처리 */
+}
+
+/* 이미지 캡션 영역 */
+.box1 a, .box2 a, .box3 a, .box4 a {
+	position: absolute;
+	display: block;
+	width: inherit;
+	height: inherit; /* 부모 박스 크기 상속 */
+	left: 0;
+	top: 0px;
+	color: white;
+	text-decoration: none;
+}
+
+/* 캡션이 들어가는 영역 */
+.box1 .caption_box, .box2 .caption_box, .box3 .caption_box, .box4 .caption_box
+	{
+	position: absolute;
+	display: block;
+	top: -150px; /* 캡션을 안보이게 처리 */
+	width: 100%;
+	height: 70px;
+	background: url("images/back.png"); /* 반투명 배경 이미지 */
+}
+
+/* 캡션 타이틀 */
+.box1 .title, .box2 .title, .box3 .title, .box4 .title {
+	position: absolute;
+	left:100px;
+/* 	left: 0px; */
+	bottom: 30px;
+	display: block; /* 인라인 요소를 블록속성으로 */
+	font-size: 18px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+/* 캡션 설명글 */
+.box1 .info {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+}
+
+/* hover 액션 처리 */
+.box1:hover .caption_box, .box2:hover .caption_box, .box3:hover .caption_box,
+	.box4:hover .caption_box {
+	top: 0px;
+}
 </style>
 <script type="text/javascript">
 	function pushLayer() {
@@ -127,8 +199,7 @@ a img:hover {
 		$("#" + lay1).css("display", "none");
 		$("#" + lay2).css("display", "none");
 	}
-	
-	
+
 	function imgLayer() {
 		var $width = parseInt($("#img_pop").css("width"));
 		var $height = parseInt($("#img_pop").css("height"));
@@ -149,8 +220,6 @@ a img:hover {
 		$("#" + lay1).css("display", "none");
 		$("#" + lay2).css("display", "none");
 	}
-	
-	
 </script>
 <link rel="apple-touch-icon"
 	href="../assets/img/kit/free/apple-icon.png">
@@ -172,18 +241,17 @@ a img:hover {
 
 <body class="index-page ">
 	<div id="lay_pop">
-	<div id="lay_pop" style="z-index:1250 !important;">
 
-		<div class="row">
-			<span style="color: #4b4f56; font-size: 12px; padding: 17px;"><a
-				href="javascript:;" class="insert_btn btn btn-lg btn-primary"
+		<div class="row" style="margin-left: 0; margin-right: 0;">
+			<span class="btn-close "><a href="javascript:;"
+				class="insert_btn btn btn-lg btn-primary"
 				onclick="layerClose('lay_pop','all_body')">닫기</a></span>
 
-			<div class="col-md-12">
+			<div class="col-md-12" style="padding: 0;">
 				<div style="background: #f6f7f9;">
 
 					<div class="title_head">
-						<h5 class="title">사진올리기</h5>
+						<h5 class="title" style="margin-top: 0;">사진올리기</h5>
 					</div>
 					<div class="min_content">
 						<a href="#"> <img class="profile rounded-circle img-fluid"
@@ -196,12 +264,13 @@ a img:hover {
 							<label for="ex_file">사진/동영상</label> <input type="file"
 								id="ex_file">
 						</div>
-						<span style="font-size: 13px;">친구태그하기</span> <select
+						<!-- <span style="font-size: 13px;">친구태그하기</span> <select
 							class="select_info">
 							<option>선택하세요</option>
 							<option>전체공개</option>
 							<option>친구공개</option>
-						</select> <span style="color: #4b4f56; font-size: 12px; padding: 17px;">
+						</select> -->
+						<span style="color: #4b4f56; font-size: 12px; padding: 17px;">
 							<button type="button" class="insert_btn btn btn-lg btn-primary"
 								disabled>등록</button>
 						</span>
@@ -211,190 +280,175 @@ a img:hover {
 		</div>
 	</div>
 	<div id="all_body"></div>
-	<div id="all_body" style="z-index:1200;"></div>
 
-	
-		<div id="img_pop">
+	<div id="img_pop" style="overflow: hidden;">
 
 
-<div class="row" style="margin-top: 0px; height: 600px;">
-			<span style="color: #4b4f56; font-size: 12px;right: 0;z-index:10;
-    /* float: right; */
-    padding: 0;
-    position: absolute;"><a
-				href="" class="insert_btn btn btn-lg btn-primary"
-				onclick="layerClose('img_pop','img_body')">닫기</a></span>
-										<div class="col-md-8" >
-							<div class="content">
-							  <img style="background: red; width:800px; height:400px; display: block;"src =""/>
+		<div class="row" style="margin-top: 0px; height: 600px;">
+
+			<div class="col-md-8">
+				<div class="content">
+					<div class="box1">
+
+						<a href="#"> <img id="imgs"
+							style="margin: auto; width: 750px; height: 480px; display: block;"
+							src="../../img/test.jpg" /> <!-- 캡션이 들어가는 영역 --> <span
+							class="caption_box"> <span class="title" style="left:0;">홍길동님이 게시한
+									사진입니다.</span> <span class="info">Lorem ipsum dolor sit amet,
+									consectetur adipisicing elit.</span>
+						</span>
+						</a>
+					</div>
+
+				</div>
+
+
+			</div>
+			<div class="col-md-4"
+				style="overflow-y: scroll; width: 32.333333%; padding-left: 0; padding-right: 0;">
+				<div class="content">
+					<!-- <div class="title_head">
+						<h5 class="title"  style="margin-top:0;">피드</h5>
+					</div> -->
+					<div class="min_content">
+						<a href="#"> <img class="profile rounded-circle img-fluid"
+							src="../../img/bg.jpg" alt="Circle Image"
+							style="width: 30px; height: 30px;">
+						</a>
+						<div class="board_wrap" style="margin-left: 75px;">
+							<div class="p_info" style="padding-top: 10px;">
+								<span class="c_info">박보영</span> <span>2018-11-11-12-32-33</span>
 							</div>
-							
-							<!-- 댓글  -->
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
+							<div class="board_content"
+								style="padding: 0 10px 10px 10px; width: 275px;">
+								내용입니다. <br> 내용입니다. <br> 내용입니다. <br>
+							</div>
+							<div style="height: 40px;">
+								<div class="tag_wrap">
+									<span
+										style="font-weight: bold; padding-right: 10px; display: inline-block;">함께한
+										친구</span> <a class="tag" href="#">홍길동</a> <a class="tag" href="#">홍홍</a>
 								</div>
-								<div
-									style="margin-left: 70px; margin-top: 5px; position: relative;">
-									<button class="btnA">수정</button>
+								<div style="display: inline-block;">
+									<button type="submit" class="btnA">수정</button>
 									<span>|</span>
-									<button class="btnB">삭제</button>
-									<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
-										style="left:324px !important;bottom:-22px; border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
+									<button type="submit" class="btnB">삭제</button>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-4" >
-							<div class="content">
-								<div class="title_head">
-									<h5 class="title">피드</h5>
-								</div>
-								<div class="min_content">
-									<a href="#"> <img class="profile rounded-circle img-fluid"
-										src="assets/img/kit/faces/avatar.jpg" alt="Circle Image">
-									</a>
-									<div class="board_wrap" style="margin-left: 75px;">
-										<div class="p_info">
-											<span class="c_info" >박보영</span> <span>2018-11-11-12-32-33</span>
-										</div>
-										<div class="board_content">
-											내용입니다. <br> 내용입니다. <br> 내용입니다. <br>
-										</div>
-										<div style="height: 40px;">
-											<div class="tag_wrap">
-												<span
-													style="font-weight: bold; padding-right: 10px; display: inline-block;">함께한
-													친구</span> <a class="tag" href="#">홍길동</a> <a class="tag" href="#">홍홍</a>
-											</div>
-											<div style="display: inline-block;">
-												<button type="submit" class="btnA">수정</button>
-												<span>|</span>
-												<button type="submit" class="btnB">삭제</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="title_head" style="">
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
-										style="border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
-									<button type="button" class="c_c_write btn btn-primary">
-										댓글 <span>11개</span>
-									</button>
-								</div>
-							</div>
-							<!-- 댓글  -->
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
-								</div>
-								<div
-									style="margin-left: 70px; margin-top: 5px; position: relative;">
-									<button class="btnA">수정</button>
-									<span>|</span>
-									<button class="btnB">삭제</button>
-									<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
-										style="left:324px !important;bottom:-22px; border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
-								</div>
-							</div>
-							<!-- 댓글쓰기 -->
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info" style="width: 42px;">박보영</span> <span
-										class="c_content" style="width: 294px;"> <textarea
-											class="c_text" style="width: 270px;"></textarea>
-									</span>
-								</div>
-								<button class="c_submit btn btn-lg btn-primary"
-									disabled" type="submit" style="">등록</button>
 							</div>
 						</div>
 					</div>
+					<div class="title_head" style="">
+						<button
+							class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
+							style="border-radius: 5px; width: 80px;">
+							<i class="likey_icon material-icons">favorite</i> <em
+								class="likey_num">1</em>
+						</button>
+						<button type="button" class="c_c_write btn btn-primary">
+							댓글 <span>11개</span>
+						</button>
+					</div>
+				</div>
+				<!-- 댓글  -->
+				<div class="coment">
+					<a href="#" style="margin-left: 16px; display: block;"> <img
+						style="display: block; float: left; width: 30px; height: 30px;"
+						src="../../img/bg.jpg" alt="Circle Image"
+						class="rounded-circle img-fluid">
+					</a>
+					<div class="c_wrap">
+						<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
+					</div>
+					<div
+						style="margin-left: 70px; margin-top: 5px; position: relative;">
+						<button class="btnA">수정</button>
+						<span>|</span>
+						<button class="btnB">삭제</button>
+						<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
+						<button
+							class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
+							style="left: 324px !important; bottom: -22px; border-radius: 5px; width: 80px;">
+							<i class="likey_icon material-icons">favorite</i> <em
+								class="likey_num">1</em>
+						</button>
+					</div>
+				</div>
+				<div class="coment">
+					<a href="#" style="margin-left: 16px; display: block;"> <img
+						style="display: block; float: left; width: 47px;"
+						src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+						class="rounded-circle img-fluid">
+					</a>
+					<div class="c_wrap">
+						<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
+					</div>
+					<div
+						style="margin-left: 70px; margin-top: 5px; position: relative;">
+						<button class="btnA">수정</button>
+						<span>|</span>
+						<button class="btnB">삭제</button>
+						<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
+						<button
+							class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
+							style="left: 324px !important; bottom: -22px; border-radius: 5px; width: 80px;">
+							<i class="likey_icon material-icons">favorite</i> <em
+								class="likey_num">1</em>
+						</button>
+					</div>
+				</div>
+				<div class="coment">
+					<a href="#" style="margin-left: 16px; display: block;"> <img
+						style="display: block; float: left; width: 47px;"
+						src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+						class="rounded-circle img-fluid">
+					</a>
+					<div class="c_wrap">
+						<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
+					</div>
+					<div
+						style="margin-left: 70px; margin-top: 5px; position: relative;">
+						<button class="btnA">수정</button>
+						<span>|</span>
+						<button class="btnB">삭제</button>
+						<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
+						<button
+							class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
+							style="left: 324px !important; bottom: -22px; border-radius: 5px; width: 80px;">
+							<i class="likey_icon material-icons">favorite</i> <em
+								class="likey_num">1</em>
+						</button>
+					</div>
+				</div>
+				<!-- 댓글쓰기 -->
+				<div class="coment">
+					<a href="#" style="margin-left: 16px; display: block;"> <img
+						style="display: block; float: left; width: 47px;"
+						src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+						class="rounded-circle img-fluid">
+					</a>
+					<div class="c_wrap">
+						<span class="c_info" style="width: 42px;">박보영</span> <span
+							class="c_content" style="width: 294px;"> <textarea
+								class="c_text" style="width: 270px;"></textarea>
+						</span>
+					</div>
+					<button class="c_submit btn btn-lg btn-primary"
+						disabled" type="submit" style="">등록</button>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div id="img_body"></div>
-	
-	
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
-		id="sectionsNav" style="position: fixed;">
-		<div class="container">
-			<div class="navbar-translate">
-				<a class="navbar-brand" href="../main/main.jsp" style="color: #fff;">Bit
-					book </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> <span
-							class="glyphicon glyphicon-user">홍길동</span>
-							<div class="ripple-container"></div></a></li>
-					<li class="dropdown nav-item"><a href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> <i class="material-icons">apps</i> 알림
-							<div class="ripple-container"></div></a>
-						<div class="dropdown-menu dropdown-with-icons">
-							<a href="./index.html" class="dropdown-item"> <i
-								class="material-icons">layers</i>친구로 부터 메세지가 도착했습니다.
-							</a> <a
-								href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html"
-								class="dropdown-item"> <i class="material-icons">content_paste</i>
-								친구 신청 되었습니다.
-							</a>
-						</div></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 친구 찾기
-							<div class="ripple-container"></div>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 로그인
-							<div class="ripple-container"></div>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-		</div>
-	</nav>
+	<div id="img_body">
+		<span
+			style="color: #4b4f56; font-size: 12px; right: 0; z-index: 10;
+	/* float: right; */ padding: 0; position: absolute;"><a
+			href="" class="insert_btn btn btn-lg btn-primary"
+			onclick="layerClose('img_pop','img_body')">닫기</a></span>
+	</div>
 	<div class="main main-raised">
 		<div class="section section-basic"></div>
 		<div class="section section-navbars cd-section" id="navigation">
-			<div class="container"
-				style="background: gray; position: relative; max-width: 851px;">
+			<div class="container" style="position: relative; max-width: 851px;">
 				<div class="col-md-12"
 					style="border: 1px solid black; height: 875px; margin: 0 auto;">
 					개인정보
@@ -455,8 +509,23 @@ a img:hover {
 						<div style="position: relative;">
 
 							<ul class="float-frame">
-								<li class="float-unit"><a class="temp nav-link active"
-									href="#" onclick="imgLayer()"><img src="../images/bo.jpg"></a>
+								<li class="float-unit">
+									<div class="box1" style="width: 179px; height: 155px;">
+										<a class="temp nav-link active" href="#" onclick="imgLayer()">
+											<img src="../../img/test.jpg"> <!-- 캡션이 들어가는 영역 --> <span
+											class="thum_c_box caption_box"
+											style="width: 82%; height: 151px;"> <span
+												class="title" style="top: -28px;">
+													<button style="width:27px; height:27px;padding:0;margin:0; background:#fff;border:1px solid #8b8b8b; line-height:0;"type="button" rel="tooltip" class="btn btn-success">
+														<i class="material-icons" style="color:#222;">edit</i>
+													</button>
+													<div class="ripple-container"></div>
+											</span> <span class="info"
+												style="border-top: 1px solid rgba(255, 255, 255, .15); padding-bottom: 4px; text-align: left; display: inline-block; font-size: 13px; color: #fff; max-width: 100%; width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">타임라인
+													사진</span>
+										</span>
+										</a>
+									</div> <a></a>
 								<li class="float-unit"><a class="temp nav-link active"
 									href="#" onclick="imgLayer()"><img src="../images/bo.jpg"></a></li>
 								<li class="float-unit"><a class="temp nav-link active"
