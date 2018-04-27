@@ -46,7 +46,7 @@
         border-radius:50%;
         -moz-border-radius:50%; 
         -webkit-border-radius:50%;
-        background:#FFF;
+        background:#9c27b0;
         margin:-3px 10px 0 10px;
         cursor:pointer;
     }

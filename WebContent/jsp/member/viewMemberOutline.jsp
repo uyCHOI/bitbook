@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,13 @@
 	a #data:hover{
 		
 	}
+	hr{
+    border: 1px solid;
+    background color: #90949c;
+    width: 360px;
+}
 </style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body class="index-page ">
 	
@@ -16,39 +24,10 @@
         <div class="section section-navbars cd-section" id="navigation">
             <div class="container" style=" position: relative; max-width: 851px;">
            		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
-           		<div style="border: 1px solid black; height: 200px; margin: 0 auto; position: relative;"><button><i class="material-icons">camera</i>커버사진추가</button>
-           		<div style="border: 1px solid black;  width:140px; height: 140px; overflow: visible; margin-left: 20px;" id="profil">
-           		<button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="프로필 사진 업데이트">
-			
-				</button></div>
-           		<nav class="navbar navbar-expand-lg navbar-light bg-primary" style="height: 48px;">
-					  <div class="container">
-					    <a class="navbar-brand" >홍길동</a>
-					    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					      <span class="navbar-toggler-icon"></span>
-					    </button>
-					    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-					      <ul class="navbar-nav">
-					        <li class="nav-item active">
-					          <a class="nav-link" href="../main/main.jsp">Home <span class="sr-only">(current)</span></a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="infoMember.jsp">정보</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="#">친구</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="../gallery/list-pic.jsp">사진</a>
-					        </li>
-					         <li class="nav-item">
-					          <a class="nav-link" href="#" style="margin-left: 137px;">친구 끊기</a>
-					        </li>
-					      </ul>
-					    </div>
-					  </div>
-					</nav>
-           		</div>
+           		
+           		<c:import url="../include/memberTop.jsp"></c:import>
+           		
+           		
            		<div class="col-md-12" style="border: 1px solid black;min-height:868px; height: auto; margin: 30px 0px; position: relative;">
 					<p class="nav-link" style="color :#9c27b0; margin:0 12px 5px; padding:0; font-weight:700; font-size: 20px;margin-top: 10px;    background: #f6f7f9;
     border-bottom: 1px solid #d3d6db;
@@ -79,12 +58,15 @@
     padding: 30px 24px 0;
     position: relative;
     width: 408px;
-}">
+}">	
+				
 						<h4>직장</h4>
-						<li><button type="button" class="btn btn-secondary" disabled>
-							<a href=""><i class="material-icons">create</i>직장 추가</a></button>
+						<li>
+						<button id="btn-career" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i>
+							<span>직장 추가</span></button>
 						</li>
-						<div>
+						<div id="div-career" style="display: none">
 						<form method='post' action='write' style="align-content: center">
 							<div class="form-group">
 								    <label for="exampleInputPassword1">회사이름</label>
@@ -106,6 +88,7 @@
 							<button type='button' class="btn btn-rose btn-sm">취소</button>
 						</form>
 						</div>
+						<hr>
 						<li class="dropdown nav-item">
 						<div  style="float:left;">
 						<a id="data" style="font-size:24px;">회사이름</a>
@@ -118,11 +101,12 @@
 							<a href="#" class="dropdown-item">수정</a> 
 							<a href="#" class="dropdown-item">삭제	</a>
 						</div></li>
+						<hr>
 						<h4>전문 기술</h4>
-						<li><button type="button" class="btn btn-secondary" disabled>
-							<a href=""><i class="material-icons">create</i>전문 기술</a></button>
+						<li><button id="btn-skill" type="button" class="btn btn-secondary">
+							<i class="material-icons">create</i><span>전문 기술</span></button>
 						</li>
-						<div>
+						<div id="div-skill" style="display:none;">
 						<form method='post' action='write' style="align-content: center">
 							<div class="form-group">
 								    <label for="exampleInputPassword1">전문 기술</label>
@@ -132,6 +116,7 @@
 							<button type='button' class="btn btn-rose btn-sm">취소</button>
 						</form>
 						</div>
+						<hr>
 						<li class="dropdown nav-item">
 						<div  style="float:left;">
 						<a id="data" style="font-size:24px;">전문 기술 등 등 등</a>
@@ -144,10 +129,11 @@
 							<a href="#" class="dropdown-item">삭제	</a>
 						</div></li>
 						<h4>대학교</h4>
-						<li><button type="button" class="btn btn-secondary" disabled>
-							<a href=""><i class="material-icons">create</i>대학교</a></button>
+						<li><button id="btn-college" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i><span>대학교</span></button>
 						</li>
-						<div>
+						<hr>
+						<div id="div-college" style="display:none;">
 						<form method='post' action='write' style="align-content: center">
 							<div class="form-group">
 								    <label for="exampleInputPassword1">대학교</label>
@@ -233,6 +219,17 @@
 
             // Sliders Init
             materialKit.initSliders();
+            $("a").removeAttr("href");
+        });
+        
+        $("#btn-career").click(function(){
+        	$("#div-career").stop().toggle();
+        });
+        $("#btn-skill").click(function(){
+        	$("#div-skill").stop().toggle();
+        });
+        $("#btn-college").click(function(){
+        	$("#div-college").stop().toggle();
         });
     </script>
 </body>
