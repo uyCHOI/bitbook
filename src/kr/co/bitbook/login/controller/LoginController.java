@@ -17,7 +17,12 @@ import kr.co.bitbook.mapper.LoginMapper;
 
 @WebServlet("/bitbook/login")
 public class LoginController extends HttpServlet {
-	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/login/index.jsp");
+		rd.forward(request, response);
+	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		LoginMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(LoginMapper.class);
@@ -25,8 +30,9 @@ public class LoginController extends HttpServlet {
 		String pass = req.getParameter("pass");
 		Member login = mapper.selectMemberById(id);
 		if(login == null) {
-			req.setAttribute("error", "아이디 확인 하세요");
+			req.setAttribute("ereMsg", "아이디 확인 하세요");
 		}else if(login.getMemPass().equals("pass")) {
+			System.out.println("로그인 성공");
 			HttpSession session = req.getSession();
 			session.setAttribute("user", login);
 			
@@ -38,7 +44,7 @@ public class LoginController extends HttpServlet {
 		}
 	
 		RequestDispatcher rd = req.getRequestDispatcher(
-				"/jsp/login/loginForm.jsp"
+				"/jsp/login/index.jsp"
 		);
 		rd.forward(req, resp);
 	}
