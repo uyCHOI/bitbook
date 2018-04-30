@@ -72,19 +72,35 @@
 	#imgarea{
 		min-height: 10px;
 		margin-bottom: 10px;
+		display: block;
 	}
 	#open_range{
 		float: right;
 	}
 	#post_tag_list{
-		float: left;
 		font-size: 15px;
 	}
 	
 	.imgInp{
 		display: none;
 	}
+	#attachBtn{
+		float: left;
+	}
+	#tag_friends{
+		width: 90px;
+	}
+	#options{
+		width: 100%;
+	}
 	
+	#submit_span{
+		float: right;
+	}
+	
+	#submit_td{
+		width: 10px;
+	}
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -107,23 +123,42 @@
 								
 								
 								
-								<div class="min_foot">
-								<button id="attachBtn">
-									사진올리기
-								</button>
-								<input type='file' id="imgInput1" class="imgInp" accept="image/*"/>
-    							<div id="options">
-									<span id="post_tag_list">친구태그하기</span>
-									<select id="open_range"
-										class="select_info">
-										<option>전체공개</option>
-										<option>친구공개</option>
-										<option>나만보기</option>
-									</select>
-    							</div>
-									<span style="color: #4b4f56; font-size: 12px; padding: 17px;">
-										<button type="button" class="insert_btn btn btn-lg btn-primary" disabled>등록</button>
-									</span>
+								<div class="min_foot" style="height:73px;">
+								
+								<table id="options">
+								<tr>
+									<td>
+										<button id="attachBtn">
+											사진올리기
+										</button>
+									</td>
+
+								</tr>
+ 		   						<tr> 
+	 		   						<td>		   						
+										<input type="text" id="tag_friends" placeholder=" 친구 태그하기">
+	 		   						</td>
+	 		   						<td>
+	 		   							<div>
+	 		   								친구태그 검색시 리스트 출력
+	 		   							</div>
+	 		   						</td>
+	 		   						<td>
+										<select id="open_range"
+											class="select_info">
+											<option>전체공개</option>
+											<option>친구공개</option>
+											<option>나만보기</option>
+										</select>
+									</td>
+	 		   						<td id="submit_td">
+										<span id="submit_span" style="color: #4b4f56; font-size: 12px; padding: 0px;">
+											<button type="button" id="submit" class="insert_btn btn btn-lg btn-primary" disabled>등록</button>
+										</span>
+									</td>
+ 		   						</tr>
+
+								</table>
 							</div>
 						</div>
 					
@@ -141,7 +176,7 @@
     	// 이미지 첨부 스크립트 --------------------------------------------------------------------------------------------------
     	var imgIndex = 0; //이미지 및 미리보기 연결과 겹치지 않게 구분해주는 변수
     	var imgCnt = 0;	//현재 이미지 첨부한 개수
-    	var maxImg = 5;	//최대 이미지 첨부 가능 개수
+    	var maxImg = 4;	//최대 이미지 첨부 가능 개수
     	
     	$("#attachBtn").on("click",()=>{ /** 이미지 첨부 버튼 클릭시 발생하는 이벤트 */
             $(".tempInp").remove(); // 주석 1	
@@ -193,7 +228,7 @@
             var reader = new FileReader();
             reader.onload = function (e) {
             		
-                    $("#imgarea").append($("<div>").attr({class:"imgs_field",id:"imgBox"+imgIndex})).css({height:"100px"})
+                    $("#imgarea").append($("<div>").attr({class:"imgs_field",id:"imgBox"+imgIndex})).css({height:"100px"});
                     $("#imgBox"+imgIndex).append($("<img>").attr({class:"imgs",id:"blah"+imgIndex}));
                     $("#imgBox"+imgIndex).append($("<span>").attr({class:"del_img",id:imgIndex+"blahDel"}));
                     $("#blah"+imgIndex).attr('src', e.target.result);

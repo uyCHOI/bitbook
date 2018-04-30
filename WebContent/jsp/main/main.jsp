@@ -24,7 +24,20 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
 <!-- iframe removal -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
+
+	#searchBox{
+		width: 100%;
+		margin-top: 7px;
+	}
+	.friendMember{
+		background-color: white;
+	}
+	#searchName{
+		width: 86%;
+	}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -148,47 +161,26 @@
 					style="width: 30%; height: 100%; top: 0; position: absolute; right: 22px;">
 					<div class="row"
 						style="width: 100%; height: 71%; position: relative; ">
-						<div class="col-md-12"
-							style="height: 100%; overflow: auto; background: #fff; top: 4.5%; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
-							<div class="friendList">
-								<h5 class="f_title">
-									친구목록
 						
-								</h5>
-								<div class="f_info">
-									<div>
-										<a class="f_link"style="display: block;" href="">
-										<img
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="f_img rounded-circle img-fluid"></a>
-										<div class="login"></div>
-										<p>
-											<a href=""><span class="f_name c_info" >박보영</span></a>
-										<p class="friendInfo">4시간전까지 활동했습니다.</p>
-										</p>
-									</div>
-									<div>
-									<a class="f_link"style="display: block;" href=""><img
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="f_img rounded-circle img-fluid"></a>
-										<div class="login"></div>
-										<p>
-											<a href=""><span class="f_name c_info" >박보영</span></a>
-										<p class="friendInfo">6분전까지 활동했습니다.</p>
-										</p>
-									</div>
-									<div>
-										<a class="f_link"style="display: block;" href=""><img
+						
+						
+					<div>
+						<div class="col-md-12"
+							style="height: 100%; background: #FFE8FF; top: 4.5%; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
+							<div class="friendList">
+									<h5 class="f_title">
+										친구목록
+									</h5>
+									<div class="f_info" id="f_info" style="overflow: auto; height: 84%">	<%-- 친구목록 시작 --%>		
+									
+									</div>	<%-- 친구목록 종료 --%>
+									<div id="searchBox"> <%-- 내 친구 검색 --%>
+									<span>
+									<i class="material-icons" style="float:left">&#xE8B6;</i>
+									<input type="text" id="searchName" placeholder=" 내 친구 검색하기"></span>
+									</div>	
+								</div>				
 								
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="f_img rounded-circle img-fluid"></a>
-										<div class="login login-in"></div>
-										<p>
-											<a href=""><span class="f_name c_info"  >박보영</span></a>
-										<p class="friendInfo">활동중!</p>
-										</p>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -236,11 +228,60 @@
 				materialKit.initSliders();
 			});
 		</script>
+
 		<script>
-			$("#addCon").on("click",clickPost)
-			function clickPost(){
-				$("#addClick").css({height:"200px"})
-			}
+	    setInterval(friendsList,1000);
+		$("#searchName").on("keyup",()=>{friendsList()});
+	     
+	        function friendsList(){
+	            $.ajax({
+	                url:"/bitbook/listFriendsInfo",
+	                type:"POST",
+	                dataType:"JSON",
+	                data:{"memNo":"1048","searchName":$("#searchName").val()},
+	                success:(friendslist)=>{
+	                	$("#f_info").html("");
+	                    for(let fl of friendslist){
+	                    	let date;
+	                    	fl.login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(fl.logoutDate)+"전까지 활동 했습니다.";
+	                        let login = fl.login == ('i'||'I') ? 'green' : 'gray';
+	                        let memUrl = "";
+	                        $("#f_info").append(`
+	                        <div class="friendMember">
+	                        <a class="f_link"style="display: block;" href="`+memUrl+`">
+	                        <img src="`+fl.profilePath+`" alt="Circle Image" 	class="f_img rounded-circle img-fluid">
+	                        </a>
+	                        <div class="login" style="background:`+login+`"></div>
+	                        <p><a href=""><span class="f_name c_info" >`+fl.memName+`</span></a><p class="friendInfo">`+date+`</p></p>
+	                        </div>
+	                        `);
+	                      
+	                    }
+	                }
+	            })
+	        }
+	        
+	        function timeDiff(date){
+	            var diff = new Date()-new Date(date); 
+	            var currMinute =  60 * 1000;// 초 * 밀리세컨
+	            var currHour = currMinute * 60;//분 * 초 * 밀리세컨
+	             var currDay = currHour * 24;// 시 * 분 * 초 * 밀리세컨
+	             var currMonth = currDay * 30;// 월 만듬
+	             var currYear = currMonth * 12; // 년 만듬
+	            if(parseInt(diff/currMinute)<60){
+	               return parseInt(diff/currMinute)+"분 ";
+	            }
+	            if(parseInt(diff/currHour)<25){
+	               return parseInt(diff/currHour)+"시간 ";
+	            }
+	            if(parseInt(diff/currDay)<30){
+	               return parseInt(diff/currHour)+"일 ";
+	            }
+	            if(parseInt(diff/currMonth)<12){
+	               return parseInt(diff/currHour)+"달 ";
+	            }
+	            return parseInt(diff/currYear)+"년 ";
+	         	}
 		</script>
 </body>
 </html>
