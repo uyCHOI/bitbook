@@ -19,7 +19,6 @@
 		<typeAlias alias="post" type="kr.co.bitbook.domain.Post" />
 		<typeAlias alias="postLike" type="kr.co.bitbook.domain.PostLike" />
 		<typeAlias alias="postTag" type="kr.co.bitbook.domain.PostTag" />
-		<typeAlias alias="user" type="kr.co.bitbook.domain.User" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -39,12 +38,12 @@
 	 -->
 	<mappers>
 		<mapper resource="config/sqlmap/oracle/file.xml"/>
-		<mapper resource="config/sqlmap/oracle/friends.xml"/>
-		<mapper resource="config/sqlmap/oracle/gallery.xml"/>
+	<mapper resource="config/sqlmap/oracle/friends.xml"/>
+ 		<mapper resource="config/sqlmap/oracle/gallery.xml"/>
 		<mapper resource="config/sqlmap/oracle/join.xml"/>
 		<mapper resource="config/sqlmap/oracle/login.xml"/>
 		<mapper resource="config/sqlmap/oracle/main.xml"/>
-		<mapper resource="config/sqlmap/oracle/member.xml"/>
+		<mapper resource="config/sqlmap/oracle/member.xml"/> 
 	</mappers>
 </configuration>
 
