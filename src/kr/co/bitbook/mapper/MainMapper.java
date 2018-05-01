@@ -1,5 +1,9 @@
 package kr.co.bitbook.mapper;
 
-public interface MainMapper {
+import java.util.List;
 
+import kr.co.bitbook.domain.SearchFriends;
+
+public interface MainMapper {
+	List<SearchFriends> searchMyFriends(SearchFriends search);
 }
