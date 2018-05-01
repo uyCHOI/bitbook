@@ -2,7 +2,7 @@ package kr.co.bitbook.domain;
 
 public class Friends {
 	private int memNo;
-	private int friendNo;
+	private int friendsNo;
 	private char accState;
 	public int getMemNo() {
 		return memNo;
@@ -11,10 +11,10 @@ public class Friends {
 		this.memNo = memNo;
 	}
 	public int getFriendNo() {
-		return friendNo;
+		return friendsNo;
 	}
-	public void setFriendNo(int friendNo) {
-		this.friendNo = friendNo;
+	public void setFriendsNo(int friendsNo) {
+		this.friendsNo = friendsNo;
 	}
 	public char getAccState() {
 		return accState;

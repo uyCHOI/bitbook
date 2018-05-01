@@ -9,9 +9,18 @@ public class Member {
 	private String memName;
 	private String memEmail;
 	private char join;
+	private Date logoutDate;
 	private char login;
 	private String profilePath;
 	private String coverPath;
+	private int friendsNo;
+	
+	public int getFriendsNo() {
+		return friendsNo;
+	}
+	public void setFriendsNo(int friendsNo) {
+		this.friendsNo = friendsNo;
+	}
 	public char getLogin() {
 		return login;
 	}
@@ -36,7 +45,6 @@ public class Member {
 	public void setJoin(char join) {
 		this.join = join;
 	}
-	private Date logoutDate;
 	
 	
 	public Date getLogoutDate() {

@@ -104,7 +104,7 @@
 						<hr>
 						<h4>전문 기술</h4>
 						<li><button id="btn-skill" type="button" class="btn btn-secondary">
-							<i class="material-icons">create</i><span>전문 기술</span></button>
+							<i class="material-icons">create</i><span>전문 기술 추가</span></button>
 						</li>
 						<div id="div-skill" style="display:none;">
 						<form method='post' action='write' style="align-content: center">
@@ -130,7 +130,7 @@
 						</div></li>
 						<h4>대학교</h4>
 						<li><button id="btn-college" type="button" class="btn btn-secondary" >
-							<i class="material-icons">create</i><span>대학교</span></button>
+							<i class="material-icons">create</i><span>대학교 추가</span></button>
 						</li>
 						<hr>
 						<div id="div-college" style="display:none;">
