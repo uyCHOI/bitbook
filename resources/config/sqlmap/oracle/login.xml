@@ -21,12 +21,17 @@
 	</select>
 	<update id="updateLogin" parameterType="string">
 	 update tb_member
-   set login = #{login}
+   set login = 'i'
   where mem_id=#{memId}
 	</update>
 	<!-- <select id="searchMemberByEmail" parameterType="string"> select * from 
 		tb_member where mem_email = #{memEmail} </select> -->
-
+	
+	<update id="updateOut" parameterType="string">
+	 update tb_member
+   set login = 'n' , logout_date = sysdate
+  where mem_id=#{memId}
+	</update>
 
 </mapper>
 

@@ -8,8 +8,13 @@
   
   <mapping path="/jsp/main/comment.jsp" exclude="true"/>
   <mapping path="/jsp/main/post.jsp" exclude="true"/>
-    <mapping path="/jsp/login/join.jsp" exclude="true"/>
   <mapping path="/jsp/login/index.jsp" exclude="true"/>
+  <mapping path="/jsp/login/join.jsp" exclude="true"/>
+ <!--  <mapping path="/jsp/login/te.jsp" exclude="true"/>-->
+  <mapping path="/jsp/login/test.jsp" exclude="true"/> 
+  <mapping path="/bitbook/login" exclude="true"/>
+  <mapping path="bitbook/joinForm" exclude="true"/>
+
 
 </sitemesh>
 

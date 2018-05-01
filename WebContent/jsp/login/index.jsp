@@ -48,16 +48,6 @@ body.index-page {
 <!-- iframe removal -->
   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript">
-  	var naver_id_login = new naver_id_login("3lyxH41Bp73ywutv7RLH", "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=3lyxH41Bp73ywutv7RLH&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Fbitbook%2Fmain&state=4kcvfro7l2jj9lj9aa88679ddh
-");
-  	var state = naver_id_login.getUniqState();
-  	naver_id_login.setButton("white", 2,40);
-  	naver_id_login.setDomain("http://127.0.0.1:8000/bitbook/login");
-  	naver_id_login.setState(state);
-  	naver_id_login.setPopup();
-  	naver_id_login.init_naver_id_login();
-  </script>
 </head>
 
 <body class="index-page ">
@@ -100,16 +90,19 @@ body.index-page {
 									<span class="input-group-addon"> <i
 										class="material-icons">lock_outline</i>
 									</span>
+									<input type="password" name="pass" class="form-control"
+										placeholder="pass...">
 								</div>
 								<p>${errPw}</p>
 							</div>
 							<div class="card-footer justify-content-center">
 								<button class="btn btn-link btn-primary btn-lg">로그인</button>
-
+								
 							</div>
 
 
 						</form>
+						<a href="${pageContext.request.contextPath}/bitbook/joinForm" class="btn btn-link btn-primary btn-lg">회원가입</a>
 						<div class="card-footer justify-content-center">
 						<form action="https://nid.naver.com/oauth2.0/authorize" method="post">
 							<button class="naver_id_login btn btn-link btn-primary btn-lg"
