@@ -29,18 +29,24 @@ public class LoginController extends HttpServlet {
 		String id = req.getParameter("id");
 		String pass = req.getParameter("pass");
 		Member login = mapper.selectMemberById(id);
+		mapper.updateLogin(id);
+//		login.setLogin(req.getParameter("login").charAt(0));
 		if(login == null) {
-			req.setAttribute("ereMsg", "아이디 확인 하세요");
-		}else if(login.getMemPass().equals("pass")) {
+			req.setAttribute("errId", "아이디를 입력해주세요");
+			System.out.println("2");
+		}else if(login.getMemId().equals(id)&&login.getMemPass().equals(pass)) {
 			System.out.println("로그인 성공");
 			HttpSession session = req.getSession();
+			/*login.setLogin(req.getParameter("login").charAt(0));*/
+			/*System.out.println(req.getParameter("login").charAt(0));*/
+			login.setLogoutDate(new Date());
 			session.setAttribute("user", login);
 			
 			resp.sendRedirect(req.getContextPath() + "/main");
 			return;
 		}
 		else {
-			req.setAttribute("errMsg", "패스워드를 확인하세요");
+			req.setAttribute("errPw", "패스워드를 확인하세요");
 		}
 	
 		RequestDispatcher rd = req.getRequestDispatcher(
