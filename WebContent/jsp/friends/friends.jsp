@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,37 +46,7 @@
         <div class="section section-navbars cd-section" id="navigation">
             <div class="container" style="background: gray; position: relative; max-width: 851px;">
            		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
-           			개인정보
-           		<div style="border: 1px solid black; height: 200px; margin: 0 auto; position: relative;">상단 사진 커버 이름
-           		<div style="border: 1px solid black;  width:140px; height: 140px; overflow: visible; margin-left: 20px;">프로필 사진</div>
-           		<nav class="navbar navbar-expand-lg navbar-light bg-primary" style="height: 48px;">
-					  <div class="container">
-					    <a class="navbar-brand" >홍길동</a>
-					    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					      <span class="navbar-toggler-icon"></span>
-					    </button>
-					    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-					      <ul class="navbar-nav">
-					        <li class="nav-item active">
-					          <a class="nav-link" href="../main/main.jsp">Home <span class="sr-only">(current)</span></a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="infoMember.jsp">정보</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="#">친구</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="../gallery/list-pic.jsp">사진</a>
-					        </li>
-					         <li class="nav-item">
-					          <a class="nav-link" href="#" style="margin-left: 137px;">친구 끊기</a>
-					        </li>
-					      </ul>
-					    </div>
-					  </div>
-					</nav>
-           		</div>
+           		<c:import url="../include/memberTop.jsp"></c:import>
            		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
 				<!--여기서부터 입니다.  -->
 			<div class="container"
@@ -84,21 +55,21 @@
 						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
 						<div class="col-md-12"
 							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
-							<div class="friendList">
+							<div id="reqFriends" class="friendList" style="display:none">
 								<div class="f_title col-md-12" style="height: 30px;">
-								<h5>##개의 친구요청에 답하기</h5>
+								<h5><span id="reqCnt"></span>개의 친구요청에 답하기</h5>
 								</div>
 								<!--반복되는 부분 -->
-								<div class="f_info col-md-12" style="height: 240px; overflow: auto;">
-									<div><a class="f_link"style="display: block; " href="">
+								<div id="reqDiv" class="f_info col-md-12" style="height: 240px; overflow: auto;">
+									<!-- <div><a class="f_link"style="display: block; " href="">
 										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
 									class="f_img rounded-circle img-fluid"></a>
 										<div class="login"></div>
 										<p><a href=""><span class="f_name c_info" >박보영</span></a></p>
 										<p class="friendInfo">홍길동 님을 함께 알고 있습니다.</p>
-										<button class="btn btn-sm btn-success" style="position: absolute;right: 83px;top: 30px;">확인</button>
-										<button class="btn btn-sm" style="position: absolute;right:6px;top: 30px;">요청삭제</button>
-									</div>
+										<button class="btn btn-sm btn-success" style="position: absolute;right: 83px;top: 30px;" type="submit">확인</button>
+										<button class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="submit">요청삭제</button>
+									</div> -->
 								</div>
 							</div>
 						</div>
@@ -108,10 +79,10 @@
 							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList">
 								<div class="f_title col-md-12" style="height: 100px;">
-								<h5>내 친구들</h5>
+								<h5>내 친구들<span id="myFriendsCnt" style="margin-left:5px;">명</span></h5>
 								<form action="#" style="margin-top:30px;">
 								 <div class="form-group" style="width: 180px; float: left; padding-top: 0;">
-						            <input type="text" class="form-control" placeholder="내 친구 검색하기" style="width: 180px; color:#000;">
+						            <input id="myInput" type="text" class="form-control" placeholder="내 친구 검색하기" style="width: 180px; color:#000;">
 						          </div>
 								<button type="submit" style="margin-bottom:0px;"class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
 						              <i class="material-icons" >search</i>
@@ -125,40 +96,45 @@
 								</form>
 								</div>
 								<!--반복되는 부분 -->
-								<div class="f_info col-md-12" style="height: 485px; overflow: auto;">
-									<div><a class="f_link"style="display: block; " href="">
+								<div id="myDiv" class="f_info col-md-12" style="height: 485px; overflow: auto;">
+									<!-- <div><a class="f_link"style="display: block; " href="">
 										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
 									class="f_img rounded-circle img-fluid"></a>
 										<div class="login"></div>
 										<p><a href=""><span class="f_name c_info" >박보영</span></a></p>
 										<p class="friendInfo">4시간전까지 활동했습니다.</p>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>
+						<!-- 새로운 친구 등록 하기  -->
 						<div class="col-md-6"
 							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList">
 								<div class="f_title col-md-12" style="height: 100px;">
-								<h5>새로운 친구들</h5>
-								<form action="#" style="margin-top:30px;">
+								<h5>새로운 친구들<span id="newFriendsCnt" style="margin-left:5px;">명</span></h5>
+								<form action="#"  id="newForm"style="margin-top:30px; ">
 								 <div class="form-group" style="width: 180px; float: left; padding-top: 0;">
-						            <input type="text" class="form-control" placeholder="새로운 친구 검색하기" style="width: 180px; color:#000;">
+						            <input id="newInput" type="text" class="form-control" placeholder="새로운 친구 검색하기" style="width: 180px; color:#000;">
 						          </div>
-								<button type="submit" style="margin-bottom:0px;"class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
+								<button id="newSearch" style="margin-bottom:0px;"class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round" type="button">
 						              <i class="material-icons" >search</i>
 						          </button>
 								</form>
 								</div>
-								<!--반복되는 부분 -->
-								<div class="f_info col-md-12" style="height: 485px; overflow: auto;">
-									<div><a class="f_link"style="display: block;" href="">
+								<div id="newDiv" class="f_info col-md-12" style="height: 485px; overflow: auto;">
+									<!--반복되는 부분 -->
+									<%-- <div><a class="f_link"style="display: block;" href="">
 										<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
 									class="f_img rounded-circle img-fluid"></a>
 										<div class="login"></div>
 										<p><a href=""><span class="f_name c_info" >박보영</span></a></p>
 										<p class="friendInfo">4시간전까지 활동했습니다.</p>
-									</div>
+										<c:if test="">
+											<button class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button>
+										</c:if>
+											<button class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청</button>
+									</div> --%>
 								</div>
 							</div>
 						</div>
@@ -202,28 +178,246 @@
         </div>
     </footer>
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
+     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+     <!-- Plugin for Date Time Picker and Full Calendar Plugin  -->
     <script src="../assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    	<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
     <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<!--     	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
     <script src="../assets/js/plugins/nouislider.min.js"></script>
     <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="../assets/js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
+   <!--  <script src="../assets/js/material-kit.js?v=2.0.2"></script>  버튼 클릭시 div 생성-->
+
+  <!--   Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script> 
     <script>
         $(document).ready(function() {
 
             //init DateTimePickers
-            materialKit.initFormExtendedDatetimepickers();
+           // materialKit.initFormExtendedDatetimepickers();
 
             // Sliders Init
-            materialKit.initSliders();
+            //materialKit.initSliders();
+            makeReqList();
+             var memNo = 1 ;// session에서 가져오게 수정 필요
+		   $.ajax({
+				url: "/bitbook/friedns/myList",
+				type: "POST",
+				data: {
+					"memNo": memNo, 
+					name : $("#myInput")[0].value
+				},
+				dataType: "json",
+				success: function (data) {
+					makeMyList(data);
+				} 
+			});
         });
+        
+        $("#newSearch").click(function(){ 
+           	e.preventDefault();   	
+        
+        });
+        $("#myInput").keyup(function(e){ 
+            var memNo = 1 ;// session에서 가져오게 수정 필요
+ 		   $.ajax({
+ 				url: "/bitbook/friedns/myList",
+ 				type: "POST",
+ 				data: {
+ 					"memNo": memNo, 
+ 					name : $("#myInput")[0].value
+ 				},
+ 				dataType: "json",
+ 				success: function (data) {
+ 					makeMyList(data);
+ 				} 
+ 			});	        
+        });
+        $("#newInput").keyup(function(e){
+        	console.dir($("#newInput"));
+        	console.log($("#newInput")[0].value);
+        	$.ajax({ 
+        		url:"/bitbook/friedns/newList",
+        		data:"name="+$("#newInput")[0].value,
+        		dataType:"json",
+        		success:function(data){
+        			makeNewList(data);
+        		}
+        	}); 
+        	
+        });
+        function agreeReq (friendsNo){
+   		   var memNo = 1 ;// session에서 가져오게 수정 필요
+   		   $.ajax({
+   				url: "/bitbook/friedns/agreReq",
+   				type: "POST",
+   				data: {
+   					"memNo": memNo, 
+   					"friendsNo":friendsNo
+   				},
+   				success: makeReqList  				
+   			});
+           }
+        function rejectReq (friendsNo){
+    		   var memNo = 1 ;// session에서 가져오게 수정 필요
+    		   $.ajax({
+    				url: "/bitbook/friedns/rejectReq",
+    				type: "POST",
+    				data: {
+    					"memNo": memNo, 
+    					"friendsNo":friendsNo
+    				},
+    				success: makeReqList  				
+    			});
+            }
+        function makeReqList(){
+        	console.log("메이크 요청 함수 실행");
+            var memNo = 1 ;// session에서 가져오게 수정 필요
+ 		   $.ajax({
+ 				url: "/bitbook/friedns/reqList",
+ 				type: "POST",
+ 				data: {
+ 					"memNo": memNo
+ 				},
+ 				dataType: "json",
+ 				success: function (data) {
+ 					var html = "";
+ 					console.dir(data);
+ 					if(data.list!=null){
+ 						$("#reqFriends").css("display","block");
+ 					}
+ 					for(key in data.list){
+ 						//console.log(data.list[key].memNo);
+ 						html+='<form id="reqForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+ 						html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
+ 						html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
+ 						html+='	class="f_img rounded-circle img-fluid"></a> ';
+ 						html+='		<div class="login"></div>';
+ 						html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+ 						html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
+ 						html+='	<button onclick="javascript:agreeReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-success" style="position: absolute;right:60px;top: 30px;" type="button">수락</button>';
+ 						html+='	<button onclick="javascript:rejectReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">거절</button></div>';
+ 						html+='</form>';
+ 					}
+ 					$("#reqDiv").html(html);
+ 					$("#reqCnt").html(data.list.length+"");
+ 				} 
+ 			});	
+        }
+      
+        function makeNewList (data){
+			var html = "";
+			console.dir(data);
+			for(key in data.list){
+				//console.log(data.list[key].memNo);
+				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
+				html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
+				html+='	class="f_img rounded-circle img-fluid"></a> ';
+				html+='		<div class="login"></div>';
+				html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
+				if(data.reqList.indexOf(data.list[key].memNo)!=-1){
+					html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
+				}else{
+					html+='	<button onclick="javascript:insertReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청</button></div>';
+				}
+				html+='</form>';
+			}
+			$("#newDiv").html(html);
+			$("#newFriendsCnt").html(data.list.length+"명");
+		}
+        function makeMyList (data){
+			var html = "";
+			console.dir(data);
+			for(key in data.list){
+				//console.log(data.list[key].memNo);
+				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
+				html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
+				html+='	class="f_img rounded-circle img-fluid"></a> ';
+				html+='		<div class="login"></div>';
+				html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
+				html+='	<button onclick="javascript:deleteFriends(' + data.list[key].friendsNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">친구 끊기</button></div>';
+				html+='</form>';
+			}
+			$("#myDiv").html(html);
+			$("#myFriendsCnt").html(data.list.length+"명");
+		}
+        function deleteFriends (friendsNo){
+ 		   var memNo = 1 ;// session에서 가져오게 수정 필요
+ 		   $.ajax({
+ 				url: "/bitbook/friedns/deleteFriends",
+ 				type: "POST",
+ 				data: {
+ 					"memNo": memNo, 
+ 					"friendsNo":friendsNo,
+ 					name : $("#myInput")[0].value
+ 				},
+ 				dataType: "json",
+ 				success: function (data) {
+ 					makeMyList(data);
+ 				} 
+ 			});
+         }
+        function insertReq (friendsNo){
+		   var memNo = 1 ;// session에서 가져오게 수정 필요
+		   $.ajax({
+				url: "/bitbook/friedns/insertReq",
+				type: "POST",
+				data: {
+					"memNo": memNo, 
+					"friendsNo":friendsNo,
+					name : $("#newInput")[0].value
+				},
+				dataType: "json",
+				success: function (data) {
+					makeNewList(data);
+				} 
+			});
+        }
+        function deleteReq (friendsNo){
+ 		   var memNo = 1 ;// session에서 가져오게 수정 필요
+ 		   $.ajax({
+ 				url: "/bitbook/friedns/deleteReq",
+ 				type: "POST",
+ 				data: {
+ 					"memNo": memNo, 
+ 					"friendsNo":friendsNo,
+ 					name : $("#newInput")[0].value
+ 				},
+ 				dataType: "json",
+ 				success: function (data) {
+ 					makeNewList(data);
+ 				} 
+ 			});
+         }
+     function timeDiff(date){
+    	 var diff= new Date()-new Date(date); 
+    	 var currMinute =  60 * 1000;// 초 * 밀리세컨
+    	 var currHour = currMinute * 60;//분 * 초 * 밀리세컨
+         var currDay = currHour * 24;// 시 * 분 * 초 * 밀리세컨
+         var currMonth = currDay * 30;// 월 만듬
+         var currYear = currMonth * 12; // 년 만듬
+    	 if(parseInt(diff/currMinute)<60){
+    		 return parseInt(diff/currMinute)+"분 ";
+    	 }
+    	 if(parseInt(diff/currHour)<25){
+    		 return parseInt(diff/currHour)+"시간 ";
+    	 }
+    	 if(parseInt(diff/currDay)<30){
+    		 return parseInt(diff/currDay)+"일 ";
+    	 }
+    	 if(parseInt(diff/currMonth)<12){
+    		 return parseInt(diff/currMonth)+"달 ";
+    	 }
+    	 return parseInt(diff/currYear)+"년 ";
+     }
+        	
+      
     </script>
 </body>
 

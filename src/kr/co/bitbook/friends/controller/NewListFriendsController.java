@@ -15,24 +15,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import kr.co.bitbook.common.db.MyAppSqlConfig;
-import kr.co.bitbook.domain.Friends;
 import kr.co.bitbook.domain.Member;
 import kr.co.bitbook.mapper.FriendsMapper;
 
-@WebServlet("/friedns/deleteReq")
-public class DeltReqFriendsController extends HttpServlet{
+@WebServlet("/friedns/newList")
+public class NewListFriendsController extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FriendsMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(FriendsMapper.class);
 		request.setCharacterEncoding("utf-8");
-		Friends friends = new Friends();
-		friends.setMemNo(Integer.parseInt(request.getParameter("memNo")));
-		friends.setFriendsNo(Integer.parseInt(request.getParameter("friendsNo")));
-		mapper.deleteReqFriends(friends);
 		List<Member> list = mapper.selectSearchFriends(request.getParameter("name"));
 		//세션에서 id값 넣기
-		List<Integer> reqList = mapper.selectReqFriends(Integer.parseInt(request.getParameter("memNo")));
+		List<Integer> reqList = mapper.selectReqFriends(1);
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);
         result.put("reqList", reqList);
