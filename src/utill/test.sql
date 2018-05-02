@@ -21,7 +21,33 @@ values(s_member_no.nextval,'bobobo','0000','bobo@test.com','보영이에요','n'
 insert into tb_member_detail(mem_no,profile_path)
 values('1042','/bitbook/member_profile/mem1042test1.jpg');
 
+delete
+  form TB_FILE_GROUP
 
+delete
+  form TB_FILE
+
+delete
+  form TB_POST
+ where no >0
+
+
+select *
+  from TB_FILE_GROUP 
+  
+select *
+  from TB_FILE
+  
+select *
+  from TB_post
+
+  delete
+    from TB_FILE_GROUP
+   where FILE_GROUP_NO = 1
+   
+  delete
+    from TB_FILE
+   where FILE_GROUP_NO = 1
 
 select *
   from tb_member
@@ -53,8 +79,11 @@ ALTER TABLE TB_MEMBER
  CHANGE COLUMN login char
  ADD PRIMARY KEY (proj_id);
 
+alter table 테이블명 MODIFY (컬럼명 자료형);
+alter table TB_MEMBER MODIFY login char(1) defalut 'n'
 
-
+select *
+  from tb_member
 
 
 select mem_name, friends_no, login, profile_path

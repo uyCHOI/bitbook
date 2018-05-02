@@ -1,10 +1,8 @@
 package kr.co.bitbook.mapper;
 
-import java.util.List;
-
-import kr.co.bitbook.domain.File;
+import kr.co.bitbook.domain.FileUpload;
 
 public interface FileMapper {
-	void insertFile(File file);
-	List<File>  selectBoardFileByNo(int no);
+	void insertFileGroupNo(FileUpload fileupload);
+	void insertFile(FileUpload fileupload);
 }
