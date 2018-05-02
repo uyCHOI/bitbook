@@ -6,14 +6,16 @@ public class PostTag {
 	public int getPostNo() {
 		return postNo;
 	}
-	public void setPostNo(int postNo) {
+	public PostTag setPostNo(int postNo) {
 		this.postNo = postNo;
+		return this;
 	}
 	public int getMemNo() {
 		return memNo;
 	}
-	public void setMemNo(int memNo) {
+	public PostTag setMemNo(int memNo) {
 		this.memNo = memNo;
+		return this;
 	}
 	
 }

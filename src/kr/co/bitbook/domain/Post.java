@@ -17,50 +17,58 @@ public class Post {
 	public int getPostCCount() {
 		return postCCount;
 	}
-	public void setPostCCount(int postCCount) {
+	public Post setPostCCount(int postCCount) {
 		this.postCCount = postCCount;
+		return this;
 	}
 	public int getPostLCount() {
 		return postLCount;
 	}
-	public void setPostLCount(int postLCount) {
+	public Post setPostLCount(int postLCount) {
 		this.postLCount = postLCount;
+		return this;
 	}
 	public int getPostNo() {
 		return postNo;
 	}
-	public void setPostNo(int postNo) {
+	public Post setPostNo(int postNo) {
 		this.postNo = postNo;
+		return this;
 	}
 	public int getMemNo() {
 		return memNo;
 	}
-	public void setMemNo(int memNo) {
+	public Post setMemNo(int memNo) {
 		this.memNo = memNo;
+		return this;
 	}
 	public String getPostContent() {
 		return postContent;
 	}
-	public void setPostContent(String postContent) {
+	public Post setPostContent(String postContent) {
 		this.postContent = postContent;
+		return this;
 	}
 	public Date getPostRegDate() {
 		return postRegDate;
 	}
-	public void setPostRegDate(Date postRegDate) {
+	public Post setPostRegDate(Date postRegDate) {
 		this.postRegDate = postRegDate;
+		return this;
 	}
 	public char getPostOpenRange() {
 		return postOpenRange;
 	}
-	public void setPostOpenRange(char postOpenRange) {
+	public Post setPostOpenRange(char postOpenRange) {
 		this.postOpenRange = postOpenRange;
+		return this;
 	}
 	public int getFileGroupNo() {
 		return fileGroupNo;
 	}
-	public void setFileGroupNo(int fileGroupNo) {
+	public Post setFileGroupNo(int fileGroupNo) {
 		this.fileGroupNo = fileGroupNo;
+		return this;
 	}
 	
 	
