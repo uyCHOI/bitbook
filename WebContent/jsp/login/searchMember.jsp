@@ -30,7 +30,7 @@
 <!-- iframe removal -->
 </head>
 <body class="index-page ">
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" style="position: fixed; background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;">
+<!-- 	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100" id="sectionsNav" style="position: fixed; background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;">
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="main.jsp" style="color: #fff;">Bit book </a>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 		</div>
-	</nav>
+	</nav> -->
 	<div class="main main-raised">
 		<div class="section section-basic"></div>
 		<div class="section section-navbars cd-section" id="navigation">
@@ -113,7 +113,7 @@
 		</div>
 	</div>
 	<!-- Classic Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+	<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -132,7 +132,7 @@
 			</div>
 		</div>
 	</div>
-	<!--  End Modal -->
+	 End Modal
 	<footer class="footer ">
 		<div class="container">
 			<nav class="pull-left">
@@ -164,19 +164,19 @@
 			</div>
 		</div>
 	</footer>
-	<!--   Core JS Files   -->
+	  Core JS Files  
 	<script src="./assets/js/core/jquery.min.js"></script>
 	<script src="./assets/js/core/popper.min.js"></script>
 	<script src="./assets/js/bootstrap-material-design.js"></script>
-	<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+	 Plugin for Date Time Picker and Full Calendar Plugin 
 	<script src="./assets/js/plugins/moment.min.js"></script>
-	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+		Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker
 	<script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-	<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+		Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/
 	<script src="./assets/js/plugins/nouislider.min.js"></script>
-	<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+	Material Kit Core initialisations of plugins and Bootstrap Material Design Library
 	<script src="./assets/js/material-kit.js?v=2.0.2"></script>
-	<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+	Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project
 	<script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -187,6 +187,6 @@
 			// Sliders Init
 			materialKit.initSliders();
 		});
-	</script>
+	</script> -->
 </body>
 </html>

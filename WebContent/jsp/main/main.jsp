@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +23,8 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
 <!-- iframe removal -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <style>
+<<<<<<< HEAD
 	body{background: #fff !important;}
 	.f_info div .f_link>img {
 	    margin: 10px 10px 10px 10px;
@@ -256,16 +255,69 @@
 		background-color: white;
 	}
 
+=======
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 </style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
+<<<<<<< HEAD
 <body class="index-page " >
+=======
+<body class="index-page " style="background:#fff;">
+	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
+		id="sectionsNav" style="position: fixed; background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important; ">
+		<div class="container">
+			<div class="navbar-translate">
+				<a class="navbar-brand" href="main.jsp" style="color:#fff;">Bit book </a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span> <span
+						class="navbar-toggler-icon"></span> <span
+						class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+
+					<li class="nav-item"><a class="nav-link"
+						href="../member/infoMember.jsp" onclick="scrollToDownload()"> <span
+							class="glyphicon glyphicon-user" style="color:#fff;">홍길동</span>
+							<div class="ripple-container"></div></a></li>
+					<li class="dropdown nav-item"><a href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false" style="color:#fff;"> <i class="material-icons">apps</i> 알림
+							<div class="ripple-container"></div></a>
+						<div class="dropdown-menu dropdown-with-icons">
+							<a href="../login/index.jsp" class="dropdown-item"> <i
+								class="material-icons">layers</i>친구로 부터 메세지가 도착했습니다.
+							</a> <a
+								href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html"
+								class="dropdown-item"> <i class="material-icons">content_paste</i>
+								친구 신청 되었습니다.
+							</a>
+						</div></li>
+											<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)" onclick="scrollToDownload()"style="color:#fff;"> 친구 찾기
+							<div class="ripple-container"></div>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="../login/index.jsp" onclick="scrollToDownload()"style="color:#fff;"> 로그아웃
+							<div class="ripple-container"></div>
+					</a></li>
+
+				</ul>
+			</div>
+		</div>
+
+		</div>
+	</nav>
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 	<div class="main main-raised" style="box-shadow:none;">
 		<div class="section section-basic" style="padding: 140px 0; width: 90%;">
 			<div class="container"
 				style="position: relative; max-width: 851px;">
 				<div id="buttons" class="cd-section"
 					style="width: 60%; height: 100%;">
+<<<<<<< HEAD
 					
 					
 					
@@ -277,12 +329,17 @@
 						
 						<input type="hidden" id="memNo" name="no" value="1048">
 							<div style="background: #f6f7f9; border:1px solid #dddfe2; width:550px;">
+=======
+					<div class="row">
+						<div class="col-md-12" style="margin-top: 30px; ">
+							<div style="background: #f6f7f9; border:1px solid #dddfe2;">
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 								<div class="title_head">
 									<h5 class="title">게시물올리기</h5>
 								</div>
 								<div class="min_content">
 									<a href="#"> <img class="profile rounded-circle img-fluid"
-										src="bo.jpg" alt="Circle Image">
+										src="assets/img/kit/faces/avatar.jpg" alt="Circle Image">
 									</a>
 									<div>
 									<div id="content" contenteditable="true"></div>
@@ -367,6 +424,7 @@
 							</div>
 						</div>
 					</div>
+<<<<<<< HEAD
 
 </div>
 
@@ -375,6 +433,10 @@
 							<div class="row" style="margin-top: 0px; height: 600px; width: 580px;">
 		<!-- 게시글 -->
 		<div class="col-md-12" >
+=======
+					<div class="row" style="margin-top: 0px; height: 600px;">
+						<div class="col-md-12" >
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 							<div class="content">
 								<div class="title_head">
 									<h5 class="title">피드</h5>
@@ -416,6 +478,7 @@
 									</button>
 								</div>
 							</div>
+<<<<<<< HEAD
 				<!-- 게시글 -->
 				
 				
@@ -429,17 +492,64 @@
 		</div>
 	</div>
 				<!-- 덧글 불러오기 -->
+=======
+							<!-- 댓글  -->
+							<div class="coment">
+								<a href="#" style="margin-left: 16px; display: block;"> <img
+									style="display: block; float: left; width: 47px;"
+									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+									class="rounded-circle img-fluid">
+								</a>
+								<div class="c_wrap">
+									<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
+								</div>
+								<div
+									style="margin-left: 70px; margin-top: 5px; position: relative;">
+									<button class="btnA">수정</button>
+									<span>|</span>
+									<button class="btnB">삭제</button>
+									<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
+									<button
+										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
+										style="left:324px !important;bottom:-22px; border-radius: 5px; width: 80px;">
+										<i class="likey_icon material-icons">favorite</i> <em
+											class="likey_num">1</em>
+									</button>
+								</div>
+							</div>
+							<!-- 댓글쓰기 -->
+							<div class="coment">
+								<a href="#" style="margin-left: 16px; display: block;"> <img
+									style="display: block; float: left; width: 47px;"
+									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+									class="rounded-circle img-fluid">
+								</a>
+								<div class="c_wrap">
+									<span class="c_info" style="width: 42px;">박보영</span> <span
+										class="c_content" style="width: 294px;"> <textarea
+											class="c_text" style="width: 270px;"></textarea>
+									</span>
+								</div>
+								<button class="c_submit btn btn-lg btn-primary"
+									disabled" type="submit" style="">등록</button>
+							</div>
+						</div>
+					</div>
+				</div>
+<<<<<<< HEAD
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 				<!-- 게시글 끝 -->
-
+			
+				
+				
+=======
+>>>>>>> 2ae628c499f66eeff0b79d96f683350f0e448376
 				<div id="buttons" class="cd-section"
 					style="width: 30%; height: 100%; top: 0; position: absolute; right: 22px;">
 					<div class="row"
 						style="width: 100%; height: 71%; position: relative; ">
-						
-						
-						
-					<div>
 						<div class="col-md-12"
+<<<<<<< HEAD
 							style="height: 100%; background: #FFE8FF; top: 67px; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList" style="height: 95%;">
 									<h5 class="f_title">
@@ -454,7 +564,48 @@
 									<input type="text" id="searchName" placeholder=" 내 친구 검색하기"></span>
 									</div>	
 								</div>				
+=======
+							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
+							<div class="friendList">
+								<h5 class="f_title">
+									친구목록
+						
+								</h5>
+								<div class="f_info">
+									<div>
+										<a class="f_link"style="display: block;" href="">
+										<img
+									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+									class="f_img rounded-circle img-fluid"></a>
+										<div class="login"></div>
+										<p>
+											<a href=""><span class="f_name c_info" >박보영</span></a>
+										<p class="friendInfo">4시간전까지 활동했습니다.</p>
+										</p>
+									</div>
+									<div>
+									<a class="f_link"style="display: block;" href=""><img
+									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+									class="f_img rounded-circle img-fluid"></a>
+										<div class="login"></div>
+										<p>
+											<a href=""><span class="f_name c_info" >박보영</span></a>
+										<p class="friendInfo">6분전까지 활동했습니다.</p>
+										</p>
+									</div>
+									<div>
+										<a class="f_link"style="display: block;" href=""><img
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 								
+									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
+									class="f_img rounded-circle img-fluid"></a>
+										<div class="login login-in"></div>
+										<p>
+											<a href=""><span class="f_name c_info"  >박보영</span></a>
+										<p class="friendInfo">활동중!</p>
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -502,6 +653,7 @@
 				materialKit.initSliders();
 			});
 		</script>
+<<<<<<< HEAD
 
 		<script>
 	    setInterval(friendsList,60000);
@@ -722,5 +874,7 @@
 	    	// 첨부한 이미지 제거 --------------------------------------     
 	        
 		</script>
+=======
+>>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
 </body>
 </html>

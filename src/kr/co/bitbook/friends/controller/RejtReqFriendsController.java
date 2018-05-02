@@ -19,8 +19,8 @@ import kr.co.bitbook.domain.Friends;
 import kr.co.bitbook.domain.Member;
 import kr.co.bitbook.mapper.FriendsMapper;
 
-@WebServlet("/friedns/deleteReq")
-public class DeltReqFriendsController extends HttpServlet{
+@WebServlet("/friedns/rejectReq")
+public class RejtReqFriendsController extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,17 +29,8 @@ public class DeltReqFriendsController extends HttpServlet{
 		Friends friends = new Friends();
 		friends.setMemNo(Integer.parseInt(request.getParameter("memNo")));
 		friends.setFriendsNo(Integer.parseInt(request.getParameter("friendsNo")));
-		mapper.deleteReqFriends(friends);
-		List<Member> list = mapper.selectSearchFriends(request.getParameter("name"));
-		//세션에서 id값 넣기
-		List<Integer> reqList = mapper.selectReqFriends(Integer.parseInt(request.getParameter("memNo")));
-        Map<String, Object> result = new HashMap<>();
-        result.put("list", list);
-        result.put("reqList", reqList);
-        
-        response.setContentType("application/json; charset=utf-8");
-        PrintWriter out = response.getWriter();
-        out.println(new Gson().toJson(result));
-		out.close();
+		System.out.println(friends.getMemNo());
+		System.out.println(friends.getFriendNo());
+		mapper.updateDenFriends(friends);
 	}
 }

@@ -1,5 +1,20 @@
 package kr.co.bitbook.member.controller;
 
-public class ListCareerMember {
+import java.io.IOException;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/member/careear")
+public class ListCareerMember extends HttpServlet{
+
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+		response.sendRedirect("/bitbook/jsp/member/viewMemberCareer.jsp?memId=unyoung");
+	}
+	
 }

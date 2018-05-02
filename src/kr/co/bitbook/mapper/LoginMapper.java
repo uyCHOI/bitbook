@@ -1,5 +1,8 @@
 package kr.co.bitbook.mapper;
 
-public interface LoginMapper {
+import kr.co.bitbook.domain.Member;
 
+public interface LoginMapper {
+	Member selectMemberById(String id);
+	void updateLogin(String id);
 }
