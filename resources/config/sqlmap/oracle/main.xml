@@ -12,6 +12,22 @@
 		<result column="logout_date" property="logoutDate" />		
 	</resultMap>
 	
+	<resultMap id="postMap" type="post">
+		<result column="post_no" property="postNo" />
+		<result column="mem_no" property="memNo" />
+		<result column="post_content" property="postContent" />
+		<result column="post_reg_date" property="postRegDate" />
+		<result column="post_open_range" property="postOpenRange" />
+		<result column="file_group_no" property="fileGroupNo" />		
+		<result column="post_c_count" property="postCCount" />		
+		<result column="post_l_count" property="postLCount" />		
+	</resultMap>
+	
+	<resultMap id="postTagMap" type="postTag">
+		<result column="post_no" property="postNo" />
+		<result column="mem_no" property="memNo" />	
+	</resultMap>
+	
 	
 	<select id="searchMyFriends" resultMap="searchFriendsMap" parameterType="searchFriends">
  	 select mem_name, friends_no, login, profile_path, logout_date
@@ -23,6 +39,58 @@
 	 order by login 
  	</select>
 	
+	<insert id="insertPost" parameterType="post">
+		<selectKey keyProperty="postNo" resultType="int" order="BEFORE">
+ 		select s_post_no.nextval from dual
+ 		</selectKey>
+ 	insert into tb_post(
+ 		post_no,
+ 		mem_no,
+ 		post_content,
+ 		post_open_range
+ 	)values(
+ 		#{postNo},
+ 		#{memNo},
+ 		#{postContent},
+ 		#{postOpenRange}
+ 	)
+	</insert>
+	
+	<insert id="insertPostAddFile" parameterType="post">
+	 	<selectKey keyProperty="postNo" resultType="int" order="BEFORE">
+ 		select s_post_no.nextval from dual
+ 		</selectKey>
+ 	insert into tb_post(
+ 		post_no,
+ 		mem_no,
+ 		post_content,
+ 		post_open_range,
+ 		file_group_no
+ 	)values(
+ 		#{postNo},
+ 		#{memNo},
+ 		#{postContent},
+ 		#{postOpenRange},
+ 		#{fileGroupNo}
+ 	)
+	</insert>
+	
+		
+	<delete id="deletePostTag" parameterType="int">
+		delete
+		  from tb_post_tag
+		 where post_no = #{postNo}
+	</delete>
+	
+	<insert id="insertPostTag" parameterType="postTag">
+		insert into tb_post_tag(
+			post_no,
+ 			mem_no
+		)values(
+	 		#{postNo},
+	 		#{memNo}
+ 		)
+	</insert>
 	
 </mapper>
 

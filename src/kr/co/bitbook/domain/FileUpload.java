@@ -1,6 +1,6 @@
 package kr.co.bitbook.domain;
 
-public class File {
+public class FileUpload {
 	private int fileGroupNo;
 	private int fileNo; 
 	private int memNo;
@@ -11,44 +11,51 @@ public class File {
 	public int getFileGroupNo() {
 		return fileGroupNo;
 	}
-	public void setFileGroupNo(int fileGroupNo) {
+	public FileUpload setFileGroupNo(int fileGroupNo) {
 		this.fileGroupNo = fileGroupNo;
+		return this;
 	}
 	public int getFileNo() {
 		return fileNo;
 	}
-	public void setFileNo(int fileNo) {
+	public FileUpload setFileNo(int fileNo) {
 		this.fileNo = fileNo;
+		return this;
 	}
 	public int getMemNo() {
 		return memNo;
 	}
-	public void setMemNo(int memNo) {
+	public FileUpload setMemNo(int memNo) {
 		this.memNo = memNo;
+		return this;
 	}
 	public String getFilePath() {
 		return filePath;
 	}
-	public void setFilePath(String filePath) {
+	public FileUpload setFilePath(String filePath) {
 		this.filePath = filePath;
+		return this;
 	}
 	public String getOriName() {
 		return oriName;
 	}
-	public void setOriName(String oriName) {
+	public FileUpload setOriName(String oriName) {
 		this.oriName = oriName;
+		return this;
 	}
 	public String getSystemName() {
 		return systemName;
 	}
-	public void setSystemName(String systemName) {
+	public FileUpload setSystemName(String systemName) {
 		this.systemName = systemName;
+		return this;
 	}
 	public char getFileType() {
 		return fileType;
 	}
-	public void setFileType(char fileType) {
+	public FileUpload setFileType(char fileType) {
 		this.fileType = fileType;
+		return this;
 	}
 	
 	

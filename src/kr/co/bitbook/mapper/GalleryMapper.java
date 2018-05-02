@@ -2,7 +2,7 @@ package kr.co.bitbook.mapper;
 
 import java.util.List;
 
-import kr.co.bitbook.domain.File;
+import kr.co.bitbook.domain.FileUpload;
 import kr.co.bitbook.domain.Gallery;
 
 public interface GalleryMapper {

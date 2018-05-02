@@ -272,9 +272,9 @@ a.tag:hover {
 }
 
 .f_info div .f_link>img {
-	margin: 15px 10px 10px 10px;
-	width: 48px;
-	height: auto;
+	margin: 10px 10px 10px 10px;
+	width: 50px;
+	height: 50px;
 	float: left;
 	clear: both;
 	display: block;
@@ -294,7 +294,7 @@ a.tag:hover {
 .f_info div {
 	font-size: 15px;
 	border: 1px solid #e2e2e2;
-	height: 90px;
+	height: 80px;
 	margin: 5px;
 	position: relative;
 	width: 95%;
