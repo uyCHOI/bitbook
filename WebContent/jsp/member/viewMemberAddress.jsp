@@ -1,170 +1,142 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!-- Favicons -->
-    <style>
-    .purple-filter:after {
-    background: rgba(101, 47, 142, 0.64);
-    background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
-    
-    </style>
-    <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">
-    <link rel="icon" href="../assets/img/kit/free/favicon.png">
-    <title>
-        Material Kit by Creative Tim
-    </title>
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
-    <!-- Documentation extras -->
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
-    <!-- iframe removal -->
+<style>
+	a #data:hover{
+		
+	}
+	hr{
+    border: 1px solid;
+    background color: #90949c;
+    width: 360px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-
 <body class="index-page ">
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
-		id="sectionsNav" style="position: fixed;">
-		<div class="container">
-			<div class="navbar-translate">
-				<a class="navbar-brand" href="../main/main.jsp" style="color:#fff;">Bit book </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> <span
-							class="glyphicon glyphicon-user">홍길동</span>
-							<div class="ripple-container"></div></a></li>
-					<li class="dropdown nav-item"><a href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> <i class="material-icons">apps</i> 알림
-							<div class="ripple-container"></div></a>
-						<div class="dropdown-menu dropdown-with-icons">
-							<a href="./index.html" class="dropdown-item"> <i
-								class="material-icons">layers</i>친구로 부터 메세지가 도착했습니다.
-							</a> <a
-								href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html"
-								class="dropdown-item"> <i class="material-icons">content_paste</i>
-								친구 신청 되었습니다.
-							</a>
-						</div></li>
-											<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 친구 찾기
-							<div class="ripple-container"></div>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 로그인
-							<div class="ripple-container"></div>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-		</div>
-	</nav>
+	
     <div class="main main-raised">
         <div class="section section-basic">
-
-        </div>
+		</div>
         <div class="section section-navbars cd-section" id="navigation">
-            <div class="container" style="background: gray; position: relative; max-width: 851px;">
-           		<div class="col-md-12" style="border: 1px solid black; height: 875px; margin: 0 auto;">
-           			개인정보
-           		<div style="border: 1px solid black; height: 200px; margin: 0 auto; position: relative;">상단 사진 커버 이름
-           		<div style="border: 1px solid black;  width:140px; height: 140px; overflow: visible; margin-left: 20px;">프로필 사진</div>
-           		<nav class="navbar navbar-expand-lg navbar-light bg-primary" style="height: 48px;">
-					  <div class="container">
-					    <a class="navbar-brand" >홍길동</a>
-					    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					      <span class="navbar-toggler-icon"></span>
-					    </button>
-					    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-					      <ul class="navbar-nav">
-					        <li class="nav-item active">
-					          <a class="nav-link" href="../main/main.jsp">Home <span class="sr-only">(current)</span></a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="infoMember.jsp">정보</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="#">친구</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="../gallery/list-pic.jsp">사진</a>
-					        </li>
-					         <li class="nav-item">
-					          <a class="nav-link" href="#" style="margin-left: 137px;">친구 끊기</a>
-					        </li>
-					      </ul>
-					    </div>
-					  </div>
-					</nav>
-           		</div>
-           		<div class="col-md-12" style="border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
+            <div class="container" style=" position: relative; max-width: 851px;">
+           		<div class="col-md-12" style="border: 1px solid black; height: auto; margin: 0 auto;">
+           		
+           		<c:import url="../include/memberTop.jsp"></c:import>
+           		
+           		
+           		<div class="col-md-12" style="border: 1px solid black;min-height:868px; height: auto; margin: 30px 0px; position: relative;">
 					<p class="nav-link" style="color :#9c27b0; margin:0 12px 5px; padding:0; font-weight:700; font-size: 20px;margin-top: 10px;    background: #f6f7f9;
     border-bottom: 1px solid #d3d6db;
     border-radius: 2px 2px 0 0;
     margin-bottom: 15px;
     min-height: 66px;
     padding-top: 16px;"> 정보</p>
-					<div style="    position: relative;
-    ">
-							<ul class="nav   flex-column" role="tablist" style="width: 242px;float: left">
+					<div style="  position: relative;   ">
+							<ul class="nav   flex-column nav-pills nav-pills-icons" role="tablist" style="width: 242px;float: left">
+									<li class="nav-item"><a class="nav-link"
+									href="outline?memNo=${memberDetail.memNo }"> 개요 </a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberOutline" role="tab" data-toggle="tab"
-									aria-selected="true"> 개요 </a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="viewMemberCareer" role="tab" data-toggle="tab"
-									aria-selected="false">경력 및 학력</a></li>
+									href="career?memNo=${memberDetail.memNo }"
+									>경력 및 학력</a></li>
 								<li class="nav-item"><a class="nav-link active show"
-									href="viewMemberAddress" role="tab" data-toggle="tab"
-									aria-selected="true"> 거주했던 장소</a></li>
+									href="#"> 거주했던 장소</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberContact" role="tab" data-toggle="tab"
-									aria-selected="true"> 연락처 및 기본 정보</a></li>
+									href="contact?memNo=${memberDetail.memNo }"> 연락처 및 기본 정보</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberFamily" role="tab" data-toggle="tab"
-									aria-selected="true"> 가족 및 결혼/연애 상태</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="viewMemberDetail" role="tab" data-toggle="tab"
-									aria-selected="true"> 자세한 내 소개</a></li>
+									href="introduce?memNo=${memberDetail.memNo }"> 자세한 내 소개</a></li>
 							</ul>
 							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
     min-height: 280px;
     padding: 30px 24px 0;
     position: relative;
     width: 408px;
-}">
-							  <li class="nav-item">
-							    <a class="nav-link active" href="#">Active</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" href="#">Link</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" href="#">Link</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link disabled" href="#">Disabled</a>
-							  </li>
-							</ul>
-			
+}">	
+						<h4>거주지와 출신지</h4>
+						<hr>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.addr eq null || memberDetail.addr eq ""}'>
+						<li><button  name="btn-addr" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i><span>거주지 추가</span></button>
+						</li>
+						<hr>
+						<div id="div-addr" style="display:none;">
+						<form method='post' action='updtAddr' style="align-content: center">
+							<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
+							<div class="form-group">
+								    <label for="exampleInputPassword1">거주지</label>
+								    <input type="text" class="form-control" name="addr" placeholder="거주지">
+							</div>
+							<button type='submit' class="btn btn-success btn-sm">변경 내용 저장하기</button>
+							<button type="button" name="btn-addr" class="btn btn-rose btn-sm">취소</button>
+						</form>
 						</div>
+						</c:if>
+						<li id="addrLi" class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">
+							 ${memberDetail.addr}
+							<c:if test='${memberDetail.addr eq null}'>
+								<h5>표시할 거주지 정보가 없습니다.</h5>
+							</c:if>
+						</a>
+						<p>현재 거주지</p>
+						</div>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.addr ne null}'>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="javascript:formAddr()" class="dropdown-item">수정</a> 
+							<a href='updtAddr?memNo=${memberDetail.memNo}&addr=' class="dropdown-item">삭제</a>
+						</div>
+						</c:if>
+						</li>
+						<hr>
+						
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.home eq null || memberDetail.home eq ""}'>
+						<li><button  name="btn-home" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i><span>출신지 추가</span></button>
+						</li>
+						<hr>
+						<div id="div-home" style="display:none;">
+						<form method='post' action='updtHome' style="align-content: center">
+							<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
+							<div class="form-group">
+								    <label for="exampleInputPassword1">출신지</label>
+								    <input type="text" class="form-control" name="home" placeholder="출신지">
+							</div>
+							<button type='submit' class="btn btn-success btn-sm">변경 내용 저장하기</button>
+							<button type="button" name="btn-home" class="btn btn-rose btn-sm">취소</button>
+						</form>
+						</div>
+						</c:if>
+						<li id="homeLi" class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">
+							 ${memberDetail.home}
+							<c:if test='${memberDetail.home eq null}'>
+								<h5>표시할 출신지 정보가 없습니다.</h5>
+							</c:if>
+						</a>
+						<p>출신지</p>
+						</div>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.home ne null}'>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="javascript:formHome()" class="dropdown-item">수정</a> 
+							<a href='updtHome?memNo=${memberDetail.memNo}&home=' class="dropdown-item">삭제</a>
+						</div>
+						</c:if>
+						</li>
+						
+						
+						</ul>
+					</div>
 				</div>
            		</div>
 
@@ -174,56 +146,45 @@
             </div>
             <!-- end navbar  -->
         </div>
-        
-    <!-- Classic Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-link">Nice Button</button>
-                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--  End Modal -->
-    <footer class="footer ">
-        <div class="container">
-
-        </div>
-    </footer>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="../assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="../assets/js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="../assets/js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
+          <!--   Core JS Files   -->
     <script>
         $(document).ready(function() {
 
-            //init DateTimePickers
-            materialKit.initFormExtendedDatetimepickers();
-
-            // Sliders Init
-            materialKit.initSliders();
+        
+        });
+        function formAddr(){
+			var html = "";
+			html+='<div id="div-addr" style="display:block;">                                         ';
+			html+='<form method="post" action="updtAddr" style="align-content: center">              ';
+			html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />             ';
+			html+='	<div class="form-group">                                                            ';
+			html+='		    <label for="exampleInputPassword1">거주지</label>                           ';
+			html+='		    <input type="text" class="form-control" name="addr" placeholder="${memberDetail.addr}">';
+			html+='	</div>                                                                              ';
+			html+='	<button type="submit" class="btn btn-success btn-sm">변경 내용 저장하기</button>    ';
+			html+='</form>                                                                              ';
+			html+='</div>                                                                               ';
+        	$('#addrLi').html(html);                                                            
+    	}
+        function formHome(){
+			var html = "";
+			html+='<div id="div-home" style="display:block;">                                         ';
+			html+='<form method="post" action="updtHome" style="align-content: center">              ';
+			html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />             ';
+			html+='	<div class="form-group">                                                            ';
+			html+='		    <label for="exampleInputPassword1">출신지</label>                           ';
+			html+='		    <input type="text" class="form-control" name="home" placeholder="${memberDetail.home}">';
+			html+='	</div>                                                                              ';
+			html+='	<button type="submit" class="btn btn-success btn-sm">변경 내용 저장하기</button>    ';
+			html+='</form>                                                                              ';
+			html+='</div>                                                                               ';
+        	$('#homeLi').html(html);                                                            
+    	}
+        $('button[name="btn-addr"]').click(function(){
+        	$("#div-addr").stop().toggle();
+        });
+        $('button[name="btn-home"]').click(function(){
+        	$("#div-home").stop().toggle();
         });
     </script>
 </body>

@@ -41,8 +41,11 @@
 	rel="stylesheet" />
 <!-- iframe removal -->
 <!--  순서가 중요하다 .-->
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="/bitbook/jsp/assets/js/core/jquery.min.js"></script>
+    <script src="/bitbook/jsp/assets/js/core/popper.min.js"></script>
+    <script src="/bitbook/jsp/assets/js/bootstrap-material-design.js"></script>
+
+<!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
 <script src="/bitbook/js/topMenu.js"></script>
 <style>
 #noti_Container {

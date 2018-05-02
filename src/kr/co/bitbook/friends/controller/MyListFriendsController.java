@@ -29,7 +29,7 @@ public class MyListFriendsController extends HttpServlet{
 		member.setMemName(request.getParameter("name"));
 		member.setMemNo(Integer.parseInt(request.getParameter("memNo")));
 		List<Member> list = mapper.selectSearchMyFriends(member);
-		//세션에서 id값 넣기
+		
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);
         

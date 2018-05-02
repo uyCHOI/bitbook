@@ -9,7 +9,7 @@
 				</button></div>
            		<nav class="navbar navbar-expand-lg navbar-light bg-primary" style="height: 48px;">
 					  <div class="container">
-					    <a class="navbar-brand" >홍길동</a>
+					    <a class="navbar-brand" >${member.memName}</a>
 					    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					      <span class="navbar-toggler-icon"></span>
 					    </button>
@@ -19,10 +19,10 @@
 					          <a class="nav-link" href="../main/main.jsp">Home <span class="sr-only">(current)</span></a>
 					        </li>
 					        <li class="nav-item">
-					          <a class="nav-link" href="infoMember.jsp">홈</a>
+					          <a class="nav-link" href="../member/outline?memNo=${member.memNo}">정보</a>
 					        </li>
 					        <li class="nav-item">
-					          <a class="nav-link" href="#">정보</a>
+					          <a class="nav-link" href="../friends/list?memNo=${member.memNo}">친구 <span id="topFriends"></span></a>
 					        </li>
 					        <li class="nav-item">
 					          <a class="nav-link" href="../gallery/list-pic.jsp">사진</a>
@@ -35,3 +35,19 @@
 					  </div>
 					</nav>
            		</div>
+<script>
+$(document).ready(function() {
+		$.ajax({
+			url: "/bitbook/friedns/myList",
+			type: "POST",
+			data: {
+				"memNo": ${member.memNo}, 
+				name : ""
+			},
+			dataType: "json",
+			success: function (data) {
+				$("#topFriends").text(data.list.length);
+			} 
+		});
+	});
+</script>

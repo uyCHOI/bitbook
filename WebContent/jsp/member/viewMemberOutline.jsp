@@ -37,21 +37,17 @@
     padding-top: 16px;"> 정보</p>
 					<div style="  position: relative;   ">
 							<ul class="nav   flex-column nav-pills nav-pills-icons" role="tablist" style="width: 242px;float: left">
-								<li class="nav-item"><a class="nav-link"
-									href="viewMemberOutline" role="tab" data-toggle="tab"
-									aria-selected="true"> 개요 </a></li>
 								<li class="nav-item"><a class="nav-link active show"
-									href="viewMemberCareer" role="tab" data-toggle="tab"
-									aria-selected="false">경력 및 학력</a></li>
+									href="#"> 개요 </a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberAddress" role="tab" data-toggle="tab"
-									aria-selected="true"> 거주했던 장소</a></li>
+									href="career?memNo=${memberDetail.memNo }"
+									>경력 및 학력</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberContact" role="tab" data-toggle="tab"
-									aria-selected="true"> 연락처 및 기본 정보</a></li>
+									href="addr?memNo=${memberDetail.memNo }"> 거주했던 장소</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberDetail" role="tab" data-toggle="tab"
-									aria-selected="true"> 자세한 내 소개</a></li>
+									href="contact?memNo=${memberDetail.memNo }"> 연락처 및 기본 정보</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="introduce?memNo=${memberDetail.memNo }"> 자세한 내 소개</a></li>
 							</ul>
 							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
     min-height: 280px;
@@ -60,103 +56,27 @@
     width: 408px;
 }">	
 				
-						<h4>직장</h4>
-						<li>
-						<button id="btn-career" type="button" class="btn btn-secondary" >
-							<i class="material-icons">create</i>
-							<span>직장 추가</span></button>
-						</li>
-						<div id="div-career" style="display: none">
-						<form method='post' action='write' style="align-content: center">
-							<div class="form-group">
-								    <label for="exampleInputPassword1">회사이름</label>
-								    <input type="text" class="form-control" id="name" placeholder="회사이름">
-							</div>
-							<div class="form-group">
-								    <label for="exampleInputPassword1">직위</label>
-								    <input type="text" class="form-control" id="name" placeholder="직위">
-							</div>
-							<div class="form-group">
-								    <label for="exampleInputPassword1">도시</label>
-								    <input type="text" class="form-control" id="name" placeholder="도시">
-							</div>
-							<div class="form-group">
-								    <label for="exampleInputPassword1">설명</label>
-								    <input type="text" class="form-control" id="name" placeholder="설명">
-							</div>
-							<button type='button' class="btn btn-success btn-sm">등록</button>
-							<button type='button' class="btn btn-rose btn-sm">취소</button>
-						</form>
+						<h4>내 소개</h4>
+						<div>
+							<a id="data" style="font-size:24px;">
+								 ${memberDetail.introduce}
+							</a>
 						</div>
-						<hr>
-						<li class="dropdown nav-item">
-						<div  style="float:left;">
-						<a id="data" style="font-size:24px;">회사이름</a>
-						<p>회사설명 주저리주저리</p>
+						<div>
+							<a id="data" style="font-size:24px;">
+								 ${memberDetail.introduce}
+							</a>
 						</div>
-						<a style="float:left" href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> 옵션 </a>
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">수정</a> 
-							<a href="#" class="dropdown-item">삭제	</a>
-						</div></li>
-						<hr>
-						<h4>전문 기술</h4>
-						<li><button id="btn-skill" type="button" class="btn btn-secondary">
-							<i class="material-icons">create</i><span>전문 기술 추가</span></button>
-						</li>
-						<div id="div-skill" style="display:none;">
-						<form method='post' action='write' style="align-content: center">
-							<div class="form-group">
-								    <label for="exampleInputPassword1">전문 기술</label>
-								    <input type="text" class="form-control" id="name" placeholder="전문 기술">
-							</div>
-							<button type='button' class="btn btn-success btn-sm">등록</button>
-							<button type='button' class="btn btn-rose btn-sm">취소</button>
-						</form>
+						<div>
+							<a id="data" style="font-size:24px;">
+								 ${memberDetail.introduce}
+							</a>
 						</div>
-						<hr>
-						<li class="dropdown nav-item">
-						<div  style="float:left;">
-						<a id="data" style="font-size:24px;">전문 기술 등 등 등</a>
+						<div>
+							<a id="data" style="font-size:24px;">
+								 ${memberDetail.introduce}
+							</a>
 						</div>
-						<a style="float:left" href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> 옵션 </a>
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">수정</a> 
-							<a href="#" class="dropdown-item">삭제	</a>
-						</div></li>
-						<h4>대학교</h4>
-						<li><button id="btn-college" type="button" class="btn btn-secondary" >
-							<i class="material-icons">create</i><span>대학교 추가</span></button>
-						</li>
-						<hr>
-						<div id="div-college" style="display:none;">
-						<form method='post' action='write' style="align-content: center">
-							<div class="form-group">
-								    <label for="exampleInputPassword1">대학교</label>
-								    <input type="text" class="form-control" id="name" placeholder="대학교">
-							</div>
-							<button type='button' class="btn btn-success btn-sm">등록</button>
-							<button type='button' class="btn btn-rose btn-sm">취소</button>
-						</form>
-						</div>
-						<li class="dropdown nav-item">
-						<div  style="float:left;">
-						<a id="data" style="font-size:24px;">비트대학교</a>
-						</div>
-						<a style="float:left" href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> 옵션 </a>
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">수정</a> 
-							<a href="#" class="dropdown-item">삭제	</a>
-						</div></li>
-						
-						
-						
 						
 						</ul>
 					</div>
@@ -213,24 +133,12 @@
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
     <script>
         $(document).ready(function() {
-
-            //init DateTimePickers
-            materialKit.initFormExtendedDatetimepickers();
-
-            // Sliders Init
-            materialKit.initSliders();
-            $("a").removeAttr("href");
+			
+        	$.ajax({
+        		url:"/bitbook/member/outline"
+        	});
         });
         
-        $("#btn-career").click(function(){
-        	$("#div-career").stop().toggle();
-        });
-        $("#btn-skill").click(function(){
-        	$("#div-skill").stop().toggle();
-        });
-        $("#btn-college").click(function(){
-        	$("#div-college").stop().toggle();
-        });
     </script>
 </body>
 

@@ -83,5 +83,11 @@ public class Member {
 	public void setMemEmail(String memEmail) {
 		this.memEmail = memEmail;
 	}
+	@Override
+	public String toString() {
+		return "Member [memNo=" + memNo + ", memId=" + memId + ", memPass=" + memPass + ", memName=" + memName
+				+ ", memEmail=" + memEmail + ", join=" + join + ", logoutDate=" + logoutDate + ", login=" + login
+				+ ", profilePath=" + profilePath + ", coverPath=" + coverPath + ", friendsNo=" + friendsNo + "]";
+	}
 	
 }

@@ -12,14 +12,14 @@ import kr.co.bitbook.common.db.MyAppSqlConfig;
 import kr.co.bitbook.domain.MemberDetail;
 import kr.co.bitbook.mapper.MemberMapper;
 
-@WebServlet("/member/updtIntroduce")
-public class UpdtIntroduceMember extends HttpServlet {
+@WebServlet("/member/updtPhone")
+public class UpdtPhoneMember extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDetail memberDetail = MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).selectMemberDetail(Integer.parseInt(request.getParameter("memNo")));
-		memberDetail.setIntroduce(request.getParameter("introduce"));
-		MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).updateIntroduce(memberDetail);
-		response.sendRedirect("introduce?memNo="+Integer.parseInt(request.getParameter("memNo")));
+		memberDetail.setPhone(request.getParameter("phone"));
+		MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).updatePhone(memberDetail);
+		response.sendRedirect("contact?memNo="+Integer.parseInt(request.getParameter("memNo")));
 	}
 }
