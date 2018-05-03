@@ -10,6 +10,7 @@ public interface FriendsMapper {
 	List<Member> selectSearchFriends(Member member);
 	List<Member> selectReqList(int memNo);
 	List<Member> selectSearchMyFriends(Member member);
+	List<Member> selectMyFriends(int memNo);
 	List<Integer> selectReqFriends(int memNo);
 	Member selectMember(int memNo);
 	void deleteFriends1(Friends friends);

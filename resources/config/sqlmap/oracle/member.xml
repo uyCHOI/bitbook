@@ -139,5 +139,15 @@
     set logout_date=#{logoutDate}
     where mem_no=#{memNo}
     </update>
+    <update id="updateProfile" parameterType="member">
+    update tb_member
+    set profile_path=#{profilePath}
+    where mem_no=#{memNo}
+    </update>
+    <update id="updateCover" parameterType="member">
+    update tb_member
+    set cover_path=#{coverPath}
+    where mem_no=#{memNo}
+    </update>
 </mapper>
 

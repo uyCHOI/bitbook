@@ -46,7 +46,7 @@
     <script src="/bitbook/jsp/assets/js/bootstrap-material-design.js"></script>
 
 <!-- <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> -->
-<script src="/bitbook/js/topMenu.js"></script>
+<!-- <script src="/bitbook/js/topMenu.js"></script> -->
 <style>
 #noti_Container {
 	position: relative;
@@ -125,6 +125,14 @@ h3 {
 	text-align: center;
 }
 
+
+#coverSpan{
+	opacity: 0;
+}
+#coverSpan:hover{
+	opacity: 1;
+	    transition: opacity .3s cubic-bezier(.175, .885, .32, 1.275), width .3s step-end;
+}
 /* 호버시 효과
      .seeAll a {
         color:#3b5998;
@@ -160,8 +168,8 @@ h3 {
 										<a class="nav-link" href="<c:url value="/bitbook/login" />">로그인</a>
 									</c:when>
 									<c:otherwise>
-			<div>${sessionScope.user.memName}님 접속
-			
+								<div> <a style="color:white;" href='/bitbook/member/outline?memNo=${sessionScope.user.memNo}'> ${sessionScope.user.memName}님 접속 </a></div>
+				
 										<!--      <input type="hidden" name="login" value="N"> -->
 									</c:otherwise>
 								</c:choose>
@@ -173,19 +181,16 @@ h3 {
 							<i class="material-icons">notifications</i>
 						</div> <!--THE NOTIFICAIONS DROPDOWN BOX.-->
 						<div id="notifications">
-							<h3>Notifications</h3>
+							<h3>알림</h3>
 							<div style="height: 300px;">
-								<div class="f_info col-md-12"
-									style="height: 150px; overflow: auto;">
-									<div>
-										<a class="f_link" style="display: block;" href=""> <img
+								<div id="noti-board" class="f_info col-md-12" style="height: 300px; overflow: auto;">
+									<!-- <div><a class="f_link" style="display: block;" href=""> <img
 											src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
 											class="f_img rounded-circle img-fluid"></a>
 										<div class="login"></div>
 										<a href=""><span class="f_name c_info">박보영</span></a>
 										<p class="friendInfo">님이 친구신청 하였습니다.</p>
-										<button onclick="" class="btn btn-sm ">이 알림 숨기기</button>
-									</div>
+									<button onclick="" class="btn btn-sm ">이 알림 숨기기</button></div> -->
 								</div>
 							</div>
 							<!--      <div class="seeAll"><a href="#">See All</a></div>  알림목록 전체보기  -->
@@ -206,6 +211,97 @@ h3 {
 			</div>
 		</div>
 	</nav>
+<script>
+var memNo = ${sessionScope.user.memNo};
+var notCnt = 0;
+$(document).ready(function () {
 
+    // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
+  
+	$.ajax({
+		url:"/bitbook/notification/list",
+		data:"memNo="+memNo,
+		dataType:"json",
+		success:function(data){
+			makeNoti(data);
+		}
+	});
+
+    $('#noti_Button').click(function () {
+
+        // TOGGLE (SHOW OR HIDE) NOTIFICATION WINDOW.
+        $('#notifications').fadeToggle('fast', 'linear', function () {
+            if ($('#notifications').is(':hidden')) {
+                $('#noti_Button').css('background-color', '#9c27b0');
+            }
+            else $('#noti_Button').css('background-color', '#9c27b0');        // CHANGE BACKGROUND COLOR OF THE BUTTON.
+        });
+
+        $('#noti_Counter').fadeOut('slow');                 // HIDE THE COUNTER.
+
+        return false;
+    });
+
+    // HIDE NOTIFICATIONS WHEN CLICKED ANYWHERE ON THE PAGE.
+    $(document).click(function () {
+        $('#notifications').hide();
+
+        // CHECK IF NOTIFICATION COUNTER IS HIDDEN.
+        if ($('#noti_Counter').is(':hidden')) {
+            // CHANGE BACKGROUND COLOR OF THE BUTTON.
+            $('#noti_Button').css('background-color', '#9c27b0');
+        }
+    });
+
+//      $('#notifications').click(function () {
+//     	 console.dir(this);
+//          return false;       // DO NOTHING WHEN CONTAINER IS CLICKED.
+//      });
+});
+function makeNoti(data){
+	var html="";
+	$("#noti-board").html(html);
+	console.dir(data);
+	for(n in data){
+		var date = new Date(data[n].notRegDate); 
+		var regDate = " "+date.getMonth()+"월 "+date.getDate()+"일 "+date.getHours()+":"+date.getMinutes();
+		if(data[n].notState=='N'||data[n].notState=='R'){
+			html+='<div';
+			if(data[n].notState=='N'){
+				notCnt++;
+				html+=' style="background-color:#edf2fa"';
+			}
+		  	html+='><a class="f_link" style="display: block;" href="/bitbook/notification/updateNotiRead?memNo='+data[n].reqMemNo+'&notNo='+data[n].notNo+'"> <img      ';
+			html+='src="'+data[n].profilePath+'" alt="Circle Image"          ';
+			html+='class="f_img rounded-circle img-fluid">                     ';
+			html+='<div class="login"></div>                                         ';
+			html+='<span class="f_name c_info" style="width:200px;">'+data[n].memName+'님이 '+data[n].notType+" "+data[n].notMessage+'</span></a>          ';
+			html+='<p style="color:black"class="friendInfo">'+regDate+'</p>               ';
+			html+='<button onclick="javascript:updateNotiHide('+data[n].notNo+')" class="btn btn-sm ">이 알림 숨기기</button></div>'; 
+		}
+	}
+	$("#noti-board").html(html); 
+	if(notCnt!=0){
+	    $('#noti_Counter')
+	        .css({ opacity: 0 })
+	        .text(notCnt)              // ADD DYNAMIC VALUE (YOU CAN EXTRACT DATA FROM DATABASE OR XML).
+	        .css({ top: '-10px' })
+	        .animate({ top: '-2px', opacity: 1 }, 500);
+	}
+}
+function updateNotiHide(notNo){
+	$.ajax({
+		url:"/bitbook/notification/updateNotiHide",
+		data:{
+			"notNo":notNo,
+			"memNo":memNo
+		},
+		success:function(data){
+			console.dir(data);
+			makeNoti(data);
+		}
+	});
+}
+</script>
 </body>
 </html>

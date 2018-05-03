@@ -51,6 +51,15 @@ inner join tb_member_detail d
       and acc_state='A'
     order by login 
     </select>
+    <select id="selectMyFriends" resultMap="memberMap" parameterType="member">
+     select mem_name, friends_no, login, profile_path, logout_date ,m.mem_no
+     from tb_friends f
+    inner join tb_member m
+       on f.friends_no = m.mem_no
+    where f.mem_no = #{memNo}
+      and acc_state='A'
+    order by login 
+    </select>
     
     <!-- 친구 요청 중인 사람 부르기 -->
     <select id="selectReqFriends" parameterType="int" resultType="int">
@@ -119,5 +128,6 @@ inner join tb_member_detail d
         where mem_no=#{friendsNo} and
                   friends_no=#{memNo}
     </update>
+    
 </mapper>
 

@@ -44,7 +44,7 @@
         <div class="section section-basic">
         </div>
         <div class="section section-navbars cd-section" id="navigation">
-            <div class="container" style="background: gray; position: relative; max-width: 851px;">
+            <div class="container" style="background: white; position: relative; max-width: 851px;">
            		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
            		<c:import url="../include/memberTop.jsp"></c:import>
            		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
@@ -272,8 +272,6 @@
     			});
             }
         function makeReqList(){
-        	console.log("메이크 요청 함수 실행");
-      /*       var memNo = 1 ;// session에서 가져오게 수정 필요 */
  		   $.ajax({
  				url: "/bitbook/friedns/reqList",
  				type: "POST",
@@ -283,19 +281,19 @@
  				dataType: "json",
  				success: function (data) {
  					var html = "";
- 					console.dir(data);
  					if(data.list.length==0||memNo!=${sessionScope.user.memNo}){
+ 						$("#reqFriends").css("display","none");
  						return;
  					}
 					$("#reqFriends").css("display","block");
  					for(key in data.list){
  						//console.log(data.list[key].memNo);
- 						html+='<form id="reqForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+ 						html+='<form id="reqForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
  						html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
- 						html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
- 						html+='	class="f_img rounded-circle img-fluid"></a> ';
+ 						html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+ 						html+='	class="f_img rounded-circle img-fluid"> ';
  						html+='		<div class="login"></div>';
- 						html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+ 						html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
  						html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
  						html+='	<button onclick="javascript:agreeReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-success" style="position: absolute;right:60px;top: 30px;" type="button">수락</button>';
  						html+='	<button onclick="javascript:rejectReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">거절</button></div>';
@@ -309,15 +307,14 @@
       
         function makeNewList (data){
 			var html = "";
-			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
-				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
-				html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
-				html+='	class="f_img rounded-circle img-fluid"></a> ';
+				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+				html+='	class="f_img rounded-circle img-fluid"> ';
 				html+='		<div class="login"></div>';
-				html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
 				if(data.reqList.indexOf(data.list[key].memNo)!=-1){
 					html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
@@ -334,12 +331,12 @@
 			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
-				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
-				html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
-				html+='	class="f_img rounded-circle img-fluid"></a> ';
+				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+				html+='	class="f_img rounded-circle img-fluid"> ';
 				html+='		<div class="login"></div>';
-				html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
 				if(memNo==${sessionScope.user.memNo}){
 					html+='	<button onclick="javascript:deleteFriends(' + data.list[key].friendsNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">친구 끊기</button>';
@@ -350,6 +347,7 @@
 				html+='</div></form>';
 			}
 			$("#myDiv").html(html);
+			$("#topFriends").html(data.list.length);
 			$("#myFriendsCnt").html(data.list.length+"명");
 		}
         function deleteFriends (friendsNo){

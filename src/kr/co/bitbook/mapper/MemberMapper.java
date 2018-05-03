@@ -3,6 +3,7 @@ package kr.co.bitbook.mapper;
 import java.util.List;
 
 import kr.co.bitbook.domain.Job;
+import kr.co.bitbook.domain.Member;
 import kr.co.bitbook.domain.MemberDetail;
 
 public interface MemberMapper {
@@ -26,4 +27,6 @@ public interface MemberMapper {
 	void updateInfoOpenRange(MemberDetail memberDetail);
 	void updateLogin(MemberDetail memberDetail);
 	void updateLogoutDate(MemberDetail memberDetail);
+	void updateProfile(Member member);
+	void updateCover(Member member);
 }

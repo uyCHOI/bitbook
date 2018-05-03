@@ -55,33 +55,44 @@
     position: relative;
     width: 408px;
 }">	
-				
-						<h4>내 소개</h4>
-						<div>
-							<a id="data" style="font-size:24px;">
-								 ${memberDetail.introduce}
-							</a>
-						</div>
-						<div>
-							<a id="data" style="font-size:24px;">
-								 ${memberDetail.introduce}
-							</a>
-						</div>
-						<div>
-							<a id="data" style="font-size:24px;">
-								 ${memberDetail.introduce}
-							</a>
-						</div>
-						<div>
-							<a id="data" style="font-size:24px;">
-								 ${memberDetail.introduce}
-							</a>
-						</div>
-						
+							<div id="outline">
+								<c:if test="${memberDetail.introduce ne null}">
+									<h4>내 소개</h4>
+									<div>
+										<a id="data" style="font-size:24px;">
+											 ${memberDetail.introduce}
+										</a>
+									</div>
+								</c:if>
+								<c:if test="${memberDetail.birth ne null}">
+									<h4>생일</h4>
+									<div >
+										<a id="data" style="font-size:24px;">
+											 ${memberDetail.birth.year+1900}-${memberDetail.birth.month+1}-${memberDetail.birth.day}
+										</a>
+									</div>
+								</c:if>
+								<c:if test='${memberDetail.blood eq null}'>
+									<h4>혈액형</h4>
+									<div  >
+										<a id="data" style="font-size:24px;">
+											 ${memberDetail.blood}
+										</a>
+									</div>
+								</c:if>
+								<c:if test='${memberDetail.phone eq null}'>
+									<h4>휴대폰</h4>
+									<div >
+										<a id="data" style="font-size:24px;">
+											 ${memberDetail.phone}
+										</a>
+									</div>
+								</c:if>
+							</div>
 						</ul>
 					</div>
-				</div>
-           		</div>
+			</div>
+          		</div>
 
                 <!-- 	            end menu -->
             <!--             navbar -->
@@ -133,7 +144,8 @@
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
     <script>
         $(document).ready(function() {
-			
+        	$(".navbar-nav li").attr("class","nav-item");
+        	$("nav-info").attr("class","nav-item active");
         	$.ajax({
         		url:"/bitbook/member/outline"
         	});
