@@ -20,6 +20,10 @@
 	background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%,
 		rgb(206, 132, 157) 100%) !important;
 }
+
+.navbar {
+	display: none !important;
+}
 </style>
 <link rel="apple-touch-icon"
 	href="../assets/img/kit/free/apple-icon.png">
@@ -36,7 +40,8 @@
 <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
 <!-- iframe removal -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 	$(function() {
 		$("#joinId").on("keyup", function() {
@@ -102,29 +107,44 @@
 		}
 
 	};
-	$(document).ready(function() {
-		$.ajax({
-			url : "/bitbook/jsp/login/test.jsp",
-			dataType:"json",
-			success : function(data) {
-				console.log(data.key);
-				$("#key").val(data.key);
-				$("#div01").html("<img src='/bitbook/captchaimg/"+data.captchaImageName+"'>");
-			}
-		});
-		$("#btn01").on("click",function(){
-			var form01Data = $("#form01").serialize();
-			console.log(form01Data);
-			$.ajax({
-				url : "/bitbook/jsp/login/test.jsp",
-				data : form01Data,
-				dataType:"json",
-				success : function(data) {
-					
-				}
-			});
-		});
-	});
+	$(document)
+			.ready(
+					function() {
+						$
+								.ajax({
+									url : "/bitbook/jsp/login/test.jsp",
+									dataType : "json",
+									success : function(data) {
+										console
+												.log("=========================")
+										console.dir(data);
+										console.log(data.key);
+										$("#key").val(data.key);
+										console
+												.log("=========================")
+										$("#div01")
+												.html(
+														"<img algin='center' src='/bitbook/captchaimg/"+data.captchaImageName+"'>");
+									}
+								});
+						$("#btn01").on("click", function() {
+							var form01Data = $("#form01").serialize();
+							console.log(form01Data);
+							$.ajax({
+								url : "/bitbook/jsp/login/test.jsp",
+								data : form01Data,
+								dataType : "json",
+								success : function(data) {
+									$("#msg").text("값이 맞아요");
+								},
+								error : function(request, status, error) {
+									$("#msg").text("값이 틀려요!");
+									// 실패 시 처리
+								},
+
+							});
+						});
+					});
 </script>
 </head>
 
@@ -133,74 +153,63 @@
 
 	<div class="main main-raised">
 		<div class="section section-basic" style="padding: 0;"></div>
-		<div class="section section-navbars cd-section" id="navigation"
-			style="padding: 0;">
-			<div class="container"></div>
-			<div class="section section-tabs">
+		<!-- 	<div class="section section-navbars cd-section" id="navigation"
+			style="padding: 0;"> -->
+		<div class="container"></div>
+		<!-- <div class="section section-tabs"> -->
+		<div class="container">
+			<div class="section section-signup page-header"
+				style="background-image: url('assets/img/kit/free/city.jpg'); height: auto;">
 				<div class="container">
-					<!--                nav tabs	             -->
-				</div>
-				<!-- 	            end nav tabs -->
-				<!--        end notifications -->
-				<!--         carousel  -->
-				<!--         end carousel -->
-				<div class="section section-signup page-header"
-					style="background-image: url('assets/img/kit/free/city.jpg');">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-4 ml-auto mr-auto">
-								<div class="card card-signup">
-									<form class="form" id="joinForm" onsubmit="return check()"
-										method="post"
-										action="${pageContext.request.contextPath}/bitbook/join">
-										<div class="card-header card-header-primary text-center">
-											<h4>Sign Up</h4>
+					<div class="row">
+						<div class="col-md-4 ml-auto mr-auto">
+							<div class="card card-signup">
+								<form class="form" id="joinForm" onsubmit="return check()"
+									method="post"
+									action="${pageContext.request.contextPath}/bitbook/join">
+									<div class="card-header card-header-primary text-center">
+										<h4>Sign Up</h4>
+									</div>
+									<div class="card-body">
+										<div class="input-group">
+											<span class="input-group-addon"> <i
+												class="material-icons">face</i>
+											</span> <input id="joinId" type="text" name="id"
+												class="form-control" placeholder="아이디">
+											<!-- <a id="test" href="">중복확인</a> -->
+											<div id="checkMsg"></div>
 										</div>
-										<div class="card-body">
-											<div class="input-group">
-												<span class="input-group-addon"> <i
-													class="material-icons">face</i>
-												</span> <input id="joinId" type="text" name="id"
-													class="form-control" placeholder="아이디">
-												<!-- <a id="test" href="">중복확인</a> -->
-												<div id="checkMsg"></div>
-											</div>
-											<div class="input-group">
-												<span class="input-group-addon"> <i
-													class="material-icons">lock_outline</i>
-												</span> <input type="password" id="joinPass" name="pass"
-													class="form-control" placeholder="비밀번호">
-											</div>
-											<div class="input-group">
-												<span class="input-group-addon"> <i
-													class="material-icons">lock_outline</i>
-												</span> <input type="password" id="joinPassRe" name="pass_repeat"
-													class="form-control" placeholder="비밀번호 재확인">
-											</div>
-											<div class="input-group">
-												<span class="input-group-addon"> <i
-													class="material-icons">face</i>
-												</span> <input type="text" name="name" id="joinName"
-													class="form-control" placeholder="이름">
-											</div>
-											<div class="input-group">
-												<span class="input-group-addon"> <i
-													class="material-icons">email</i>
-												</span> <input type="text" id="joinEmail" name="email"
-													class="form-control" placeholder="Email...">
-											</div>
-					
-				<!-- 						<div>
-												<div id="div01" style="background: red; width:100px; height:100px;"></div>
-												<form id="form01">
-													<input type="hidden" id="key" name="key"> 
-													<input type="text" class="form-control"   name="value">
-													<button type="button" id="btn01">전송</button>
-												</form>
+										<div class="input-group">
+											<span class="input-group-addon"> <i
+												class="material-icons">lock_outline</i>
+											</span> <input type="password" id="joinPass" name="pass"
+												class="form-control" placeholder="비밀번호">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon"> <i
+												class="material-icons">lock_outline</i>
+											</span> <input type="password" id="joinPassRe" name="pass_repeat"
+												class="form-control" placeholder="비밀번호 재확인">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon"> <i
+												class="material-icons">face</i>
+											</span> <input type="text" name="name" id="joinName"
+												class="form-control" placeholder="이름">
+										</div>
+										<div class="input-group">
+											<span class="input-group-addon"> <i
+												class="material-icons">email</i>
+											</span> <input type="text" id="joinEmail" name="email"
+												class="form-control" placeholder="Email...">
+										</div>
 
+										<div class="input-group" style="margin-bottom: 30px;">
+											<div id="div01"
+												style="width: 200px; height: 100px; margin: auto;"></div>
 
-											</div> -->
-											<!-- If you want to add a checkbox to this form, uncomment this code
+										</div>
+										<!-- If you want to add a checkbox to this form, uncomment this code
 
               <div class="form-check">
                   <label class="form-check-label">
@@ -211,96 +220,108 @@
                       </span>
                   </label>
               </div> -->
-										</div>
 										<div class="card-footer justify-content-center">
-											<button>가입하기</button>
-											<a href="#pablo" class="btn btn-link btn-primary btn-lg">Get
-												Started</a>
+											<button class="btn btn-primary">가입하기</button>
+
 										</div>
+									</div>
+								</form>
+								<div class="input-group"
+									style="position: absolute; bottom: 13%;">
+
+									<form id="form01">
+										<input type="hidden" id="key" name="key"> <input
+											type="text" class="form-control" name="value">
+										<button type="button" id="btn01"
+											style="position: absolute; right: 0; top: 0;">전송</button>
+
 									</form>
+									<div id="msg"></div>
 								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12 text-center">
-					<a href="examples/signup-page.html"
-						class="btn btn-link btn-primary btn-lg" target="_blank">View
-						Signup Page</a>
-				</div>
-
 			</div>
-			<!-- Classic Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Modal title</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<i class="material-icons">clear</i>
-							</button>
-						</div>
-						<div class="modal-body">
-							<p>Far far away, behind the word mountains, far from the
-								countries Vokalia and Consonantia, there live the blind texts.
-								Separated they live in Bookmarksgrove right at the coast of the
-								Semantics, a large language ocean. A small river named Duden
-								flows by their place and supplies it with the necessary
-								regelialia. It is a paradisematic country, in which roasted
-								parts of sentences fly into your mouth. Even the all-powerful
-								Pointing has no control about the blind texts it is an almost
-								unorthographic life One day however a small line of blind text
-								by the name of Lorem Ipsum decided to leave for the far World of
-								Grammar.</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-link">Nice Button</button>
-							<button type="button" class="btn btn-danger btn-link"
-								data-dismiss="modal">Close</button>
-						</div>
+			<!-- 		<div class="col-md-12 text-center">
+				<a href="examples/signup-page.html"
+					class="btn btn-link btn-primary btn-lg" target="_blank">View
+					Signup Page</a>
+			</div> -->
+
+		</div>
+		<!-- Classic Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<i class="material-icons">clear</i>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Far far away, behind the word mountains, far from the
+							countries Vokalia and Consonantia, there live the blind texts.
+							Separated they live in Bookmarksgrove right at the coast of the
+							Semantics, a large language ocean. A small river named Duden
+							flows by their place and supplies it with the necessary
+							regelialia. It is a paradisematic country, in which roasted parts
+							of sentences fly into your mouth. Even the all-powerful Pointing
+							has no control about the blind texts it is an almost
+							unorthographic life One day however a small line of blind text by
+							the name of Lorem Ipsum decided to leave for the far World of
+							Grammar.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-link">Nice Button</button>
+						<button type="button" class="btn btn-danger btn-link"
+							data-dismiss="modal">Close</button>
 					</div>
 				</div>
 			</div>
-			<!--  End Modal -->
-			<footer class="footer ">
-				<div class="container">
+		</div>
+		<!--  End Modal -->
+		<footer class="footer ">
+			<div class="container">
 
-					<div class="copyright pull-right">
-						&copy;
-						<script>
-							document.write(new Date().getFullYear())
-						</script>
-						, made with <i class="material-icons">favorite</i> by <a
-							href="https://www.creative-tim.com" target="_blank">Creative
-							Tim</a> for a better web.
-					</div>
+				<div class="copyright pull-right">
+					&copy;
+					<script>
+						document.write(new Date().getFullYear())
+					</script>
+					, made with <i class="material-icons">favorite</i> by <a
+						href="https://www.creative-tim.com" target="_blank">Creative
+						Tim</a> for a better web.
 				</div>
-			</footer>
-			<!--   Core JS Files   -->
-			<script src="../assets/js/core/jquery.min.js"></script>
-			<script src="../assets/js/core/popper.min.js"></script>
-			<script src="../assets/js/bootstrap-material-design.js"></script>
-			<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-			<script src="../assets/js/plugins/moment.min.js"></script>
-			<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-			<script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-			<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-			<script src="../assets/js/plugins/nouislider.min.js"></script>
-			<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-			<script src="../assets/js/material-kit.js?v=2.0.2"></script>
-			<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-			<script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
-			<script>
-				$(document).ready(function() {
+			</div>
+		</footer>
+		<!--   Core JS Files   -->
+		<script src="../assets/js/core/jquery.min.js"></script>
+		<script src="../assets/js/core/popper.min.js"></script>
+		<script src="../assets/js/bootstrap-material-design.js"></script>
+		<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+		<script src="../assets/js/plugins/moment.min.js"></script>
+		<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+		<script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+		<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+		<script src="../assets/js/plugins/nouislider.min.js"></script>
+		<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+		<script src="../assets/js/material-kit.js?v=2.0.2"></script>
+		<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+		<script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
+		<script>
+			$(document).ready(function() {
 
-					//init DateTimePickers
-					materialKit.initFormExtendedDatetimepickers();
+				//init DateTimePickers
+				materialKit.initFormExtendedDatetimepickers();
 
-					// Sliders Init
-					materialKit.initSliders();
-				});
-			</script>
+				// Sliders Init
+				materialKit.initSliders();
+			});
+		</script>
 </body>
 
 </html>
