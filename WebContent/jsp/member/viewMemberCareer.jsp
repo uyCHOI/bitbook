@@ -14,7 +14,6 @@
     width: 360px;
 }
 </style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body class="index-page ">
 	
@@ -23,7 +22,7 @@
 		</div>
         <div class="section section-navbars cd-section" id="navigation">
             <div class="container" style=" position: relative; max-width: 851px;">
-           		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
+           		<div class="col-md-12" style="border: 1px solid black; height: auto; margin: 0 auto;">
            		
            		<c:import url="../include/memberTop.jsp"></c:import>
            		
@@ -37,21 +36,17 @@
     padding-top: 16px;"> 정보</p>
 					<div style="  position: relative;   ">
 							<ul class="nav   flex-column nav-pills nav-pills-icons" role="tablist" style="width: 242px;float: left">
-								<li class="nav-item"><a class="nav-link"
-									href="viewMemberOutline" role="tab" data-toggle="tab"
-									aria-selected="true"> 개요 </a></li>
+									<li class="nav-item"><a class="nav-link"
+									href="outline?memNo=${memberDetail.memNo }"> 개요 </a></li>
 								<li class="nav-item"><a class="nav-link active show"
-									href="viewMemberCareer" role="tab" data-toggle="tab"
-									aria-selected="false">경력 및 학력</a></li>
+									href="#"
+									>경력 및 학력</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberAddress" role="tab" data-toggle="tab"
-									aria-selected="true"> 거주했던 장소</a></li>
+									href="addr?memNo=${memberDetail.memNo }"> 거주했던 장소</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberContact" role="tab" data-toggle="tab"
-									aria-selected="true"> 연락처 및 기본 정보</a></li>
+									href="contact?memNo=${memberDetail.memNo }"> 연락처 및 기본 정보</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="viewMemberDetail" role="tab" data-toggle="tab"
-									aria-selected="true"> 자세한 내 소개</a></li>
+									href="introduce?memNo=${memberDetail.memNo }"> 자세한 내 소개</a></li>
 							</ul>
 							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
     min-height: 280px;
@@ -61,101 +56,92 @@
 }">	
 				
 						<h4>직장</h4>
-						<li id="li-career">
-						<button id="btn-career" type="button" class="btn btn-secondary" >
-							<i class="material-icons">create</i>
-							<span>직장 추가</span></button>
-						</li>
-						<div id="div-career" style="display: none">
-						<form id="careerForm" method='post' action='write' style="align-content: center">
-							<div class="form-group">
-								    <label for="exampleInputPassword1">회사이름</label>
-								    <input type="text" class="form-control" id="name" placeholder="회사이름">
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo }'>
+							<li id="li-career">
+							<button name="btn-career" type="button" class="btn btn-secondary" >
+								<i class="material-icons">create</i>
+								<span>직장 추가</span></button>
+							</li>
+							<div id="div-career" style="display: none">
+							<form id="careerForm" method='post' action='regiCareer' style="align-content: center">
+								<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
+								<div class="form-group">
+									    <label for="exampleInputPassword1">회사이름</label>
+									    <input type="text" class="form-control" name="jobName" placeholder="회사이름">
+								</div>
+								<div class="form-group">
+									    <label for="exampleInputPassword1">직위</label>
+									    <input type="text" class="form-control" name="jobPosition" placeholder="직위">
+								</div>
+								<div class="form-group">
+									    <label for="exampleInputPassword1">도시</label>
+									    <input type="text" class="form-control" name="jobCity" placeholder="도시">
+								</div>
+								<div class="form-group">
+									    <label for="exampleInputPassword1">설명</label>
+									    <input type="text" class="form-control" name="jobInfo" placeholder="설명">
+								</div>
+								<button type='submit' class="btn btn-success btn-sm">등록</button>
+								<button type='button' name="btn-career" class="btn btn-rose btn-sm">취소</button>
+							</form>
 							</div>
-							<div class="form-group">
-								    <label for="exampleInputPassword1">직위</label>
-								    <input type="text" class="form-control" id="name" placeholder="직위">
-							</div>
-							<div class="form-group">
-								    <label for="exampleInputPassword1">도시</label>
-								    <input type="text" class="form-control" id="name" placeholder="도시">
-							</div>
-							<div class="form-group">
-								    <label for="exampleInputPassword1">설명</label>
-								    <input type="text" class="form-control" id="name" placeholder="설명">
-							</div>
-							<button type='button' class="btn btn-success btn-sm">등록</button>
-							<button type='button' class="btn btn-rose btn-sm">취소</button>
-						</form>
-						</div>
+						</c:if>
 						<hr>
-						<li id="careerLi" class="dropdown nav-item">
-						<div  style="float:left;">
-						<a id="data" style="font-size:24px;">회사이름</a>
-						<p>회사설명 주저리주저리</p>
-						</div>
-						<a style="float:left" href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> 옵션 </a>
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">수정</a> 
-							<a href="#" class="dropdown-item">삭제</a>
-						</div></li>
-						<hr>
-						<h4>전문 기술</h4>
-						<li><button id="btn-skill" type="button" class="btn btn-secondary">
-							<i class="material-icons">create</i><span>전문 기술 추가</span></button>
-						</li>
-						<div id="div-skill" style="display:none;">
-						<form method='post' action='write' style="align-content: center">
-							<div class="form-group">
-								    <label for="exampleInputPassword1">전문 기술</label>
-								    <input type="text" class="form-control" id="name" placeholder="전문 기술">
+						<c:forEach var="j" items='${jList}'>
+							<li id="careerLi${j.jobNo}" class="dropdown nav-item">
+							<div  style="float:left;">
+							<a id="data" style="font-size:24px;">${j.jobName}</a>
+							<p>${j.jobInfo} ${j.jobPosition} ${j.jobCity}</p>
 							</div>
-							<button type='button' class="btn btn-success btn-sm">등록</button>
-							<button type='button' class="btn btn-rose btn-sm">취소</button>
-						</form>
-						</div>
+							<c:if test='${memberDetail.memNo eq sessionScope.user.memNo }'>
+								<a style="float:left" href="#"
+								class="dropdown-toggle nav-link" data-toggle="dropdown"
+								aria-expanded="false"> 옵션 </a>
+								<div class="dropdown-menu">
+									<a href='javascript:updateCareer(${j.jobNo})' class="dropdown-item">수정</a> 
+									<a href='deltCareer?jobNo=${j.jobNo}&memNo=${memberDetail.memNo}' class="dropdown-item">삭제</a>
+								</div>
+							</c:if>
+							</li>
+						</c:forEach>
 						<hr>
-						<li class="dropdown nav-item">
-						<div  style="float:left;">
-						<a id="data" style="font-size:24px;">전문 기술 등 등 등</a>
-						</div>
-						<a style="float:left" href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> 옵션 </a>
-						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">수정</a> 
-							<a href="#" class="dropdown-item">삭제	</a>
-						</div></li>
 						<h4>대학교</h4>
-						<li><button id="btn-college" type="button" class="btn btn-secondary" >
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.college eq null || memberDetail.college eq ""}'>
+						<li><button  name="btn-college" type="button" class="btn btn-secondary" >
 							<i class="material-icons">create</i><span>대학교 추가</span></button>
 						</li>
 						<hr>
 						<div id="div-college" style="display:none;">
-						<form method='post' action='write' style="align-content: center">
+						<form method='post' action='updtCollege' style="align-content: center">
+							<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
 							<div class="form-group">
 								    <label for="exampleInputPassword1">대학교</label>
-								    <input type="text" class="form-control" id="name" placeholder="대학교">
+								    <input type="text" class="form-control" name="college" placeholder="대학교">
 							</div>
-							<button type='button' class="btn btn-success btn-sm">등록</button>
-							<button type='button' class="btn btn-rose btn-sm">취소</button>
+							<button type='submit' class="btn btn-success btn-sm">변경 내용 저장하기</button>
+							<button type="button" name="btn-college" class="btn btn-rose btn-sm">취소</button>
 						</form>
 						</div>
-						<li class="dropdown nav-item">
+						</c:if>
+						<li id="collegeLi" class="dropdown nav-item">
 						<div  style="float:left;">
-						<a id="data" style="font-size:24px;">비트대학교</a>
+						<a id="data" style="font-size:24px;">
+							 ${memberDetail.college}
+							<c:if test='${memberDetail.college eq null}'>
+								<h5>표시할 대학교 정보가 없습니다.</h5>
+							</c:if>
+						</a>
 						</div>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.college ne null}'>
 						<a style="float:left" href="#"
 						class="dropdown-toggle nav-link" data-toggle="dropdown"
 						aria-expanded="false"> 옵션 </a>
 						<div class="dropdown-menu">
-							<a href="#" class="dropdown-item">수정</a> 
-							<a href="#" class="dropdown-item">삭제	</a>
-						</div></li>
-						
-						
+							<a href="javascript:formCollege()" class="dropdown-item">수정</a> 
+							<a href='updtCollege?memNo=${memberDetail.memNo}&college=' class="dropdown-item">삭제</a>
+						</div>
+						</c:if>
+						</li>
 						
 						
 						</ul>
@@ -169,61 +155,65 @@
             </div>
             <!-- end navbar  -->
         </div>
-        
-    <!-- Classic Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-link">Nice Button</button>
-                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--  End Modal -->
-    <footer class="footer ">
-        <div class="container">
-
-        </div>
-    </footer>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="../assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="../assets/js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="../assets/js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
+          <!--   Core JS Files   -->
     <script>
         $(document).ready(function() {
 
         
         });
-        
-        $("#btn-career").click(function(){
+        function formCollege(){
+				var html = "";
+				html+='<div id="div-college" style="display:block;">                                         ';
+				html+='<form method="post" action="updtCollege" style="align-content: center">              ';
+				html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />             ';
+				html+='	<div class="form-group">                                                            ';
+				html+='		    <label for="exampleInputPassword1">대학교</label>                           ';
+				html+='		    <input type="text" class="form-control" name="college" placeholder="${memberDetail.college}">';
+				html+='	</div>                                                                              ';
+				html+='	<button type="submit" class="btn btn-success btn-sm">변경 내용 저장하기</button>    ';
+				html+='</form>                                                                              ';
+				html+='</div>                                                                               ';
+	        	$('#collegeLi').html(html);                                                            
+        }
+        function updateCareer(jobNo){
+        	$.ajax({
+        		url:"/bitbook/member/formCareer",
+        		data:"jobNo="+jobNo,
+        		dataType: "json",
+        		success: function(data){
+					var html = "";
+					html+='<div id="div-career" style="display: block">';
+					html+='		<form id="careerForm" method="post" action="updtCareer" style="align-content: center">';
+					html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />                ';
+					html+='	<input type="hidden" name="jobNo" value="'+jobNo+'" />                 ';
+					html+='	<div class="form-group">                                                                ';
+					html+='		    <label for="exampleInputPassword1">회사이름</label>                             ';
+					html+='		    <input type="text" class="form-control" name="jobName"  placeholder="'+data.jobName+'">  ';
+					html+='	</div>                                                                                  ';
+					html+='	<div class="form-group">                                                                ';
+					html+='		    <label for="exampleInputPassword1">직위</label>                                 ';
+					html+='		    <input type="text" class="form-control" name="jobPosition" placeholder="'+data.jobPosition+'">  ';
+					html+='	</div>                                                                                  ';
+					html+='	<div class="form-group">                                                                ';
+					html+='		    <label for="exampleInputPassword1">도시</label>                                 ';
+					html+='		    <input type="text" class="form-control" name="jobCity"  placeholder="'+data.jobCity+'">      ';
+					html+='	</div>                                                                                  ';
+					html+='	<div class="form-group">                                                                ';
+					html+='		    <label for="exampleInputPassword1">설명</label>                                 ';
+					html+='		    <input type="text" class="form-control" name="jobInfo" placeholder="'+data.jobInfo+'">      ';
+					html+='	</div>                                                                                  ';
+					html+='	<button type="submit" class="btn btn-success btn-sm">변경한 내용 저장하기</button>                      ';
+					html+='</form>                                                                                  ';
+					html+='</div>                                                                                  ';
+		        	$('#careerLi'+jobNo).html(html); 
+        		}
+        	});
+        }
+        $('button[name="btn-career"]').click(function(){
         	$("#div-career").stop().toggle();
         });
-        $("#btn-skill").click(function(){
-        	$("#div-skill").stop().toggle();
-        });
-        $("#btn-college").click(function(){
+        
+        $('button[name="btn-college"]').click(function(){
         	$("#div-college").stop().toggle();
         });
     </script>

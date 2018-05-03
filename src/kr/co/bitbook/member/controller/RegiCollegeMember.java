@@ -12,13 +12,19 @@ import kr.co.bitbook.common.db.MyAppSqlConfig;
 import kr.co.bitbook.domain.Job;
 import kr.co.bitbook.mapper.MemberMapper;
 
-@WebServlet("/member/deltCareer")
-public class DeltCareerMember extends HttpServlet {
+@WebServlet("/member/regiCareer")
+public class RegiCollegeMember extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).deleteJob(Integer.parseInt(request.getParameter("jobNo")));
+		
+		Job job = new Job();
+		job.setMemNo(Integer.parseInt(request.getParameter("memNo")));
+		job.setJobName(request.getParameter("jobName"));
+		job.setJobCity(request.getParameter("jobCity"));
+		job.setJobPosition(request.getParameter("jobPosition"));
+		job.setJobInfo(request.getParameter("jobInfo"));
+		MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).insertJob(job);
 		response.sendRedirect("career?memNo="+Integer.parseInt(request.getParameter("memNo")));
 	}
 	

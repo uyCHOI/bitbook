@@ -18,17 +18,14 @@ import kr.co.bitbook.common.db.MyAppSqlConfig;
 import kr.co.bitbook.domain.Member;
 import kr.co.bitbook.mapper.FriendsMapper;
 
-@WebServlet("/friedns/myList")
-public class MyListFriendsController extends HttpServlet{
+@WebServlet("/friedns/myList2")
+public class MyListFriendsController2 extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FriendsMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(FriendsMapper.class);
 		request.setCharacterEncoding("utf-8");
-		Member member = new Member();
-		member.setMemName(request.getParameter("name"));
-		member.setMemNo(Integer.parseInt(request.getParameter("memNo")));
-		List<Member> list = mapper.selectSearchMyFriends(member);
+		List<Member> list = mapper.selectMyFriends(Integer.parseInt(request.getParameter("memNo")));
 		
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);
