@@ -8,14 +8,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!-- Favicons -->
     <style>
-    .purple-filter:after {
-    background: rgba(101, 47, 142, 0.64);
-    background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
-    .bmd-form-group { display: inline-block !important; padding-top: 0;}
-    
-    </style>
+.purple-filter:after {
+	background: rgba(101, 47, 142, 0.64);
+	background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%,
+		rgba(125, 46, 185, 0.45) 100%);
+	background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%,
+		rgba(125, 46, 185, 0.45) 100%);
+	background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%,
+		rgb(206, 132, 157) 100%) !important; . bmd-form-group { display :
+	inline-block !important;
+	padding-top: 0;
+}
+
+.loading_img {
+	position: fixed;
+	z-index: 10;
+	display: none;
+}
+
+#loading_img {
+	width: 100px;
+	height: 100px;
+}
+
+#back_ground_black3 {
+	background-color: black;
+	z-index: 3;
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	display: none;
+}
+</style>
     <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">
     <link rel="icon" href="../assets/img/kit/free/favicon.png">
     <title>
@@ -44,7 +70,7 @@
         <div class="section section-basic">
         </div>
         <div class="section section-navbars cd-section" id="navigation">
-            <div class="container" style="background: gray; position: relative; max-width: 851px;">
+            <div class="container" style="background: white; position: relative; max-width: 851px;">
            		<div class="col-md-12" style="border: 1px solid black; height: 1151px; margin: 0 auto;">
            		<c:import url="../include/memberTop.jsp"></c:import>
            		<div class="col-md-12" style="padding-left:0; padding-right:0;       border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
@@ -53,9 +79,9 @@
 				style="position: relative; max-width: 851px; padding-left: 0; padding-right: 0;">
 				<div class="row"
 						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
-						<div class="col-md-12"
-							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
-							<div id="reqFriends" class="friendList" style="display:none">
+						<div id="reqFriends" class="col-md-12"
+							style="height: 100%; display:none; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
+							<div  class="friendList" >
 								<div class="f_title col-md-12" style="height: 30px;">
 								<h5><span id="reqCnt"></span>개의 친구요청에 답하기</h5>
 								</div>
@@ -75,7 +101,7 @@
 						</div>
 					<div class="row"
 						style="width: 100%; height: 71%; position: relative; margin-right: 0; margin-left:0; ">
-						<div class="col-md-6"
+						<div id="leftFriends" class="col-md-6"
 							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList">
 								<div class="f_title col-md-12" style="height: 100px;">
@@ -108,8 +134,8 @@
 							</div>
 						</div>
 						<!-- 새로운 친구 등록 하기  -->
-						<div class="col-md-6"
-							style="height: 100%; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
+						<div id="rightFriends" class="col-md-6"
+							style="height: 100%; display:block; overflow: auto; background: #fff; top: 9%; right: 0; position: relative; width: 100%; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList">
 								<div class="f_title col-md-12" style="height: 100px;">
 								<h5>새로운 친구들<span id="newFriendsCnt" style="margin-left:5px;">명</span></h5>
@@ -171,6 +197,13 @@
             </div>
         </div>
     </div>
+    <!-- 로딩 
+    <div id="back_ground_black3">
+    <div class="loading_img">
+        <img id="loading_img" src="/bitbook/jsp/main/loading.gif"/>
+    </div>
+	</div> 
+	-->
     <!--  End Modal -->
     <footer class="footer ">
         <div class="container">
@@ -193,16 +226,48 @@
   <!--   Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script> 
     <script>
+    	var memNo = ${member.memNo};           // session에서 가져오게 수정 필요
+        var newCnt=10;
+    	var myCnt=10;
         $(document).ready(function() {
-
-            //init DateTimePickers
-           // materialKit.initFormExtendedDatetimepickers();
-
-            // Sliders Init
-            //materialKit.initSliders();
+	
             makeReqList();
-             var memNo = 1 ;// session에서 가져오게 수정 필요
-		   $.ajax({
+            
+            $("#newDiv").scroll(function() {
+                 var maxHeight = this.scrollHeight;
+                 var currentScroll =  this.scrollTop; /* + $("#newDiv").height() */ ;
+                if (maxHeight <= currentScroll+620) {
+                	newCnt +=5;
+                	console.log("이걸 타나")
+                	$.ajax({ 
+                		url:"/bitbook/friedns/newList",
+                		data:"name="+$("#newInput")[0].value,
+                		dataType:"json",
+                		success:function(data){
+                			makeNewList(data);
+                		}
+                	}); 
+                } 
+              });
+            $("#myDiv").scroll(function() {
+                 var maxHeight = this.scrollHeight;
+                 var currentScroll =  this.scrollTop; /* + $("#newDiv").height() */ ;
+                if (maxHeight <= currentScroll+620) {
+                	myCnt +=5;
+                	console.log("이걸 타나")
+                	$.ajax({ 
+                		url:"/bitbook/friedns/myList",
+                		data:"name="+$("#myInput")[0].value,
+                		dataType:"json",
+                		success:function(data){
+                			makeMyList(data);
+                		}
+                	}); 
+                } 
+              });
+            
+            
+	   $.ajax({
 				url: "/bitbook/friedns/myList",
 				type: "POST",
 				data: {
@@ -217,11 +282,10 @@
         });
         
         $("#newSearch").click(function(){ 
-           	e.preventDefault();   	
-        
+           	e.preventDefault();   	        
         });
         $("#myInput").keyup(function(e){ 
-            var memNo = 1 ;// session에서 가져오게 수정 필요
+          	myCnt=10;
  		   $.ajax({
  				url: "/bitbook/friedns/myList",
  				type: "POST",
@@ -236,6 +300,7 @@
  			});	        
         });
         $("#newInput").keyup(function(e){
+        	newCnt=10;
         	console.dir($("#newInput"));
         	console.log($("#newInput")[0].value);
         	$.ajax({ 
@@ -249,7 +314,7 @@
         	
         });
         function agreeReq (friendsNo){
-   		   var memNo = 1 ;// session에서 가져오게 수정 필요
+   		 /*   var memNo = 1 ;// session에서 가져오게 수정 필요 */
    		   $.ajax({
    				url: "/bitbook/friedns/agreReq",
    				type: "POST",
@@ -261,7 +326,7 @@
    			});
            }
         function rejectReq (friendsNo){
-    		   var memNo = 1 ;// session에서 가져오게 수정 필요
+    	/* 	   var memNo = 1 ;// session에서 가져오게 수정 필요 */
     		   $.ajax({
     				url: "/bitbook/friedns/rejectReq",
     				type: "POST",
@@ -273,8 +338,6 @@
     			});
             }
         function makeReqList(){
-        	console.log("메이크 요청 함수 실행");
-            var memNo = 1 ;// session에서 가져오게 수정 필요
  		   $.ajax({
  				url: "/bitbook/friedns/reqList",
  				type: "POST",
@@ -284,18 +347,23 @@
  				dataType: "json",
  				success: function (data) {
  					var html = "";
- 					console.dir(data);
- 					if(data.list!=null){
- 						$("#reqFriends").css("display","block");
+ 					if(data.list.length==0||memNo!=${sessionScope.user.memNo}){
+ 						$("#reqFriends").css("display","none");
+ 						return;
  					}
+					$("#reqFriends").css("display","block");
  					for(key in data.list){
  						//console.log(data.list[key].memNo);
- 						html+='<form id="reqForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+ 						html+='<form id="reqForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
  						html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
- 						html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
- 						html+='	class="f_img rounded-circle img-fluid"></a> ';
- 						html+='		<div class="login"></div>';
- 						html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+ 						html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+ 						html+='	class="f_img rounded-circle img-fluid"> ';
+ 						html+='		<div ';
+ 						if(data.list[key].login=='i'){
+ 							html+= ' style="background:green;" ';
+ 						}
+ 						html+='	class="login"></div>';
+ 						html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
  						html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
  						html+='	<button onclick="javascript:agreeReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-success" style="position: absolute;right:60px;top: 30px;" type="button">수락</button>';
  						html+='	<button onclick="javascript:rejectReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">거절</button></div>';
@@ -309,46 +377,72 @@
       
         function makeNewList (data){
 			var html = "";
+			var cnt=0;
 			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
-				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+				cnt++;
+				if(cnt==newCnt){
+					break;
+				}
+				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
-				html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
-				html+='	class="f_img rounded-circle img-fluid"></a> ';
-				html+='		<div class="login"></div>';
-				html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+				html+='	class="f_img rounded-circle img-fluid"> ';
+				html+='		<div ';
+				if(data.list[key].login=='i'){
+					html+= ' style="background:green;" ';
+				}
+				html+='	class="login"></div>';
+				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
 				if(data.reqList.indexOf(data.list[key].memNo)!=-1){
 					html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
-				}else{
+				}	
+				else{
 					html+='	<button onclick="javascript:insertReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청</button></div>';
 				}
 				html+='</form>';
 			}
+			
 			$("#newDiv").html(html);
 			$("#newFriendsCnt").html(data.list.length+"명");
 		}
         function makeMyList (data){
 			var html = "";
+			var cnt=0;
 			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
-				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="">';
+				cnt++;
+				if(cnt==newCnt){
+					break;
+				}
+				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
-				html+='<img 	src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"';
-				html+='	class="f_img rounded-circle img-fluid"></a> ';
-				html+='		<div class="login"></div>';
-				html+='		<p><a href=""><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+				html+='	class="f_img rounded-circle img-fluid"> ';
+				html+='		<div ';
+				if(data.list[key].login=='i'){
+					html+= ' style="background:green;" ';
+				}
+				html+='	class="login"></div>';
+				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
-				html+='	<button onclick="javascript:deleteFriends(' + data.list[key].friendsNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">친구 끊기</button></div>';
-				html+='</form>';
+				if(memNo==${sessionScope.user.memNo}){
+					html+='	<button onclick="javascript:deleteFriends(' + data.list[key].friendsNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">친구 끊기</button>';
+				}else{
+					$("#leftFriends").attr("class","col-md-12");
+					$("#rightFriends").css("display","none");
+				}
+				html+='</div></form>';
 			}
 			$("#myDiv").html(html);
+			$("#topFriends").html(data.list.length);
 			$("#myFriendsCnt").html(data.list.length+"명");
 		}
         function deleteFriends (friendsNo){
- 		   var memNo = 1 ;// session에서 가져오게 수정 필요
+ 		/*    var memNo = 1 ;// session에서 가져오게 수정 필요 */
  		   $.ajax({
  				url: "/bitbook/friedns/deleteFriends",
  				type: "POST",
@@ -364,7 +458,7 @@
  			});
          }
         function insertReq (friendsNo){
-		   var memNo = 1 ;// session에서 가져오게 수정 필요
+		/*    var memNo = 1 ;// session에서 가져오게 수정 필요 */
 		   $.ajax({
 				url: "/bitbook/friedns/insertReq",
 				type: "POST",
@@ -380,7 +474,7 @@
 			});
         }
         function deleteReq (friendsNo){
- 		   var memNo = 1 ;// session에서 가져오게 수정 필요
+ 		/*    var memNo = 1 ;// session에서 가져오게 수정 필요 */
  		   $.ajax({
  				url: "/bitbook/friedns/deleteReq",
  				type: "POST",
@@ -417,7 +511,21 @@
     	 return parseInt(diff/currYear)+"년 ";
      }
         	
-      
+     // 로딩 함수
+     // func 는 괄호 없이 함수명만 넣는다.
+     // time 는 로딩 지속시간을 넣는다.
+    function load(func,time,post_no){
+      $("#back_ground_black3").css({display:"block"});
+       let left = parseInt($("#back_ground_black3").css("width"))/2 - 50;
+       let top = parseInt($("#back_ground_black3").css("height"))/2 - 50;
+         $(".loading_img").css({display:"block","top":top,"left":left}) 
+         setTimeout(()=>{
+             $(".loading_img").css({display:"none"})
+             $("#back_ground_black3").css({display:"none"});
+         },time)
+         if(post_no==undefined) setTimeout(func,time);
+         else setTimeout(()=>(func(post_no)),time);
+     }
     </script>
 </body>
 

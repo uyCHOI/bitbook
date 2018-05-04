@@ -7,16 +7,24 @@ public class MemberDetail {
 	private char infoOpenRange;
 	private int jobNo;
 	private int	skill;
-	private int	uniNo;
+	private String college;
 	private String home;
 	private String phone;
 	private Date birth; 
 	private char gender;
 	private String blood; 
 	private String introduce;
-	private String nikname;
+	private String nickname;
 	private String coverPath;
 	private String profilePath;
+	private String addr;
+	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	public int getMemNo() {
 		return memNo;
 	}
@@ -41,11 +49,11 @@ public class MemberDetail {
 	public void setSkill(int skill) {
 		this.skill = skill;
 	}
-	public int getUniNo() {
-		return uniNo;
+	public String getCollege() {
+		return college;
 	}
-	public void setUniNo(int uniNo) {
-		this.uniNo = uniNo;
+	public void setCollege(String college) {
+		this.college = college;
 	}
 	public String getHome() {
 		return home;
@@ -83,11 +91,11 @@ public class MemberDetail {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	public String getNikname() {
-		return nikname;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNikname(String nikname) {
-		this.nikname = nikname;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getCoverPath() {
 		return coverPath;

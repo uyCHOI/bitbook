@@ -15,6 +15,7 @@
 		<typeAlias alias="gallery" type="kr.co.bitbook.domain.Gallery" />
 		<typeAlias alias="job" type="kr.co.bitbook.domain.Job" />
 		<typeAlias alias="member" type="kr.co.bitbook.domain.Member" />
+		<typeAlias alias="memberDetail" type="kr.co.bitbook.domain.MemberDetail" />
 		<typeAlias alias="notification" type="kr.co.bitbook.domain.Notification" />
 		<typeAlias alias="post" type="kr.co.bitbook.domain.Post" />
 		<typeAlias alias="likePost" type="kr.co.bitbook.domain.LikePost" />
@@ -44,6 +45,8 @@
 		<mapper resource="config/sqlmap/oracle/join.xml"/>
 		<mapper resource="config/sqlmap/oracle/login.xml"/>
 		<mapper resource="config/sqlmap/oracle/main.xml"/>
+		<mapper resource="config/sqlmap/oracle/member.xml"/> 
+		<mapper resource="config/sqlmap/oracle/notification.xml"/> 
 	</mappers>
 </configuration>
 

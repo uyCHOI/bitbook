@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -25,8 +26,12 @@ public class NewListFriendsController extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FriendsMapper mapper = MyAppSqlConfig.getSqlSession().getMapper(FriendsMapper.class);
 		request.setCharacterEncoding("utf-8");
-		List<Member> list = mapper.selectSearchFriends(request.getParameter("name"));
-		//세션에서 id값 넣기
+		
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("user");
+		member.setMemName(request.getParameter("name"));
+		
+		List<Member> list = mapper.selectSearchFriends(member);
 		List<Integer> reqList = mapper.selectReqFriends(1);
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);

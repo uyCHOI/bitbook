@@ -11,5 +11,10 @@ public interface GalleryMapper {
 	int deleteGallery(int galleryNo);
 	void insertGallery(Gallery g);
 
+	//첨부파일
+	
+	void insertFileGroup(File file);
+	void insertFile(File file);
+	List<File> selectBoardFileByNo(int no);
 	
 }

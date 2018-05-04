@@ -11,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.google.gson.Gson;
 
@@ -30,8 +32,12 @@ public class DeltReqFriendsController extends HttpServlet{
 		friends.setMemNo(Integer.parseInt(request.getParameter("memNo")));
 		friends.setFriendsNo(Integer.parseInt(request.getParameter("friendsNo")));
 		mapper.deleteReqFriends(friends);
-		List<Member> list = mapper.selectSearchFriends(request.getParameter("name"));
-		//세션에서 id값 넣기
+		
+		HttpSession session = request.getSession();
+		Member member = (Member)session.getAttribute("user");
+		member.setMemName(request.getParameter("name"));
+		List<Member> list = mapper.selectSearchFriends(member);
+		
 		List<Integer> reqList = mapper.selectReqFriends(Integer.parseInt(request.getParameter("memNo")));
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);

@@ -1,234 +1,246 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!-- Favicons -->
-    <style>
-    .purple-filter:after {
-    background: rgba(101, 47, 142, 0.64);
-    background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
-    
-    </style>
-    <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">
-    <link rel="icon" href="../assets/img/kit/free/favicon.png">
-    <title>
-        Material Kit by Creative Tim
-    </title>
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
-    <!-- Documentation extras -->
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
-    <!-- iframe removal -->
+<style>
+	a #data:hover{
+		
+	}
+	hr{
+    border: 1px solid;
+    background color: #90949c;
+    width: 360px;
+}
+</style>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+
 </head>
-
 <body class="index-page ">
-	<nav class="navbar fixed-top navbar-expand-lg " color-on-scroll="100"
-		id="sectionsNav" style="position: fixed;">
-		<div class="container">
-			<div class="navbar-translate">
-				<a class="navbar-brand" href="../main/main.jsp" style="color:#fff;">Bit book </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav ml-auto">
-
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> <span
-							class="glyphicon glyphicon-user">홍길동</span>
-							<div class="ripple-container"></div></a></li>
-					<li class="dropdown nav-item"><a href="#"
-						class="dropdown-toggle nav-link" data-toggle="dropdown"
-						aria-expanded="false"> <i class="material-icons">apps</i> 알림
-							<div class="ripple-container"></div></a>
-						<div class="dropdown-menu dropdown-with-icons">
-							<a href="./index.html" class="dropdown-item"> <i
-								class="material-icons">layers</i>친구로 부터 메세지가 도착했습니다.
-							</a> <a
-								href="http://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html"
-								class="dropdown-item"> <i class="material-icons">content_paste</i>
-								친구 신청 되었습니다.
-							</a>
-						</div></li>
-											<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 친구 찾기
-							<div class="ripple-container"></div>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 로그인
-							<div class="ripple-container"></div>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-		</div>
-	</nav>
+	
     <div class="main main-raised">
         <div class="section section-basic">
-
-        </div>
+		</div>
         <div class="section section-navbars cd-section" id="navigation">
-            <div class="container" style="background: gray; position: relative; max-width: 851px;">
-           		<div class="col-md-12" style="border: 1px solid black; height: 875px; margin: 0 auto;">
-           			개인정보
-           		<div style="border: 1px solid black; height: 200px; margin: 0 auto; position: relative;">상단 사진 커버 이름
-           		<div style="border: 1px solid black;  width:140px; height: 140px; overflow: visible; margin-left: 20px;">프로필 사진</div>
-           		<nav class="navbar navbar-expand-lg navbar-light bg-primary" style="height: 48px;">
-					  <div class="container">
-					    <a class="navbar-brand" >홍길동</a>
-					    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					      <span class="navbar-toggler-icon"></span>
-					    </button>
-					    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-					      <ul class="navbar-nav">
-					        <li class="nav-item active">
-					          <a class="nav-link" href="../main/main.jsp">Home <span class="sr-only">(current)</span></a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="infoMember.jsp">정보</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="#">친구</a>
-					        </li>
-					        <li class="nav-item">
-					          <a class="nav-link" href="../gallery/list-pic.jsp">사진</a>
-					        </li>
-					         <li class="nav-item">
-					          <a class="nav-link" href="#" style="margin-left: 137px;">친구 끊기</a>
-					        </li>
-					      </ul>
-					    </div>
-					  </div>
-					</nav>
-           		</div>
-           		<div class="col-md-12" style="border: 1px solid black; height: 600px; margin: 30px 0px; position: relative;">
+            <div class="container" style=" position: relative; max-width: 851px;">
+           		<div class="col-md-12" style="border: 1px solid black; height: auto; margin: 0 auto;">
+           		
+           		<c:import url="../include/memberTop.jsp"></c:import>
+           		
+           		
+           		<div class="col-md-12" style="border: 1px solid black;min-height:868px; height: auto; margin: 30px 0px; position: relative;">
 					<p class="nav-link" style="color :#9c27b0; margin:0 12px 5px; padding:0; font-weight:700; font-size: 20px;margin-top: 10px;    background: #f6f7f9;
     border-bottom: 1px solid #d3d6db;
     border-radius: 2px 2px 0 0;
     margin-bottom: 15px;
     min-height: 66px;
     padding-top: 16px;"> 정보</p>
-					<div style="    position: relative;
-    ">
-							<ul class="nav   flex-column" role="tablist" style="width: 242px;float: left">
+					<div style="  position: relative;   ">
+							<ul class="nav   flex-column nav-pills nav-pills-icons" role="tablist" style="width: 242px;float: left">
+								<li class="nav-item"><a class="nav-link"
+									href="outline?memNo=${memberDetail.memNo }"> 개요 </a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="career?memNo=${memberDetail.memNo }"
+									>경력 및 학력</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="addr?memNo=${memberDetail.memNo }"> 거주했던 장소</a></li>
 								<li class="nav-item"><a class="nav-link active show"
-									href="#dashboard-1" role="tab" data-toggle="tab"
-									aria-selected="true"> 개요 </a></li>
+									href="#"> 연락처 및 기본 정보</a></li>
 								<li class="nav-item"><a class="nav-link"
-									href="#dashboard-2" role="tab" data-toggle="tab"
-									aria-selected="false">경력 및 학력</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="#dashboard-3" role="tab" data-toggle="tab"
-									aria-selected="true"> 거주했던 장소</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="#dashboard-4" role="tab" data-toggle="tab"
-									aria-selected="true"> 연락처 및 기본 정보</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="#dashboard-5" role="tab" data-toggle="tab"
-									aria-selected="true"> 가족 및 결혼/연애 상태</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="#dashboard-6" role="tab" data-toggle="tab"
-									aria-selected="true"> 자세한 내 소개</a></li>
-								<li class="nav-item"><a class="nav-link"
-									href="#dashboard-7" role="tab" data-toggle="tab"
-									aria-selected="true"> 중요 이벤트 </a></li>
+									href="introduce?memNo=${memberDetail.memNo }"> 자세한 내 소개</a></li>
 							</ul>
 							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
     min-height: 280px;
     padding: 30px 24px 0;
     position: relative;
     width: 408px;
-}">
-							  <li class="nav-item">
-							    <a class="nav-link active" href="#">Active</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" href="#">Link</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" href="#">Link</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link disabled" href="#">Disabled</a>
-							  </li>
-							</ul>
-			
+}">	
+						<h4>연락처 정보</h4>
+						<hr>
+						<h4>휴대폰</h4>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.phone eq null || memberDetail.phone eq ""}'>
+						<li><button  name="btn-phone" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i><span>휴대폰 추가</span></button>
+						</li>
+						<hr>
+						<div id="div-phone" style="display:none;">
+						<form method='post' action='updtPhone' style="align-content: center">
+							<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
+							<div class="form-group">
+								    <label for="exampleInputPassword1">휴대폰</label>
+								    <input type="text" class="form-control" name="phone" placeholder="000-0000-0000">
+							</div>
+							<button type='submit' class="btn btn-success btn-sm">변경 내용 저장하기</button>
+							<button type="button" name="btn-phone" class="btn btn-rose btn-sm">취소</button>
+						</form>
 						</div>
+						</c:if>
+						<li id="phoneLi" class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">
+							 ${memberDetail.phone}
+							<c:if test='${memberDetail.phone eq null}'>
+								<h5>표시할 휴대폰 정보가 없습니다.</h5>
+							</c:if>
+						</a>
+						</div>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.phone ne null}'>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="javascript:formPhone()" class="dropdown-item">수정</a> 
+							<a href='updtPhone?memNo=${memberDetail.memNo}&phone=' class="dropdown-item">삭제</a>
+						</div>
+						</c:if>
+						</li>
+						<hr>
+						<h4>혈액형</h4>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.blood eq null || memberDetail.blood eq ""}'>
+						<li><button  name="btn-blood" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i><span>혈액형 추가</span></button>
+						</li>
+						<hr>
+						<div id="div-blood" style="display:none;">
+						<form method='post' action='updtBlood' style="align-content: center">
+							<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
+							<div class="form-group">
+								    <label for="exampleInputPassword1">혈액형</label>
+								    <input type="text" class="form-control" name="blood" placeholder="hr+ B">
+							</div>
+							<button type='submit' class="btn btn-success btn-sm">변경 내용 저장하기</button>
+							<button type="button" name="btn-blood" class="btn btn-rose btn-sm">취소</button>
+						</form>
+						</div>
+						</c:if>
+						<li id="bloodLi" class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">
+							 ${memberDetail.blood}
+							<c:if test='${memberDetail.blood eq null}'>
+								<h5>표시할 혈액형 정보가 없습니다.</h5>
+							</c:if>
+						</a>
+						</div>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.blood ne null}'>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="javascript:formBlood()" class="dropdown-item">수정</a> 
+							<a href='updtBlood?memNo=${memberDetail.memNo}&blood=' class="dropdown-item">삭제</a>
+						</div>
+						</c:if>
+						</li>
+						<hr>
+						<h4>생일</h4>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.birth eq null || memberDetail.birth eq ""}'>
+						<li><button  name="btn-birth" type="button" class="btn btn-secondary" >
+							<i class="material-icons">create</i><span>생일 추가</span></button>
+						</li>
+						<hr>
+						<div id="div-birth" style="display:none;">
+						<form method='post' action='updtBirth' style="align-content: center">
+							<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />
+							<div class="form-group">
+								    <label for="exampleInputPassword1">생일</label>
+								    <input type="date" class="form-control" name="birth" >
+							</div>
+							<button type='submit' class="btn btn-success btn-sm">변경 내용 저장하기</button>
+							<button type="button" name="btn-birth" class="btn btn-rose btn-sm">취소</button>
+						</form>
+						</div>
+						</c:if>
+						<li id="birthLi" class="dropdown nav-item">
+						<div  style="float:left;">
+						<a id="data" style="font-size:24px;">
+							<c:if test="${memberDetail.birth ne null}">
+							 ${memberDetail.birth.year+1900}-${memberDetail.birth.month+1}-${memberDetail.birth.day}
+							</c:if>
+							<c:if test='${memberDetail.birth eq null}'>
+								<h5>표시할 생일 정보가 없습니다.</h5>
+							</c:if>
+						</a>
+						</div>
+						<c:if test='${memberDetail.memNo eq sessionScope.user.memNo && memberDetail.birth ne null}'>
+						<a style="float:left" href="#"
+						class="dropdown-toggle nav-link" data-toggle="dropdown"
+						aria-expanded="false"> 옵션 </a>
+						<div class="dropdown-menu">
+							<a href="javascript:formBirth()" class="dropdown-item">수정</a> 
+							<a href='updtBirth?memNo=${memberDetail.memNo}&birth=' class="dropdown-item">삭제</a>
+						</div>
+						</c:if>
+						</li>
+
+
+						</ul>
+
+					</div>
 				</div>
            		</div>
-
-                <!-- 	            end menu -->
-            <!--             navbar -->
-            <div id="navbar">
-            </div>
-            <!-- end navbar  -->
         </div>
-        
-    <!-- Classic Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-link">Nice Button</button>
-                    <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--  End Modal -->
-    <footer class="footer ">
-        <div class="container">
-
-        </div>
-    </footer>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="../assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="../assets/js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="../assets/js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
+          
+          
     <script>
         $(document).ready(function() {
 
-            //init DateTimePickers
-            materialKit.initFormExtendedDatetimepickers();
-
-            // Sliders Init
-            materialKit.initSliders();
+        
         });
-    </script>
+        function formPhone(){
+			var html = "";
+			html+='<div id="div-phone" style="display:block;">                                         ';
+			html+='<form method="post" action="updtPhone" style="align-content: center">              ';
+			html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />             ';
+			html+='	<div class="form-group">                                                            ';
+			html+='		    <label for="exampleInputPassword1">연락처</label>                           ';
+			html+='		    <input type="text" class="form-control" name="phone" placeholder="${memberDetail.phone}">';
+			html+='	</div>                                                                              ';
+			html+='	<button type="submit" class="btn btn-success btn-sm">변경 내용 저장하기</button>    ';
+			html+='</form>                                                                              ';
+			html+='</div>                                                                               ';
+        	$('#phoneLi').html(html);                                                            
+    	}
+        function formBlood(){
+			var html = "";
+			html+='<div id="div-blood" style="display:block;">                                         ';
+			html+='<form method="post" action="updtBlood" style="align-content: center">              ';
+			html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />             ';
+			html+='	<div class="form-group">                                                            ';
+			html+='		    <label for="exampleInputPassword1">연락처</label>                           ';
+			html+='		    <input type="text" class="form-control" name="blood" placeholder="${memberDetail.blood}">';
+			html+='	</div>                                                                              ';
+			html+='	<button type="submit" class="btn btn-success btn-sm">변경 내용 저장하기</button>    ';
+			html+='</form>                                                                              ';
+			html+='</div>                                                                               ';
+        	$('#bloodLi').html(html);                                                            
+    	}
+        function formBirth(){
+			var html = "";
+			html+='<div id="div-birth" style="display:block;">                                        ';
+			html+='<form method="post" action="updtBirth" style="align-content: center">             ';
+			html+='	<input type="hidden" name="memNo" value="${sessionScope.user.memNo}" />          ';
+			html+='	<div class="form-group">                                                         ';
+			html+='		    <label for="exampleInputPassword1">생일</label>                          ';
+			html+='		    <input type="date" class="form-control" name="birth" >                   ';
+			html+='	</div>                                                                           ';
+			html+='	<button type="submit" class="btn btn-success btn-sm">변경 내용 저장하기</button> ';
+			html+='</form>                                                                           ';
+			html+='</div>                                                                            ';
+			$('#birthLi').html(html);                                                            
+    	}
+        $('button[name="btn-phone"]').click(function(){
+        	$("#div-phone").stop().toggle();
+        });
+        $('button[name="btn-blood"]').click(function(){
+        	$("#div-blood").stop().toggle();
+        });
+        $('button[name="btn-birth"]').click(function(){
+        	$("#div-birth").stop().toggle();
+        });
+
+		</script>
 </body>
 
 </html>

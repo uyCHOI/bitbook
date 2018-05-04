@@ -1,9 +1,20 @@
 /**
  * 
  */
+/*var memNo = ${sessionScope.memNo};
     $(document).ready(function () {
 
         // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
+    	var notCnt = 0;
+    	$.ajax({
+    		url:"/bitbook/notification/count",
+    		type"post",
+    		data:memNo,
+    		dataType:"json",
+    		success:function(data){
+    			console.dir(data);
+    		}
+    	});
         $('#noti_Counter')
             .css({ opacity: 0 })
             .text('7')              // ADD DYNAMIC VALUE (YOU CAN EXTRACT DATA FROM DATABASE OR XML).
@@ -39,4 +50,4 @@
         $('#notifications').click(function () {
             return false;       // DO NOTHING WHEN CONTAINER IS CLICKED.
         });
-    });
+    });*/

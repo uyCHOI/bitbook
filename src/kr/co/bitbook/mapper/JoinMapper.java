@@ -1,5 +1,10 @@
 package kr.co.bitbook.mapper;
 
-public interface JoinMapper {
+import kr.co.bitbook.domain.Member;
 
+public interface JoinMapper {
+	void insertJoin(Member member);
+	void insertDetail(int memNo);
+	int selectMemberCount(String id);
+	
 }

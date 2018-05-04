@@ -4,21 +4,18 @@
   <mapping path="/*" decorator="/jsp/template/decorator.jsp"/>
   <!-- sitemesh 적용 하기 싫을때 패턴 -->
  <!-- <mapping path="URL주소" exclude="true"/> --> 
-  <!-- sitemesh 적용 하기 싫을때 패턴 --> 
-  
+  <!-- sitemesh 적용 하기 싫을때 패턴 -->   
   <mapping path="/jsp/main/comment.jsp" exclude="true"/>
-<<<<<<< HEAD
-=======
   <mapping path="/jsp/main/post.jsp" exclude="true"/>
   <mapping path="/jsp/login/index.jsp" exclude="true"/>
   <mapping path="/jsp/login/join.jsp" exclude="true"/>
  <!--  <mapping path="/jsp/login/te.jsp" exclude="true"/>-->
   <mapping path="/jsp/login/test.jsp" exclude="true"/> 
+  <mapping path="/jsp/login/te.jsp" exclude="true"/> 
   <mapping path="/bitbook/login" exclude="true"/>
-  <mapping path="bitbook/joinForm" exclude="true"/>
-
->>>>>>> 07c3c3a41761e887580a4ddf39b1cf705e4357bd
-
+ <!--  <mapping path="/bitbook/joinForm" exclude="true"/> -->
+  <mapping path="/bitbook/join" exclude="true"/>
+  <mapping path="/bitbook/joinA" exclude="true"/>
 </sitemesh>
 
 

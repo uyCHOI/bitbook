@@ -12,6 +12,29 @@ public class Notification {
 	private String notMessage;
 	private Date notReadDate;
 	private int reqNo;
+	private String profilePath;
+	private String memName;
+	private char login;
+	
+	
+	public char getLogin() {
+		return login;
+	}
+	public void setLogin(char login) {
+		this.login = login;
+	}
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
+	public String getProfilePath() {
+		return profilePath;
+	}
+	public void setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
+	}
 	public int getNotNo() {
 		return notNo;
 	}
