@@ -1,6 +1,7 @@
 package kr.co.bitbook.main.controller;
 
 import kr.co.bitbook.common.db.MyAppSqlConfig;
+import kr.co.bitbook.domain.Notification;
 import kr.co.bitbook.domain.PostTag;
 import kr.co.bitbook.mapper.MainMapper;
 
@@ -23,7 +24,12 @@ public class TagController {
 				int responseNo = Integer.parseInt(resNo);
 				PostTag postTag = new PostTag().setPostNo(postNo)
 											   .setMemNo(responseNo);
+				Notification notification = new Notification().setNotType(2)
+						.setReqMemNo(memNo)
+						.setReqNo(postNo)
+						.setMemNo(responseNo);
 				mapper.insertPostTag(postTag);
+				mapper.insertNotification(notification);
 			}
 			return;
 		}

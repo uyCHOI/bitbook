@@ -5,7 +5,7 @@ import java.util.Date;
 public class Notification {
 	private int notNo;
 	private int memNo;
-	private String notType;
+	private int notType;
 	private Date notRegDate;
 	private char notState;
 	private int reqMemNo;
@@ -52,10 +52,11 @@ public class Notification {
 		this.memNo = memNo;
 		return this;
 	}
-	public String getNotType() {
+	public int getNotType() {
 		return notType;
 	}
 	public Notification setNotType(String notType) {
+	public Notification setNotType(int notType) {
 		this.notType = notType;
 		return this;
 	}

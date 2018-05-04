@@ -8,7 +8,7 @@
 	
 	<typeAliases>
 		<typeAlias alias="comment" type="kr.co.bitbook.domain.Comment" />
-		<typeAlias alias="commentLike" type="kr.co.bitbook.domain.CommentLike" />
+		<typeAlias alias="likeComment" type="kr.co.bitbook.domain.LikeComment" />
 		<typeAlias alias="commentTag" type="kr.co.bitbook.domain.CommentTag" />
 		<typeAlias alias="fileUpload" type="kr.co.bitbook.domain.FileUpload" />
 		<typeAlias alias="friends" type="kr.co.bitbook.domain.Friends" />
@@ -18,7 +18,7 @@
 		<typeAlias alias="memberDetail" type="kr.co.bitbook.domain.MemberDetail" />
 		<typeAlias alias="notification" type="kr.co.bitbook.domain.Notification" />
 		<typeAlias alias="post" type="kr.co.bitbook.domain.Post" />
-		<typeAlias alias="postLike" type="kr.co.bitbook.domain.PostLike" />
+		<typeAlias alias="likePost" type="kr.co.bitbook.domain.LikePost" />
 		<typeAlias alias="postTag" type="kr.co.bitbook.domain.PostTag" />
 		<typeAlias alias="searchFriends" type="kr.co.bitbook.domain.SearchFriends" />
 	</typeAliases>
