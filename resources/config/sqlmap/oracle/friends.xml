@@ -14,6 +14,7 @@
       <result column="profile_path" property="profilePath" />
       <result column="cover_path" property="coverPath" />
       <result column="login" property="login" />
+      <result column="acc_state" property="accState" />
    </resultMap>
 	
     <resultMap type="friends" id="friendsMap">
@@ -35,10 +36,16 @@ inner join tb_member_detail d
 
 
     <select id="selectSearchFriends" parameterType="member" resultMap="memberMap">
+<!--     select m.*, f.ACC_STATE
+  from tb_member m 
+  inner join tb_friends f
+  on m.MEM_NO=f.mem_no
+  where mem_name like '%'||#{memName}||'%' and mem_id!=#{memId} 
+   order by mem_name;-->
      select *
   from tb_member
   where mem_name like '%'||#{memName}||'%' and mem_id!=#{memId}
-  order by mem_name
+  order by mem_name 
     </select>
     
     <select id="selectSearchMyFriends" resultMap="memberMap" parameterType="member">
@@ -123,11 +130,26 @@ inner join tb_member_detail d
         where mem_no=#{friendsNo} and
                   friends_no=#{memNo}
     </update>
-    <update id="updateDenFriends" parameterType="friends">
+   <!--  <update id="updateDenFriends" parameterType="friends">
         update tb_friends set acc_state = 'D'
         where mem_no=#{friendsNo} and
                   friends_no=#{memNo}
-    </update>
+    </update> -->
+    <delete id="deleteFriedns" parameterType="friends">
+    	delete tb_firends 
+    	where mem_no=#{friendsNo} and
+                  friends_no=#{memNo}
+    </delete>
+    
+    
+    
+    <!-- 알림 -->
+    <insert id="insertNotiReq" parameterType="friends">
+    insert into TB_NOTIFICATION(
+	 not_no,mem_no,not_type,req_mem_no,not_message
+	)values(s_not_no.nextval,#{friendsNo},'친구를',#{memNo},'요청하였습니다.')
+    </insert>
+    
     
 </mapper>
 

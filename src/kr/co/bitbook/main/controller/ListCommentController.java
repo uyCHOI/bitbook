@@ -1,6 +1,8 @@
 package kr.co.bitbook.main.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,17 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import kr.co.bitbook.common.db.MyAppSqlConfig;
 import kr.co.bitbook.domain.Comment;
 import kr.co.bitbook.mapper.MainMapper;
 
-
-@WebServlet("/commentdelete")
-public class DeltCommentController extends HttpServlet{
+@WebServlet("/listcomment")
+public class ListCommentController extends HttpServlet{
 	private MainMapper mapper;
 	
 
-	public DeltCommentController() {
+	public ListCommentController() {
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(MainMapper.class);
 	}
 	
@@ -26,11 +29,8 @@ public class DeltCommentController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 		arg1.setContentType("application/json; charset=utf-8");
-		Comment comment = new Comment().setCommentNo(Integer.parseInt(arg0.getParameter("commentNo")))
-							           .setPostNo(Integer.parseInt(arg0.getParameter("postNo")));
-
-		mapper.deleteLikeCommentAll(comment);
-		mapper.deleteCommentNo(comment);
-		mapper.updatePostCCount(comment);
+		List<Comment> commentList = mapper.selectCommentList(Integer.parseInt(arg0.getParameter("postNo")));
+		PrintWriter out = arg1.getWriter();
+		out.println(new Gson().toJson(commentList));
 	}
 }

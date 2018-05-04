@@ -31,6 +31,7 @@ public class RegiReqFriendsController extends HttpServlet{
 		friends.setMemNo(Integer.parseInt(request.getParameter("memNo")));
 		friends.setFriendsNo(Integer.parseInt(request.getParameter("friendsNo")));
 		mapper.insertReqFriends(friends);
+		mapper.insertNotiReq(friends);
 		
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");

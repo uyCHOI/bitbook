@@ -14,10 +14,11 @@
       <result column="REQ_NO" property="reqNo" />
       <result column="PROFILE_PATH" property="profilePath" />
       <result column="mem_name" property="memName" />
+      <result column="login" property="login" />
    </resultMap>
 	
 	<select id="selectNoti" parameterType="int" resultMap="notificationMap">
-			select n.*,m.PROFILE_PATH,m.mem_name
+			select n.*,m.PROFILE_PATH,m.mem_name,m.login
 		from tb_notification n
     left join tb_member m 
     on n.REQ_MEM_NO = m.mem_no

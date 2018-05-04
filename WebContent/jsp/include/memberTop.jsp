@@ -74,9 +74,6 @@
 	 $("#coverSpan").css("opacity",0);
  });
  $(document).ready(function(){
-		console.log("테스트중입니다.");
-		console.log(${member.memNo});
-		console.log("테스트중입니다.");
 	   $.ajax({
 			url: "/bitbook/friedns/myList2",
 			type: "POST",

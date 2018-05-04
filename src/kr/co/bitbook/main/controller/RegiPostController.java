@@ -78,11 +78,6 @@ public class RegiPostController extends HttpServlet{
 			}
 		}
 		
-
-		
-		
-		
-		
 		//게시글 등록
 		Post post = new Post().setPostContent(mRequest.getParameter("content"))
 							  .setMemNo(Integer.parseInt(mRequest.getParameter("no")))
@@ -93,11 +88,9 @@ public class RegiPostController extends HttpServlet{
 			}
 		else {mapper.insertPost(post);}
 		TagController tag = new TagController();
-		System.out.println(post.getPostNo());
-		System.out.println(mRequest.getParameter("tag").length());
 		// 게시글 태그
 		tag.tagPost(post.getPostNo(),mRequest.getParameter("tag"),Integer.parseInt(mRequest.getParameter("no")));
-		arg1.sendRedirect("/bitbook/jsp/main/main.jsp");
+		arg1.sendRedirect("/bitbook/main");
 		
 	}
 }

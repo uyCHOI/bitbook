@@ -23,6 +23,7 @@ public class ListOutlineMember extends HttpServlet{
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		int memNo=0;
 		Member member = new Member();
 		try {
@@ -36,7 +37,8 @@ public class ListOutlineMember extends HttpServlet{
 		System.out.println(memNo);
 		MemberDetail memberDetail=MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).selectMemberDetail(memNo);
 		List<Job> jList =MyAppSqlConfig.getSqlSession().getMapper(MemberMapper.class).selectJob(memNo);
-		
+		System.out.println("============공개범위==============================");
+		System.out.println(memberDetail.getInfoOpenRange());
 		request.setAttribute("member", member);
 		request.setAttribute("memberDetail", memberDetail);
 		request.setAttribute("jList", jList);

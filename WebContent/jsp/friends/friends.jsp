@@ -8,14 +8,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <!-- Favicons -->
     <style>
-    .purple-filter:after {
-    background: rgba(101, 47, 142, 0.64);
-    background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-    background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%, rgb(206, 132, 157) 100%) !important;
-    .bmd-form-group { display: inline-block !important; padding-top: 0;}
-    
-    </style>
+.purple-filter:after {
+	background: rgba(101, 47, 142, 0.64);
+	background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%,
+		rgba(125, 46, 185, 0.45) 100%);
+	background: -moz-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%,
+		rgba(125, 46, 185, 0.45) 100%);
+	background: -webkit-linear-gradient(135deg, rgb(251, 70, 131) 0%,
+		rgb(206, 132, 157) 100%) !important; . bmd-form-group { display :
+	inline-block !important;
+	padding-top: 0;
+}
+
+.loading_img {
+	position: fixed;
+	z-index: 10;
+	display: none;
+}
+
+#loading_img {
+	width: 100px;
+	height: 100px;
+}
+
+#back_ground_black3 {
+	background-color: black;
+	z-index: 3;
+	opacity: 0.7;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	display: none;
+}
+</style>
     <link rel="apple-touch-icon" href="../assets/img/kit/free/apple-icon.png">
     <link rel="icon" href="../assets/img/kit/free/favicon.png">
     <title>
@@ -171,6 +197,13 @@
             </div>
         </div>
     </div>
+    <!-- 로딩 
+    <div id="back_ground_black3">
+    <div class="loading_img">
+        <img id="loading_img" src="/bitbook/jsp/main/loading.gif"/>
+    </div>
+	</div> 
+	-->
     <!--  End Modal -->
     <footer class="footer ">
         <div class="container">
@@ -194,14 +227,46 @@
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script> 
     <script>
     	var memNo = ${member.memNo};           // session에서 가져오게 수정 필요
+        var newCnt=10;
+    	var myCnt=10;
         $(document).ready(function() {
-
-            //init DateTimePickers
-           // materialKit.initFormExtendedDatetimepickers();
-
-            // Sliders Init
-            //materialKit.initSliders();
+	
             makeReqList();
+            
+            $("#newDiv").scroll(function() {
+                 var maxHeight = this.scrollHeight;
+                 var currentScroll =  this.scrollTop; /* + $("#newDiv").height() */ ;
+                if (maxHeight <= currentScroll+620) {
+                	newCnt +=5;
+                	console.log("이걸 타나")
+                	$.ajax({ 
+                		url:"/bitbook/friedns/newList",
+                		data:"name="+$("#newInput")[0].value,
+                		dataType:"json",
+                		success:function(data){
+                			makeNewList(data);
+                		}
+                	}); 
+                } 
+              });
+            $("#myDiv").scroll(function() {
+                 var maxHeight = this.scrollHeight;
+                 var currentScroll =  this.scrollTop; /* + $("#newDiv").height() */ ;
+                if (maxHeight <= currentScroll+620) {
+                	myCnt +=5;
+                	console.log("이걸 타나")
+                	$.ajax({ 
+                		url:"/bitbook/friedns/myList",
+                		data:"name="+$("#myInput")[0].value,
+                		dataType:"json",
+                		success:function(data){
+                			makeMyList(data);
+                		}
+                	}); 
+                } 
+              });
+            
+            
 	   $.ajax({
 				url: "/bitbook/friedns/myList",
 				type: "POST",
@@ -220,7 +285,7 @@
            	e.preventDefault();   	        
         });
         $("#myInput").keyup(function(e){ 
-          /*   var memNo = 1 ;// session에서 가져오게 수정 필요 */
+          	myCnt=10;
  		   $.ajax({
  				url: "/bitbook/friedns/myList",
  				type: "POST",
@@ -235,6 +300,7 @@
  			});	        
         });
         $("#newInput").keyup(function(e){
+        	newCnt=10;
         	console.dir($("#newInput"));
         	console.log($("#newInput")[0].value);
         	$.ajax({ 
@@ -292,7 +358,11 @@
  						html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
  						html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
  						html+='	class="f_img rounded-circle img-fluid"> ';
- 						html+='		<div class="login"></div>';
+ 						html+='		<div ';
+ 						if(data.list[key].login=='i'){
+ 							html+= ' style="background:green;" ';
+ 						}
+ 						html+='	class="login"></div>';
  						html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
  						html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
  						html+='	<button onclick="javascript:agreeReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-success" style="position: absolute;right:60px;top: 30px;" type="button">수락</button>';
@@ -307,35 +377,56 @@
       
         function makeNewList (data){
 			var html = "";
+			var cnt=0;
+			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
+				cnt++;
+				if(cnt==newCnt){
+					break;
+				}
 				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
 				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
 				html+='	class="f_img rounded-circle img-fluid"> ';
-				html+='		<div class="login"></div>';
+				html+='		<div ';
+				if(data.list[key].login=='i'){
+					html+= ' style="background:green;" ';
+				}
+				html+='	class="login"></div>';
 				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
 				if(data.reqList.indexOf(data.list[key].memNo)!=-1){
 					html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
-				}else{
+				}	
+				else{
 					html+='	<button onclick="javascript:insertReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청</button></div>';
 				}
 				html+='</form>';
 			}
+			
 			$("#newDiv").html(html);
 			$("#newFriendsCnt").html(data.list.length+"명");
 		}
         function makeMyList (data){
 			var html = "";
+			var cnt=0;
 			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
+				cnt++;
+				if(cnt==newCnt){
+					break;
+				}
 				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
 				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
 				html+='	class="f_img rounded-circle img-fluid"> ';
-				html+='		<div class="login"></div>';
+				html+='		<div ';
+				if(data.list[key].login=='i'){
+					html+= ' style="background:green;" ';
+				}
+				html+='	class="login"></div>';
 				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
 				if(memNo==${sessionScope.user.memNo}){
@@ -420,7 +511,21 @@
     	 return parseInt(diff/currYear)+"년 ";
      }
         	
-      
+ /*     // 로딩 함수
+     // func 는 괄호 없이 함수명만 넣는다.
+     // time 는 로딩 지속시간을 넣는다.
+    function load(func,time,post_no){
+      $("#back_ground_black3").css({display:"block"});
+       let left = parseInt($("#back_ground_black3").css("width"))/2 - 50;
+       let top = parseInt($("#back_ground_black3").css("height"))/2 - 50;
+         $(".loading_img").css({display:"block","top":top,"left":left}) 
+         setTimeout(()=>{
+             $(".loading_img").css({display:"none"})
+             $("#back_ground_black3").css({display:"none"});
+         },time)
+         if(post_no==undefined) setTimeout(func,time);
+         else setTimeout(()=>(func(post_no)),time);
+     } */
     </script>
 </body>
 
