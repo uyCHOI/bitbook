@@ -511,7 +511,7 @@
     	 return parseInt(diff/currYear)+"년 ";
      }
         	
-     // 로딩 함수
+ /*     // 로딩 함수
      // func 는 괄호 없이 함수명만 넣는다.
      // time 는 로딩 지속시간을 넣는다.
     function load(func,time,post_no){
@@ -525,7 +525,7 @@
          },time)
          if(post_no==undefined) setTimeout(func,time);
          else setTimeout(()=>(func(post_no)),time);
-     }
+     } */
     </script>
 </body>
 

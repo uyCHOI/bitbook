@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class MemberDetail {
 	private int memNo;
-	private char infoOpenRange;
+	private String infoOpenRange;
 	private int jobNo;
 	private int	skill;
 	private String college;
 	private String home;
 	private String phone;
 	private Date birth; 
-	private char gender;
+	private String gender;
 	private String blood; 
 	private String introduce;
 	private String nickname;
@@ -31,10 +31,10 @@ public class MemberDetail {
 	public void setMemNo(int memNo) {
 		this.memNo = memNo;
 	}
-	public char getInfoOpenRange() {
+	public String getInfoOpenRange() {
 		return infoOpenRange;
 	}
-	public void setInfoOpenRange(char infoOpenRange) {
+	public void setInfoOpenRange(String infoOpenRange) {
 		this.infoOpenRange = infoOpenRange;
 	}
 	public int getJobNo() {
@@ -73,10 +73,10 @@ public class MemberDetail {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(char gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public String getBlood() {
@@ -108,6 +108,13 @@ public class MemberDetail {
 	}
 	public void setProfilePath(String profilePath) {
 		this.profilePath = profilePath;
+	}
+	@Override
+	public String toString() {
+		return "MemberDetail [memNo=" + memNo + ", infoOpenRange=" + infoOpenRange + ", jobNo=" + jobNo + ", skill="
+				+ skill + ", college=" + college + ", home=" + home + ", phone=" + phone + ", birth=" + birth
+				+ ", gender=" + gender + ", blood=" + blood + ", introduce=" + introduce + ", nickname=" + nickname
+				+ ", coverPath=" + coverPath + ", profilePath=" + profilePath + ", addr=" + addr + "]";
 	}
 	
 	

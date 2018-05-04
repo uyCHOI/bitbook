@@ -56,6 +56,34 @@
     width: 408px;
 }">	
 							<div id="outline">
+							<c:if test="${memberDetail.memNo==sessionScope.user.memNo}">
+							
+							<h3>정보 공개 범위</h3>
+							<div style="padding-top:10px;" class="form-check form-check-radio">
+							    <label class="form-check-label">
+							        <input class="form-check-input" type="radio" name="openRange" id="range1" value="1" >
+							        	<i class="material-icons">public</i>전체 공개
+							        <span class="circle">
+							            <span class="check"></span>
+							        </span>
+							    </label>
+							    <label class="form-check-label">
+							        <input class="form-check-input" type="radio" name="openRange" id="range2" value="2" >
+							        	<i class="material-icons">group</i>친구만
+							        <span class="circle">
+							            <span class="check"></span>
+							        </span>
+							    </label>
+							    <label class="form-check-label">
+							        <input class="form-check-input" type="radio" name="openRange" id="range3" value="3" >
+							        	<i class="material-icons">lock</i>나만 보기
+							        <span class="circle">
+							            <span class="check"></span>
+							        </span>
+							    </label>
+							</div>
+							</c:if>
+							<hr>
 								<c:if test="${memberDetail.introduce ne null}">
 									<h4>내 소개</h4>
 									<div>
@@ -128,27 +156,17 @@
 
         </div>
     </footer>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="../assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="../assets/js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="../assets/js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
+
     <script>
         $(document).ready(function() {
         	$(".navbar-nav li").attr("class","nav-item");
         	$("nav-info").attr("class","nav-item active");
         	$.ajax({
         		url:"/bitbook/member/outline"
+        		
         	});
+        	
+        	
         });
         
     </script>

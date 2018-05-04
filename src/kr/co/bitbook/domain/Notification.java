@@ -20,74 +20,86 @@ public class Notification {
 	public char getLogin() {
 		return login;
 	}
-	public void setLogin(char login) {
+	public Notification setLogin(char login) {
 		this.login = login;
+		return this;
 	}
 	public String getMemName() {
 		return memName;
 	}
-	public void setMemName(String memName) {
+	public Notification setMemName(String memName) {
 		this.memName = memName;
+		return this;
 	}
 	public String getProfilePath() {
 		return profilePath;
 	}
-	public void setProfilePath(String profilePath) {
+	public Notification setProfilePath(String profilePath) {
 		this.profilePath = profilePath;
+		return this;
 	}
 	public int getNotNo() {
 		return notNo;
 	}
-	public void setNotNo(int notNo) {
+	public Notification setNotNo(int notNo) {
 		this.notNo = notNo;
+		return this;
 	}
 	public int getMemNo() {
 		return memNo;
 	}
-	public void setMemNo(int memNo) {
+	public Notification setMemNo(int memNo) {
 		this.memNo = memNo;
+		return this;
 	}
 	public String getNotType() {
 		return notType;
 	}
-	public void setNotType(String notType) {
+	public Notification setNotType(String notType) {
 		this.notType = notType;
+		return this;
 	}
 	public Date getNotRegDate() {
 		return notRegDate;
 	}
-	public void setNotRegDate(Date notRegDate) {
+	public Notification setNotRegDate(Date notRegDate) {
 		this.notRegDate = notRegDate;
+		return this;
 	}
 	public char getNotState() {
 		return notState;
 	}
-	public void setNotState(char notState) {
+	public Notification setNotState(char notState) {
 		this.notState = notState;
+		return this;
 	}
 	public int getReqMemNo() {
 		return reqMemNo;
 	}
-	public void setReqMemNo(int reqMemNo) {
+	public Notification setReqMemNo(int reqMemNo) {
 		this.reqMemNo = reqMemNo;
+		return this;
 	}
 	public String getNotMessage() {
 		return notMessage;
 	}
-	public void setNotMessage(String notMessage) {
+	public Notification setNotMessage(String notMessage) {
 		this.notMessage = notMessage;
+		return this;
 	}
 	public Date getNotReadDate() {
 		return notReadDate;
 	}
-	public void setNotReadDate(Date notReadDate) {
+	public Notification setNotReadDate(Date notReadDate) {
 		this.notReadDate = notReadDate;
+		return this;
 	}
 	public int getReqNo() {
 		return reqNo;
 	}
-	public void setReqNo(int reqNo) {
+	public Notification setReqNo(int reqNo) {
 		this.reqNo = reqNo;
+		return this;
 	}
 	
 }

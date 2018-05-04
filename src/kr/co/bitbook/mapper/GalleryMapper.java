@@ -13,8 +13,8 @@ public interface GalleryMapper {
 
 	//첨부파일
 	
-	void insertFileGroup(File file);
-	void insertFile(File file);
-	List<File> selectBoardFileByNo(int no);
+	void insertFileGroup(FileUpload file);
+	void insertFile(FileUpload file);
+	List<FileUpload> selectBoardFileByNo(int no);
 	
 }
