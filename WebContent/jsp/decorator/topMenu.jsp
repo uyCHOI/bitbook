@@ -203,7 +203,7 @@ h3 {
 					</c:if>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick="scrollToDownload()"> 친구 찾기
+						href="../friends/list?memNo=${sessionScope.user.memNo}" onclick="scrollToDownload()"> 친구 찾기
 							<div class="ripple-container"></div>
 					</a></li>
 				
@@ -274,8 +274,12 @@ function makeNoti(data){
 		  	html+='><a class="f_link" style="display: block;" href="/bitbook/notification/updateNotiRead?memNo='+data[n].reqMemNo+'&notNo='+data[n].notNo+'"> <img      ';
 			html+='src="'+data[n].profilePath+'" alt="Circle Image"          ';
 			html+='class="f_img rounded-circle img-fluid">                     ';
-			html+='<div class="login"></div>                                         ';
-			html+='<span class="f_name c_info" style="width:200px;">'+data[n].memName+'님이 '+data[n].notType+" "+data[n].notMessage+'</span></a>          ';
+			html+='		<div ';
+			if(data[n].login=='i'){
+				html+= ' style="background:green;" ';
+			}
+			html+='	class="login"></div>';
+			html+='<span class="f_name c_info" style="width: 250px;">'+data[n].memName+'님이 '+data[n].notType+" "+data[n].notMessage+'</span></a>          ';
 			html+='<p style="color:black"class="friendInfo">'+regDate+'</p>               ';
 			html+='<button onclick="javascript:updateNotiHide('+data[n].notNo+')" class="btn btn-sm ">이 알림 숨기기</button></div>'; 
 		}

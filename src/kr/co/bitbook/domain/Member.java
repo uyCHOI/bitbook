@@ -14,7 +14,14 @@ public class Member {
 	private String profilePath;
 	private String coverPath;
 	private int friendsNo;
+	private char accState;
 	
+	public char getAccState() {
+		return accState;
+	}
+	public void setAccState(char accState) {
+		this.accState = accState;
+	}
 	public int getFriendsNo() {
 		return friendsNo;
 	}

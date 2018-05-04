@@ -30,6 +30,7 @@ public class NewListFriendsController extends HttpServlet{
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");
 		member.setMemName(request.getParameter("name"));
+		
 		List<Member> list = mapper.selectSearchFriends(member);
 		List<Integer> reqList = mapper.selectReqFriends(1);
         Map<String, Object> result = new HashMap<>();

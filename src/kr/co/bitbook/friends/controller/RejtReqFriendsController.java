@@ -31,6 +31,6 @@ public class RejtReqFriendsController extends HttpServlet{
 		friends.setFriendsNo(Integer.parseInt(request.getParameter("friendsNo")));
 		System.out.println(friends.getMemNo());
 		System.out.println(friends.getFriendNo());
-		mapper.updateDenFriends(friends);
+		mapper.deleteFriedns(friends);
 	}
 }

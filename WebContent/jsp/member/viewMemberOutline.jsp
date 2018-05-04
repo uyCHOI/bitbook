@@ -72,7 +72,7 @@
 										</a>
 									</div>
 								</c:if>
-								<c:if test='${memberDetail.blood eq null}'>
+								<c:if test='${memberDetail.blood ne null}'>
 									<h4>혈액형</h4>
 									<div  >
 										<a id="data" style="font-size:24px;">
@@ -80,7 +80,7 @@
 										</a>
 									</div>
 								</c:if>
-								<c:if test='${memberDetail.phone eq null}'>
+								<c:if test='${memberDetail.phone ne null}'>
 									<h4>휴대폰</h4>
 									<div >
 										<a id="data" style="font-size:24px;">
