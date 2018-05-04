@@ -23,7 +23,7 @@ import kr.co.bitbook.domain.Member;
 import kr.co.bitbook.mapper.LoginMapper;
 
 @WebServlet("/bitbook/code")
-public class EmailFindCode extends HttpServlet {
+public class FindEmailCode extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)

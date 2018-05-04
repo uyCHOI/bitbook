@@ -79,7 +79,7 @@
 
 		// 비밀번호 null인지 체크 
 		if ($("#joinPass").val() == "") {
-			alert("다시해");
+			alert("값을 입력해주세요");
 			$("#joinPass").focus();
 			return false;
 		}
@@ -96,15 +96,16 @@
 			return false;
 		}
 		if ($("#joinId").val() == $("#joinEmail").val()) {
-			alert("아이디와 동일한 값은 올 수 없습니다.");
+			alert("아이디와  메일이 동일한 값은 올 수 없습니다.");
 			$("#joinId").focus();
 			return false;
 		}
-		if (regExp1.test($("#joinEmail") == false)) {
+		if (regExp2.test($("#joinEmail") == false)) {
 			alert("이메일 형식이 잘못되었습니다.");
 			$("#joinEmail").focus();
 			return false;
 		}
+		alert("회원가입이 완료되었습니다.");
 
 	};
 	$(document)

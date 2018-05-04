@@ -12,8 +12,8 @@
 		values(
 		#{memNo},#{memId},#{memPass},#{memEmail},#{memName})
 	</insert>
-	<insert id="insertdetail" parameterType="int">
-		insert into tb_member (
+	<insert id="insertDetail" parameterType="int">
+		insert into tb_member_detail (
 		MEM_NO)
 		values(
 		#{memNo})

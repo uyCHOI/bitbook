@@ -45,6 +45,7 @@ public class NaverLoginController extends HttpServlet {
 			System.out.println("가입되어있음");
 			HttpSession session = req.getSession();
 			Member login = Lmapper.selectMemberById(id);
+			Lmapper.updateLogin(id);
 			// login.setLogin(req.getParameter("login").charAt(0));
 			//System.out.println(req.getParameter("login").charAt(0));
 			login.setLogoutDate(new Date());

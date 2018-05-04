@@ -40,12 +40,13 @@ public class LoginController extends HttpServlet {
 			/*login.setLogin(req.getParameter("login").charAt(0));*/
 			/*System.out.println(req.getParameter("login").charAt(0));*/
 			login.setLogoutDate(new Date());
+			
 			session.setAttribute("user", login);
 			
 			resp.sendRedirect(req.getContextPath() + "/main");
 			return;
 		}
-		else {
+		else if(!login.getMemPass().equals(pass)){
 			req.setAttribute("errPw", "패스워드를 확인하세요");
 		}
 	

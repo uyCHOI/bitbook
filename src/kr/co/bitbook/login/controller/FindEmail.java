@@ -15,7 +15,7 @@ import kr.co.bitbook.domain.Member;
 import kr.co.bitbook.mapper.LoginMapper;
 
 @WebServlet("/bitbook/FindEmailDirect")
-public class EmailFind extends HttpServlet{
+public class FindEmail extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,16 +26,16 @@ public class EmailFind extends HttpServlet{
 		String email = request.getParameter("email");
 		Member info = mapper.selectMemberEmail(name);
 		System.out.println();
-		if(info.getMemName().equals(name)&&info.getMemEmail().equals(email) == false ) {
-			request.setAttribute("errId", "이름과 이메일이 일치하지 않습니다.");
+		if(info == null) {
+			request.setAttribute("errPass", "이름과 이메일이 일치하지 않습니다.");
 			System.out.println("2");
 		}else if(info.getMemName().equals(name)&&info.getMemEmail().equals(email)) {
 			System.out.println("성공");
 			out.println("<script>");
-			out.println("alert('"+info.getMemId()+"')");
+			out.println("alert('"+info.getMemPass()+"')");
 			out.println("location.href='login'");
 			out.println("</script>");
-			System.out.println(info.getMemId());
+			System.out.println(info.getMemPass());
 			//response.sendRedirect(request.getContextPath() + "/bitbook/login");
 			return;
 		}

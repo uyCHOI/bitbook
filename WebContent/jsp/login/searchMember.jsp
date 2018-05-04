@@ -41,11 +41,30 @@
 			<div class="container" style="background: white; position: relative; max-width: 851px;">
 				<div class="col-md-12" style="border: 1px solid #e0e0e0; height: 875px; margin: 0 auto;">
 					<h4 style="border-bottom: 1px solid #e0e0e0; padding: 17px 0; font-weight: 700;">계정찾기</h4>
+					<form method="post" action="${pageContext.request.contextPath}/bitbook/FindId"  onsubmit="return findId()" >					
+						<div class="form-group">
+							<label for="memName" class="bmd-label-floating"></label>
+							<input type="text" class="form-control" id="FineName" name="name" placeholder="이름">
+							<p id="alert">${errId}</p>
+						</div>
+						<div class="form-group">
+							<label for="memEmail"></label>
+							<input type="text" class="form-control" id="FinMail" name="email" aria-describedby="emailHelp" placeholder="이메일">
+						</div>
+						<div class="form-group" style="text-align: center;">
+							<button type="submit" class="btn btn-sm btn-primary">확인</button>
+							<a href="" class="btn btn-sm btn-warning">취소</a>
+						</div>
+					</form>
+					
+				
+				
+					<h4 style="border-bottom: 1px solid #e0e0e0; padding: 17px 0; font-weight: 700;">비밀번호찾기</h4>
 					<form method="post" action="${pageContext.request.contextPath}/bitbook/FindEmailDirect"  onsubmit="return find()">					
 						<div class="form-group">
 							<label for="memName" class="bmd-label-floating"></label>
 							<input type="text" class="form-control" id="memName" name="name" placeholder="이름">
-							<p id="alert">${errId}</p>
+							<p id="alert">${errPass}</p>
 						</div>
 						<div class="form-group">
 							<label for="memEmail"></label>
@@ -68,12 +87,31 @@
 		</div>
 	</div>
 	<script>
- function find(){
-		var regExp2 = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/i;
-		//e-mail의 유효성 검사
-		var regname = /^[가-힝]{2,}$/;
-		//이름의 유효성 검사
 	
+	// 계정찾기 --------------------------------------------------
+	
+	var regExp2 = /[a-z0-9]{2,}@[a-z0-9-]{2,}\.[a-z0-9]{2,}/i;
+	//e-mail의 유효성 검사
+	var regname = /^[가-힝]{2,}$/;
+	//이름의 유효성 검사
+	 function findId(){
+
+		
+		if($("#FindName").val()==""){
+			alert("이름을 입력해주세요!");
+			return false;
+		}
+		if($("#FindMail").val()== ""){
+			alert("이메일을 입력해주세요!");
+			return false;
+		}
+
+	}; 
+	
+	
+	// 비번 찾기 ----------------------------------------------------
+ function find(){
+
 	if($("#memName").val()==""){
 		alert("이름을 입력해주세요!");
 		return false;
