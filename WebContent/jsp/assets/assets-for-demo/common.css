@@ -329,13 +329,13 @@ a.tag:hover {
 
 div.login {
 	display: block;
-	width: 10px;
-	height: 10px;
+	width: 15px;
+	height: 15px;
 	background: gray;
 	float: right;
 	margin-top: 18px;
 	margin-right: 20px;
-	border-radius: 15px;
+	border-radius: 20px;
 }
 
 div.login-in {

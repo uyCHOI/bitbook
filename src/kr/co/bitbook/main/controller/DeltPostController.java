@@ -9,16 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.bitbook.common.db.MyAppSqlConfig;
-import kr.co.bitbook.domain.Comment;
 import kr.co.bitbook.mapper.MainMapper;
 
-
-@WebServlet("/commentdelete")
-public class DeltCommentController extends HttpServlet{
+@WebServlet("/postdelete")
+public class DeltPostController extends HttpServlet{
 	private MainMapper mapper;
 	
 
-	public DeltCommentController() {
+	public DeltPostController() {
 		mapper = MyAppSqlConfig.getSqlSession().getMapper(MainMapper.class);
 	}
 	
@@ -26,11 +24,12 @@ public class DeltCommentController extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 		arg1.setContentType("application/json; charset=utf-8");
-		Comment comment = new Comment().setCommentNo(Integer.parseInt(arg0.getParameter("commentNo")))
-							           .setPostNo(Integer.parseInt(arg0.getParameter("postNo")));
-
-		mapper.deleteLikeCommentAll(comment);
-		mapper.deleteCommentNo(comment);
-		mapper.updatePostCCount(comment);
+		int postNo = Integer.parseInt(arg0.getParameter("postNo"));
+		System.out.println(postNo);
+		mapper.deleteLikeCommentAllForPost(postNo);
+		mapper.deleteCommentAll(postNo);
+		mapper.deleteLikePostAll(postNo);
+		mapper.deletePostTagForPost(postNo);
+		mapper.deletePost(postNo);
 	}
 }

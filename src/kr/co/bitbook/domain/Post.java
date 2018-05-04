@@ -1,6 +1,7 @@
 package kr.co.bitbook.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class Post {
 	private int postNo;
@@ -11,9 +12,65 @@ public class Post {
 	private int fileGroupNo;
 	private int postCCount;
 	private int postLCount;
+	private List<FileUpload> fileUpload;
+	private List<PostTag> postTag;
+	private String search;
+	private char order;
+	private char searchType;
+	private String profilePath;
+	private String memName;
 	
 	
 	
+	public List<PostTag> getPostTag() {
+		return postTag;
+	}
+	public Post setPostTag(List<PostTag> postTag) {
+		this.postTag = postTag;
+		return this;
+	}
+	public String getMemName() {
+		return memName;
+	}
+	public Post setMemName(String memName) {
+		this.memName = memName;
+		return this;
+	}
+	public char getSearchType() {
+		return searchType;
+	}
+	public Post setSearchType(char searchType) {
+		this.searchType = searchType;
+		return this;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public Post setSearch(String search) {
+		this.search = search;
+		return this;
+	}
+	public char getOrder() {
+		return order;
+	}
+	public Post setOrder(char order) {
+		this.order = order;
+		return this;
+	}
+	public List<FileUpload> getFileUpload() {
+		return fileUpload;
+	}
+	public Post setFileUpload(List<FileUpload> fileUpload) {
+		this.fileUpload = fileUpload;
+		return this;
+	}
+	public String getProfilePath() {
+		return profilePath;
+	}
+	public Post setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
+		return this;
+	}
 	public int getPostCCount() {
 		return postCCount;
 	}
