@@ -4,11 +4,28 @@
 <mapper namespace="kr.co.bitbook.mapper.JoinMapper">
 
 	<insert id="insertJoin" parameterType="member">
+	<selectKey keyProperty="memNo" resultType="int" order="BEFORE">
+	 	select S_MEMBER_NO.nextval from dual
+	</selectKey>
 		insert into tb_member (
 		MEM_NO,MEM_ID,mem_pass,mem_email,mem_name)
 		values(
-		S_MEMBER_NO.nextval,#{memId},#{memPass},#{memEmail},#{memName});
+		#{memNo},#{memId},#{memPass},#{memEmail},#{memName})
 	</insert>
+	<insert id="insertdetail" parameterType="int">
+		insert into tb_member (
+		MEM_NO)
+		values(
+		#{memNo})
+	</insert>
+	
+	<select id="selectMemberCount" parameterType="string" resultType="int">
+     select count(*)
+	   from tb_member
+	  where mem_Id=#{memId}
+	</select>
+	
+
 	
 	
 

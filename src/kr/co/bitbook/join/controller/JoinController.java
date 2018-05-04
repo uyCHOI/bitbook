@@ -24,7 +24,7 @@ public class JoinController extends HttpServlet {
 		m.setMemName(request.getParameter("name"));
 		m.setMemEmail(request.getParameter("email"));
 		mapper.insertJoin(m);		
-		
+		mapper.insertDetail(m.getMemNo());
 		response.sendRedirect(request.getContextPath()+ "/bitbook/login");
 	}
 
