@@ -77,35 +77,66 @@
 		var regname = /^[가-힝]{2,}$/;
 		//이름의 유효성 검사
 
+		// 아이디가 null인지 체크 
+		if ($("#joinId").val() == "") {
+			alert("아이디는 필수 입력값입니다.");
+			$("#joinId").focus();
+			return false;
+		}
+
 		// 비밀번호 null인지 체크 
 		if ($("#joinPass").val() == "") {
-			alert("값을 입력해주세요");
+			alert("비밀번호를 입력해주세요.");
 			$("#joinPass").focus();
 			return false;
 		}
 		;
 		// 비밀번호 일치 하는지 체크 
 		if ($("#joinPass").val() != $("#joinPassRe").val()) {
-			alert("일치 안해");
+			alert("비밀번호가 일치하지않습니다. 다시 확인해주세요.");
 			$("#joinPass").focus();
 			return false;
 		}
-		if ($("#joinId").val() == "") {
-			alert("아이디는 필수 입력값입니다.");
-			$("#joinId").focus();
-			return false;
-		}
+
 		if ($("#joinId").val() == $("#joinEmail").val()) {
 			alert("아이디와  메일이 동일한 값은 올 수 없습니다.");
 			$("#joinId").focus();
 			return false;
 		}
-		if (regExp2.test($("#joinEmail") == false)) {
+		// 이름 입력체크 
+		if ($("#joinName").val() == "") {
+			alert("이름을 입력해주세요.");
+			$("#joinName").focus();
+			return false;
+		};
+		if (regname.test($("#joinName").val()) == false) {
+			alert("이름을 확인해주세요.");
+			$("#joinName").focus();
+			return false;
+		}
+		;
+		
+		
+
+		// 이메일 입력체크 
+		if ($("#joinEmail").val() == "") {
 			alert("이메일 형식이 잘못되었습니다.");
 			$("#joinEmail").focus();
 			return false;
 		}
-		alert("회원가입이 완료되었습니다.");
+
+		if (regExp2.test($("#joinEmail").val()) == false) {
+			alert("이메일 형식이 잘못되었습니다.");
+			$("#joinEmail").focus();
+			return false;
+		}
+		;
+
+		if ($("#keyValue").val() == "") {
+			alert("인증을 해주세요.");
+			return false;
+		}
+		alert("가입이 완료되었습니다.로그인해주세요!");
 
 	};
 	$(document)
@@ -129,17 +160,20 @@
 									}
 								});
 						$("#btn01").on("click", function() {
-							var form01Data = $("#form01").serialize();
+							var form01Data = $("#joinForm").serialize();
 							console.log(form01Data);
 							$.ajax({
 								url : "/bitbook/jsp/login/test.jsp",
 								data : form01Data,
 								dataType : "json",
 								success : function(data) {
-									$("#msg").text("값이 맞아요");
+									alert("값이 일치합니다.")
+									$("#keyValue").val("값일치");
 								},
 								error : function(request, status, error) {
-									$("#msg").text("값이 틀려요!");
+									alert("값이 일치하지 않습니다.")
+/* 									$("#msg").text("값이 틀려요!");
+ */									location.reload();
 									// 실패 시 처리
 								},
 
@@ -205,39 +239,32 @@
 												class="form-control" placeholder="Email...">
 										</div>
 
-										<div class="input-group" style="margin-bottom: 30px;">
+										<div class="input-group">
 											<div id="div01"
 												style="width: 200px; height: 100px; margin: auto;"></div>
 
 										</div>
-										<!-- If you want to add a checkbox to this form, uncomment this code
+										<div class="input-group" style="margin-top: 0;">
+											<div>
+												<input type="hidden" id="key" name="key"> <input
+													type="text" class="form-control" name="value"
+													style="width: 200px;">
+												<button type="button" id="btn01"
+													style="top: 0; position: absolute; right: 0;">전송</button>
+											</div>
+											<input type="hidden" name="msg" value="" id="keyValue">
+											<!-- <div id="msg" style="position: absolute; top: 40px;"></div> -->
+										</div>
 
-              <div class="form-check">
-                  <label class="form-check-label">
-                      <input class="form-check-input" type="checkbox" value="">
-                      Subscribe to newsletter
-                      <span class="form-check-sign">
-                          <span class="check"></span>
-                      </span>
-                  </label>
-              </div> -->
 										<div class="card-footer justify-content-center">
 											<button class="btn btn-primary">가입하기</button>
+											<a href="${pageContext.request.contextPath}/bitbook/login"
+							class="btn btn-link btn-primary btn-lg">홈으로</a>
 
 										</div>
 									</div>
 								</form>
-								<div class="input-group"
-									style="position: absolute; bottom: 13%;">
-
-									<form id="form01">
-										<input type="hidden" id="key" name="key"> <input
-											type="text" class="form-control" name="value">
-										<button type="button" id="btn01"
-											style="position: absolute; right: 0; top: 0;">전송</button>
-
-									</form>
-									<div id="msg"></div>
+						
 								</div>
 
 							</div>
@@ -245,11 +272,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- 		<div class="col-md-12 text-center">
-				<a href="examples/signup-page.html"
-					class="btn btn-link btn-primary btn-lg" target="_blank">View
-					Signup Page</a>
-			</div> -->
 
 		</div>
 		<!-- Classic Modal -->
@@ -285,7 +307,7 @@
 			</div>
 		</div>
 		<!--  End Modal -->
-		<footer class="footer ">
+<!-- 		<footer class="footer ">
 			<div class="container">
 
 				<div class="copyright pull-right">
@@ -298,7 +320,7 @@
 						Tim</a> for a better web.
 				</div>
 			</div>
-		</footer>
+		</footer> -->
 		<!--   Core JS Files   -->
 		<script src="../assets/js/core/jquery.min.js"></script>
 		<script src="../assets/js/core/popper.min.js"></script>

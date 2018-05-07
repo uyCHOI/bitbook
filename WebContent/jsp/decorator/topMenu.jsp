@@ -150,7 +150,9 @@ h3 {
 		style="position: fixed; color: #fff; background-color: #9c27b0 !important; -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46); box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46);">
 		<div class="container">
 			<div class="navbar-translate">
-				<a class="navbar-brand" href="../main/main.jsp" style="color: #fff;">Bit
+			<a href="${pageContext.request.contextPath}/main"
+							class="btn btn-link btn-primary btn-lg"style="color: #fff;font-size:14px;">
+				Bit
 					book </a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					aria-expanded="false" aria-label="Toggle navigation">
