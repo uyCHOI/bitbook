@@ -243,26 +243,19 @@ $(document).ready(function () {
             else $('#noti_Button').css('background-color', '#9c27b0');        // CHANGE BACKGROUND COLOR OF THE BUTTON.
         });
 
-        $('#noti_Counter').fadeOut('slow');                 // HIDE THE COUNTER.
+        $('#noti_Counter').fadeOut('slow');                
 
         return false;
     });
 
-    // HIDE NOTIFICATIONS WHEN CLICKED ANYWHERE ON THE PAGE.
     $(document).click(function () {
         $('#notifications').hide();
 
-        // CHECK IF NOTIFICATION COUNTER IS HIDDEN.
         if ($('#noti_Counter').is(':hidden')) {
-            // CHANGE BACKGROUND COLOR OF THE BUTTON.
             $('#noti_Button').css('background-color', '#9c27b0');
         }
     });
 
-//      $('#notifications').click(function () {
-// 	    	 console.dir(this);
-//           return false;       // DO NOTHING WHEN CONTAINER IS CLICKED.
-//       });
 });
 function makeNoti(data){
 	var html="";
@@ -277,7 +270,7 @@ function makeNoti(data){
 			if(data[n].notState=='N'){
 				notCnt++;
 				html+=' style="background-color:#edf2fa"';
-			}
+			};
 			/* if(data[n].reqNo>0){
 		  		html+='><a class="f_link" style="display: block;" href="/bitbook/tagmain?postno='+data[n].reqNo+'"> <img      ';
 			} */
@@ -298,7 +291,7 @@ function makeNoti(data){
 	if(notCnt!=0){
 	    $('#noti_Counter')
 	        .css({ opacity: 0 })
-	        .text(notCnt)              // ADD DYNAMIC VALUE (YOU CAN EXTRACT DATA FROM DATABASE OR XML).
+	        .text(notCnt)              
 	        .css({ top: '-10px' })
 	        .animate({ top: '-2px', opacity: 1 }, 500);
 	}

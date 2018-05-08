@@ -48,7 +48,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="introduce?memNo=${memberDetail.memNo }"> 자세한 내 소개</a></li>
 							</ul>
-							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
+							<ul  id="rightUl" class="nav flex-column" style="    border-left: 1px solid #ccc;
     min-height: 280px;
     padding: 30px 24px 0;
     position: relative;
@@ -158,8 +158,28 @@
           <!--   Core JS Files   -->
     <script>
         $(document).ready(function() {
-
-        
+        	if(`${memberDetail.infoOpenRange}`=='2'){
+        		if(`${memberDetail.memNo}`!=`${sessionScope.user.memNo}`){
+        			return;
+        		}
+	        	$.ajax({
+	        		url:"/bitbook/member/InfoRangeCheck",
+	        		type:"post",
+	        		data:"memNo="+`${memberDetail.memNo}`+"&chk="+`${sessionScope.user.memNo}`,
+	        		dataType:"json",
+	        		success:function(result){
+	        			if(!result){
+	        				$("#rightUl").html("<h3>표시할 정보가 없습니다.</h3>");
+	        			}
+	        		}
+	        	});
+        	}
+        	else if(`${memberDetail.infoOpenRange}`=='3'){
+        		if(`${memberDetail.memNo}`!=`${sessionScope.user.memNo}`){
+        			$("#rightUl").html("<h3>표시할 정보가 없습니다.</h3>");
+        		}
+        	}
+        	
         });
         function formCollege(){
 				var html = "";
