@@ -33,8 +33,10 @@ public class NewListFriendsController extends HttpServlet{
 		
 		List<Member> list = mapper.selectSearchFriends(member);
 		List<Integer> reqList = mapper.selectReqFriends(1);
+		List<Member> list1= mapper.selectMyFriends(member.getMemNo());
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);
+        result.put("list1", list1);
         result.put("reqList", reqList);
         
         response.setContentType("application/json; charset=utf-8");

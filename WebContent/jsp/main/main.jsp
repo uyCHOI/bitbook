@@ -40,8 +40,8 @@
 	}
 	
 	.img-fluid{
-		width: 30px;
-		height: 30px;
+		width: 50px !important;
+		height: 50px !important;
 	}
 
 	#open_range_td{
@@ -622,7 +622,7 @@
     		                <div class="board_wrap" style="margin-left: 75px;">
     		                    <div class="p_info">
     		                   		<span class="open_range_view">`+open_range+`</span>
-    		                        <span class="c_info" >`+post.memName+`</span> <span>`+date_info(post.postRegDate)+`</span>
+    		                   		<a href="/bitbook/member/outline?memNo=`+post.memNo+`"> <span class="c_info" >`+post.memName+`</span></a> <span>`+date_info(post.postRegDate)+`</span>
     		                    </div>
     		                    <div class="board_content">
     		                      	`+post.postContent+`
@@ -854,7 +854,7 @@
                 		                <div class="board_wrap" style="margin-left: 75px;">
                 		                    <div class="p_info">
                 		                   		<span class="open_range_view">`+open_range+`</span>
-                		                        <span class="c_info" >`+post.memName+`</span> <span>`+date_info(post.postRegDate)+`</span>
+                		                   		<a href="/bitbook/member/outline?memNo=`+post.memNo+`"> <span class="c_info" >`+post.memName+`</span></a> <span>`+date_info(post.postRegDate)+`</span>
                 		                    </div>
                 		                    <div class="board_content">
                 		                      	`+post.postContent+`
@@ -1052,7 +1052,7 @@
 									class="rounded-circle img-fluid">
 								</a>
 								<div class="c_wrap">
-									<span class="c_info">`+comment.memName+`</span> <span id="`+comment.commentNo+`c_content" class="c_content">`+comment.commentContent+`</span>
+									<a href="/bitbook/member/outline?memNo=`+comment.memNo+`"><span class="c_info">`+comment.memName+`</span></a> <span id="`+comment.commentNo+`c_content" class="c_content">`+comment.commentContent+`</span>
 								</div>
 								<div
 									style="margin-left: 70px; margin-top: 5px; position: relative;">
@@ -1095,7 +1095,7 @@
 		$("#post_area").on("click",".del_comment_btn",function(){
 			let comment_no = parseInt($(this).prop("id"));
 			let post_no = parseInt($(this).prop("class"));
-			$("#")
+		
 			
 			$.ajax({
                 url:"/bitbook/commentdelete",

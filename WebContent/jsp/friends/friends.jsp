@@ -364,31 +364,39 @@
 			var html = "";
 			var cnt=0;
 			for(key in data.list){
-				//console.log(data.list[key].memNo);
 				cnt++;
+				var newChk=0;
 				if(cnt==newCnt){
 					break;
 				}
-				let date;
-				data.list[key].login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(data.list[key].logoutDate)+"전까지 활동 했습니다.";
-				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
-				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
-				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
-				html+='	class="f_img rounded-circle img-fluid"> ';
-				html+='		<div ';
-				if(data.list[key].login=='i'){
-					html+= ' style="background:green;" ';
+				for(let i = 0; i< data.list1.length;i++){
+					if(data.list[key].memNo==data.list1[i].memNo){
+						newChk=1;
+					}
 				}
-				html+='	class="login"></div>';
-				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
-				html+='		<p class="friendInfo">'+date+'</p>';
-				if(data.reqList.indexOf(data.list[key].memNo)!=-1){
-					html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
-				}	
-				else{
-					html+='	<button onclick="javascript:insertReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청</button></div>';
-				}
-				html+='</form>';
+				console.log(newChk);
+				if(newChk==0){
+					let date;
+					data.list[key].login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(data.list[key].logoutDate)+"전까지 활동 했습니다.";
+					html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
+					html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
+					html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
+					html+='	class="f_img rounded-circle img-fluid"> ';
+					html+='		<div ';
+					if(data.list[key].login=='i'){
+						html+= ' style="background:green;" ';
+					}
+					html+='	class="login"></div>';
+					html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
+					html+='		<p class="friendInfo">'+date+'</p>';
+					if(data.reqList.indexOf(data.list[key].memNo)!=-1){
+						html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
+					}	
+					else{
+						html+='	<button onclick="javascript:insertReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청</button></div>';
+					}
+					html+='</form>';
+				}newChk=0;
 			}
 			
 			$("#newDiv").html(html);

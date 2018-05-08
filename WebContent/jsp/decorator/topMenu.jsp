@@ -279,9 +279,6 @@ function makeNoti(data){
 				notCnt++;
 				html+=' style="background-color:#edf2fa"';
 			};
-			/* if(data[n].reqNo>0){
-		  		html+='><a class="f_link" style="display: block;" href="/bitbook/tagmain?postno='+data[n].reqNo+'"> <img      ';
-			} */
 	 	 	html+='><a class="f_link" style="display: block;" href="/bitbook/notification/updateNotiRead?memNo='+data[n].memNo+'&notNo='+data[n].notNo+'&postno='+data[n].reqNo+'"> <img      ';
 			html+='src="'+data[n].profilePath+'" alt="Circle Image"          ';
 			html+='class="f_img rounded-circle img-fluid">                     ';
