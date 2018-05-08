@@ -1204,7 +1204,7 @@
 	                        <img src="`+fl.profilePath+`" alt="Circle Image" 	class="f_img rounded-circle img-fluid">
 	                        </a>
 	                        <div class="login" style="background:`+login+`"></div>
-	                        <p><a href=""><span class="f_name c_info" >`+fl.memName+`</span></a><br><br><p class="friendInfo">`+date+`</p></p>
+	                        <p><a href="`+memUrl+`"><span class="f_name c_info" >`+fl.memName+`</span></a><br><br><p class="friendInfo">`+date+`</p></p>
 	                        </div>
 	                        `);
 	                    }

@@ -32,6 +32,7 @@ public class DeltReqFriendsController extends HttpServlet{
 		friends.setMemNo(Integer.parseInt(request.getParameter("memNo")));
 		friends.setFriendsNo(Integer.parseInt(request.getParameter("friendsNo")));
 		mapper.deleteReqFriends(friends);
+		mapper.deleteNotiFriends(friends);
 		
 		HttpSession session = request.getSession();
 		Member member = (Member)session.getAttribute("user");
@@ -42,6 +43,7 @@ public class DeltReqFriendsController extends HttpServlet{
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);
         result.put("reqList", reqList);
+        
         
         response.setContentType("application/json; charset=utf-8");
         PrintWriter out = response.getWriter();

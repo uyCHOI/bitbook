@@ -140,21 +140,23 @@
           
     <script>
         $(document).ready(function() {
+        	
         	if(`${memberDetail.infoOpenRange}`=='2'){
         		if(`${memberDetail.memNo}`!=`${sessionScope.user.memNo}`){
+        			$.ajax({
+		        		url:"/bitbook/member/InfoRangeCheck",
+		        		type:"post",
+		        		data:"memNo="+`${memberDetail.memNo}`+"&chk="+`${sessionScope.user.memNo}`,
+		        		dataType:"json",
+		        		success:function(result){
+		        			if(!result){
+		        				$("#rightUl").html("<h3>표시할 정보가 없습니다.</h3>");
+		        			}
+		        		}
+		        	});
+        		}else{
         			return;
         		}
-	        	$.ajax({
-	        		url:"/bitbook/member/InfoRangeCheck",
-	        		type:"post",
-	        		data:"memNo="+`${memberDetail.memNo}`+"&chk="+`${sessionScope.user.memNo}`,
-	        		dataType:"json",
-	        		success:function(result){
-	        			if(!result){
-	        				$("#rightUl").html("<h3>표시할 정보가 없습니다.</h3>");
-	        			}
-	        		}
-	        	});
         	}
         	else if(`${memberDetail.infoOpenRange}`=='3'){
         		if(`${memberDetail.memNo}`!=`${sessionScope.user.memNo}`){

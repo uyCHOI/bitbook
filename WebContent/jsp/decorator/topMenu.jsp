@@ -151,7 +151,6 @@ h3 {
 		style="position: fixed; color: #fff; background-color: #9c27b0 !important; -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46); box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46);">
 		<div class="container">
 			<div class="navbar-translate">
-				<a class="navbar-brand" href="/bitbook/main" style="color: #fff;">Bit
 			<a href="${pageContext.request.contextPath}/main"
 							class="btn btn-link btn-primary btn-lg"style="color: #fff;font-size:14px;">
 				Bit
@@ -223,15 +222,24 @@ var notCnt = 0;
 $(document).ready(function () {
 
     // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
-  
-	$.ajax({
-		url:"/bitbook/notification/list",
-		data:"memNo="+memNo,
-		dataType:"json",
-		success:function(data){
-			makeNoti(data);
-		}
-	});
+    $.ajax({
+			url:"/bitbook/notification/list",
+			data:"memNo="+memNo,
+			dataType:"json",
+			success:function(data){
+				makeNoti(data);
+			}
+		});
+  	setInterval(function(){ 
+		$.ajax({
+			url:"/bitbook/notification/list",
+			data:"memNo="+memNo,
+			dataType:"json",
+			success:function(data){
+				makeNoti(data);
+			}
+		});
+  	}, 5000);
 
     $('#noti_Button').click(function () {
 
@@ -294,6 +302,7 @@ function makeNoti(data){
 	        .text(notCnt)              
 	        .css({ top: '-10px' })
 	        .animate({ top: '-2px', opacity: 1 }, 500);
+	    notCnt=0;
 	}
 }
 function updateNotiHide(notNo){

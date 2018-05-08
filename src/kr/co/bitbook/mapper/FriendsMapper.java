@@ -21,4 +21,5 @@ public interface FriendsMapper {
 	void updateAccFriends(Friends friends);
 	void deleteFriedns(Friends friends);
 	void insertNotiReq(Friends friends);
+	void deleteNotiFriends(Friends friends);
 }

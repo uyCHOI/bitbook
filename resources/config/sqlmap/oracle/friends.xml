@@ -141,6 +141,12 @@ inner join tb_member_detail d
                   friends_no=#{memNo}
     </delete>
     
+    <delete id="deleteNotiFriends" parameterType="friends">
+    	delete tb_notification 
+    	where mem_no=#{friendsNo} and
+                  req_mem_no=#{memNo}
+    </delete>
+    
     
     
     

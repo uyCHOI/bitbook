@@ -331,7 +331,7 @@
  				dataType: "json",
  				success: function (data) {
  					var html = "";
- 					if(data.list.length==0||memNo!=${sessionScope.user.memNo}){
+ 					if(data.list.length==0||memNo!=`${sessionScope.user.memNo}`){
  						$("#reqFriends").css("display","none");
  						return;
  					}
@@ -416,7 +416,7 @@
 				html+='	class="login"></div>';
 				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 				html+='		<p class="friendInfo">'+date+'</p>';
-				if(memNo==${sessionScope.user.memNo}){
+				if(memNo==`${sessionScope.user.memNo}`){
 					html+='	<button onclick="javascript:deleteFriends(' + data.list[key].friendsNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">친구 끊기</button>';
 				}else{
 					$("#leftFriends").attr("class","col-md-12");
