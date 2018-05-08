@@ -56,6 +56,7 @@
 	#searchBox{
 		width: 100%;
 		margin-top: 7px;
+		padding:10px;
 	}
 	.friendMember{
 		background-color: white;
@@ -277,7 +278,7 @@
 	.post{
 		margin-top: 30px;
 		margin-bottom: 80px;
-		border: 1px solid #9c27b0;
+		border: 1px solid #dedede;
 	}
 	#comment_plus{
 		float: right;
@@ -398,7 +399,7 @@
 
 					<div class="row">
 						<div id="create_post" class="col-md-12" style="margin-top: 30px; top:30px;">
-							<div style="background: #ffffff; border:1px solid #9c27b0;">
+							<div style="background: #ffffff; border:1px solid #dedede;">
 
 
 								<div class="title_head">
@@ -465,7 +466,7 @@
 				</div>
 </form>
 
-<div id="searchArea">
+<div id="">
 <div class="row" style="margin-top: 25px;">
 						<div class="col-md-12" style="margin: 1px 1px 1px 1px;">
 							<div class="col-md-12">
@@ -524,7 +525,7 @@
 						style="width: 100%; height: 71%; position: relative; ">
 						<div class="col-md-12"
 
-							style="height: 100%; background: #B41BD7; top: 67px; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
+							style="height:89%; background: #eaeaea; top: 67px; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList" style="height: 95%;">
 									<h5 class="f_title">
 										친구목록
@@ -534,7 +535,7 @@
 									</div>	<%-- 친구목록 종료 --%>
 									<div id="searchBox"> <%-- 내 친구 검색 --%>
 									<span>
-									<i class="material-icons" style="float:left">&#xE8B6;</i>
+									<i class="material-icons" style="position:absolute; right:35px;">&#xE8B6;</i>
 									<input type="text" id="searchName" placeholder=" 내 친구 검색하기"></span>
 									</div>	
 								</div>				
