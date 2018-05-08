@@ -29,6 +29,7 @@ public class ListOutlineMember extends HttpServlet{
 		try {
 			memNo = Integer.parseInt(request.getParameter("memNo"));
 		} catch (Exception e) {
+			System.out.println(e);
 			HttpSession session = request.getSession();
 			member = (Member)session.getAttribute("user");
 			memNo= member.getMemNo();

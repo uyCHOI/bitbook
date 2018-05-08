@@ -5,22 +5,29 @@ import java.util.Date;
 public class Notification {
 	private int notNo;
 	private int memNo;
-	private int notType;
+	private String notType;
 	private Date notRegDate;
-	private char notState;
+	private String notState;
 	private int reqMemNo;
 	private String notMessage;
 	private Date notReadDate;
 	private int reqNo;
 	private String profilePath;
 	private String memName;
-	private char login;
+	private String login;
+	private int searchType;
 	
-	
-	public char getLogin() {
+	public int getSearchType() {
+		return searchType;
+	}
+	public Notification setSearchType(int searchType) {
+		this.searchType = searchType;
+		return this;
+	}
+	public String getLogin() {
 		return login;
 	}
-	public Notification setLogin(char login) {
+	public Notification setLogin(String login) {
 		this.login = login;
 		return this;
 	}
@@ -52,11 +59,10 @@ public class Notification {
 		this.memNo = memNo;
 		return this;
 	}
-	public int getNotType() {
+	public String getNotType() {
 		return notType;
 	}
 	public Notification setNotType(String notType) {
-	public Notification setNotType(int notType) {
 		this.notType = notType;
 		return this;
 	}
@@ -67,10 +73,10 @@ public class Notification {
 		this.notRegDate = notRegDate;
 		return this;
 	}
-	public char getNotState() {
+	public String getNotState() {
 		return notState;
 	}
-	public Notification setNotState(char notState) {
+	public Notification setNotState(String notState) {
 		this.notState = notState;
 		return this;
 	}

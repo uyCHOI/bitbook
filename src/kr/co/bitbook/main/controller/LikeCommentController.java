@@ -43,7 +43,7 @@ public class LikeCommentController extends HttpServlet{
 		
 		mapper.updateCommentLCount(likeComment);
 		
-		Notification notification = new Notification().setNotType(4)
+		Notification notification = new Notification().setSearchType(4)
 				.setReqMemNo(Integer.parseInt(arg0.getParameter("memNo")))
 				.setReqNo(Integer.parseInt(arg0.getParameter("commentNo")));
 		mapper.insertNotificationByLikeComment(notification);

@@ -153,7 +153,7 @@
 	
 	
 	<select id="searchMyFriends" resultMap="searchFriendsMap" parameterType="searchFriends">
- 	 select mem_name, friends_no, login, profile_path, logout_date
+ 	 select mem_name, friends_no, login, profile_path, logout_date, m.mem_no
 	  from tb_friends f
 	 inner join tb_member m
 	    on f.friends_no = m.mem_no
@@ -433,23 +433,23 @@
    			#{reqMemNo},
    			#{reqNo},
    			 <choose>
-    			 <when test="notType == 1">
+    			 <when test="searchType == 1">
     		     	 	'친구를',
    						'요청하였습니다.'
                  </when>
-    			 <when test="notType == 2">
+    			 <when test="searchType == 2">
     		     	 	'게시글에',
    						'태그하였습니다.'
                  </when>
-                 <when test="notType == 3">
+                 <when test="searchType == 3">
     		     	 	'게시글을',
    						'좋아합니다.'
                  </when>
-                 <when test="notType == 4">
+                 <when test="searchType == 4">
     		     	 	'게시글에 댓글을',
    						'남겼습니다.'
                  </when>
-                 <when test="notType == 5">
+                 <when test="searchType == 5">
     		     	 	'댓글을',
    						'좋아합니다.'
                  </when>

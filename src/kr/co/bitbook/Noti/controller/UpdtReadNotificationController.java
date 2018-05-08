@@ -22,6 +22,10 @@ public class UpdtReadNotificationController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MyAppSqlConfig.getSqlSession().getMapper(NotificationMapper.class).updateNotiRead(Integer.parseInt(request.getParameter("notNo")));
-		response.sendRedirect("/bitbook/member/outline?memNo"+request.getParameter("memNo"));
+		if(Integer.parseInt(request.getParameter("postno"))>0) {
+			response.sendRedirect("/bitbook/tagmain?postno="+Integer.parseInt(request.getParameter("postno")));
+		}else {
+			response.sendRedirect("/bitbook/friends/list?memNo="+request.getParameter("memNo"));
+		}
 	}
 }

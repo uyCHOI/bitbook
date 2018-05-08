@@ -13,15 +13,11 @@
 <title>Material Kit by Creative Tim</title>
 <!--     Fonts and icons     -->
 <link rel="stylesheet" type="text/css"
-	href="../assets/assets-for-demo/common.css">
-<link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
 <!-- Documentation extras -->
 <!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
 <!-- iframe removal -->
 <style>
 
@@ -504,135 +500,15 @@
 
 	
 	<div id="post_area">
-								
-								
-					<div class="post">
-						<div>
-								<div class="min_content">
-									<a href="#"> <img class="profile rounded-circle img-fluid"
-										src="assets/img/kit/faces/avatar.jpg" alt="Circle Image">
-									</a>
-									<div class="board_wrap" style="margin-left: 75px;">
-										<div class="p_info">
-											<span class="open_range_view">나만보기</span>
-											<span class="c_info" >박보영</span> <span>2018-11-11-12-32-33</span>
-										</div>
-										<div class="board_content">
-											내용입니다. <br> 내용입니다. <br> 내용입니다. <br>
-										</div>
-										<div class="upload_img_area">
-											<img class="upload_imgs" src="/bitbook/member_profile/bobobo.jpg"/>
-											<img class="upload_imgs" src="/bitbook/member_profile/mem1042test1.jpg"/>
-											<img class="upload_imgs" src="/bitbook/member_profile/mem1047test6.jpg"/>
-											<img class="upload_imgs" src="/bitbook/member_profile/mem1048adminjinsol.jpg"/>
-										</div>
-										
-										
-										<div style="height: 40px;">
-											<div class="tag_wrap">
-												<span
-													style="font-weight: bold; padding-right: 10px; display: inline-block;">함께한
-													친구</span> <a class="tag" href="#">홍길동</a> <a class="tag" href="#">홍홍</a>
-											</div>
-											<div style="display: inline-block;">
-											<!-- 내 게시글일경우 보이기 -->
-											<div class="update_post" style="display: block;">
-												<button type="submit" class="btnA">수정</button>
-												<span>| </span>
-												<button type="submit" class="btnB">삭제</button>
-											</div>
-											<!-- 내 게시글일경우 보이기 -->
-											</div>
-										</div>
-									</div>
-								</div>
-								
-							<div class="title_head comment_info" style="">
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round post_like"
-										style="border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
-									<button type="button" id="10p_comment" class="comment_open c_c_write btn btn-primary">
-										댓글 <span>11개</span>
-									</button>
-								</div>
-							</div>
-
-				<!-- 게시글 -->
-
-				<div class="commentArea" id="10sp_comment_area">
-					<div id="reg_comment">
-							
-
-							<!-- 댓글쓰기 -->
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info" style="width: 42px;">박보영</span> <span
-										class="c_content" style="width: 294px;"> <textarea
-											class="c_text" style="width: 270px;"></textarea>
-									</span>
-								</div>
-								<button class="c_submit btn btn-lg btn-primary disabled" type="button" style="">등록</button>
-								</div>
-							
-							
-					</div><!-- end #reg_comment -->
 				
+			
+			
+			
+
+
+
+
 				
-					<div id="commentList">
-						
-							<div class="coment">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
-									style="display: block; float: left; width: 47px;"
-									src="assets/img/kit/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid">
-								</a>
-								<div class="c_wrap">
-									<span class="c_info">박보영</span> <span class="c_content">텍스트입이낟.ㅇㄹㄴㅇsdfsdfsdfsdfsdfsfdsfsfsdfsdfㅎㄶㄴㅇㅎㄴㅇㅎㄴㅎㄴㅇㅎㅇ</span>
-								</div>
-								<div
-									style="margin-left: 70px; margin-top: 5px; position: relative;">
-									<div class="update_comment">
-									<button class="btnA">수정</button>
-									<span>|</span>
-									<button class="btnB">삭제</button>
-									</div>
-									<span class="year" style="margin-left: 10px; font-size: 13px;">2018-10-20-11-33-40</span>
-									<button
-										class="likey btn btn-primary btn-fab btn-fab-mini btn-round"
-										style="left:324px !important;bottom:-22px; border-radius: 5px; width: 80px;">
-										<i class="likey_icon material-icons">favorite</i> <em
-											class="likey_num">1</em>
-									</button>
-								</div>
-							</div>
-							
-							
-					</div><!-- end #commentList -->
-					<div>
-						<button type="button"  id="comment_plus" class="btn btn-info btn-sm">댓글 더보기</button>
-					</div>
-
-							
-							
-				</div><!-- end .commentArea -->
-			</div> <!-- end .post -->
-			<br><br><br>
-			
-			
-			
-
-
-
-
-				<!-- 게시글 끝 -->
 		</div>	<!-- end #post_area -->							
 	</div>
 	<div id="min_post">남은 게시글이 없습니다!<hr>
@@ -687,21 +563,6 @@
 					</div> -->
 			</div>
 		</footer>
-		<!--   Core JS Files   -->
-		<script src="../assets/js/core/jquery.min.js"></script>
-		<script src="../assets/js/core/popper.min.js"></script>
-		<script src="../assets/js/bootstrap-material-design.js"></script>
-		<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-		<script src="../assets/js/plugins/moment.min.js"></script>
-		<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-		<script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-		<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-		<script src="../assets/js/plugins/nouislider.min.js"></script>
-		<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-		<script src="../assets/js/material-kit.js?v=2.0.2"></script>
-		<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-		<script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
-
 
 
 		<script>
@@ -755,7 +616,7 @@
     			<div class="post">
     		    <div>
     		            <div class="min_content">
-    		                <a href="#"> <img class="profile rounded-circle img-fluid"
+    		                <a href="/bitbook/member/outline?memNo=`+post.memNo+`"> <img class="profile rounded-circle img-fluid"
     		                    src="`+post.profilePath+`" alt="Circle Image">
     		                </a>
     		                <div class="board_wrap" style="margin-left: 75px;">
@@ -987,7 +848,7 @@
                 			<div class="post">
                 		    <div>
                 		            <div class="min_content">
-                		                <a href="#"> <img class="profile rounded-circle img-fluid"
+                		                <a href="/bitbook/member/outline?memNo=`+post.memNo+`"> <img class="profile rounded-circle img-fluid"
                 		                    src="`+post.profilePath+`" alt="Circle Image">
                 		                </a>
                 		                <div class="board_wrap" style="margin-left: 75px;">
@@ -1185,7 +1046,7 @@
 	                			
 	                			
 								<div class="`+comment.commentNo+` coment" id="`+comment.memNo+`comment_class">
-								<a href="#" style="margin-left: 16px; display: block;"> <img
+								<a href="/bitbook/member/outline?memNo=`+comment.memNo+`" style="margin-left: 16px; display: block;"> <img
 									style="display: block; float: left; width: 47px;"
 									src="`+comment.profilePath+`" alt="Circle Image"
 									class="rounded-circle img-fluid">
@@ -1332,10 +1193,11 @@
 	                success:(friendslist)=>{
 	                	$("#f_info").html("");
 	                    for(let fl of friendslist){
+	                	console.log(fl.memNo);
 	                    	let date;
 	                    	fl.login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(fl.logoutDate)+"전까지 활동 했습니다.";
 	                        let login = fl.login == ('i'||'I') ? 'green' : 'gray';
-	                        let memUrl = "";
+	                        let memUrl = "/bitbook/member/outline?memNo="+fl.memNo;
 	                        $("#f_info").append(`
 	                        <div class="friendMember">
 	                        <a class="f_link"style="display: block;" href="`+memUrl+`">
@@ -1364,13 +1226,14 @@
 	               return parseInt(diff/currHour)+"시간 ";
 	            }
 	            if(parseInt(diff/currDay)<30){
-	               return parseInt(diff/currHour)+"일 ";
+	               return parseInt(diff/currDay)+"일 ";
 	            }
 	            if(parseInt(diff/currMonth)<12){
-	               return parseInt(diff/currHour)+"달 ";
+	               return parseInt(diff/currMonth)+"달 ";
 	            }
 	            return parseInt(diff/currYear)+"년 ";
-	         	}
+	         }
+	        
 	        
 	        function date_info(date){
 	            var date = new Date(date); 

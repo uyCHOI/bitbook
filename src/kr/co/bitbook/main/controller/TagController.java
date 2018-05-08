@@ -24,7 +24,7 @@ public class TagController {
 				int responseNo = Integer.parseInt(resNo);
 				PostTag postTag = new PostTag().setPostNo(postNo)
 											   .setMemNo(responseNo);
-				Notification notification = new Notification().setNotType(2)
+				Notification notification = new Notification().setSearchType(2)
 						.setReqMemNo(memNo)
 						.setReqNo(postNo)
 						.setMemNo(responseNo);

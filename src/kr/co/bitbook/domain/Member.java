@@ -10,7 +10,7 @@ public class Member {
 	private String memEmail;
 	private char join;
 	private Date logoutDate;
-	private char login;
+	private String login;
 	private String profilePath;
 	private String coverPath;
 	private int friendsNo;
@@ -28,10 +28,10 @@ public class Member {
 	public void setFriendsNo(int friendsNo) {
 		this.friendsNo = friendsNo;
 	}
-	public char getLogin() {
+	public String getLogin() {
 		return login;
 	}
-	public void setLogin(char login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 	public String getProfilePath() {

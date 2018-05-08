@@ -143,12 +143,12 @@ inner join tb_member_detail d
     
     
     
-    <!-- 알림 -->
-    <insert id="insertNotiReq" parameterType="friends">
+    
+<!--     <insert id="insertNotiReq" parameterType="friends">
     insert into TB_NOTIFICATION(
 	 not_no,mem_no,not_type,req_mem_no,not_message
 	)values(s_not_no.nextval,#{friendsNo},'친구를',#{memNo},'요청하였습니다.')
-    </insert>
+    </insert> -->
     
     
 </mapper>

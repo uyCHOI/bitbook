@@ -31,7 +31,7 @@ public class LikePostController extends HttpServlet{
 		
 		LikePost likePost = new LikePost().setMemNo(Integer.parseInt(arg0.getParameter("memNo")))
 												   .setPostNo(Integer.parseInt(arg0.getParameter("postNo")));
-		Notification notification = new Notification().setNotType(3)
+		Notification notification = new Notification().setSearchType(3)
 				.setReqMemNo(Integer.parseInt(arg0.getParameter("memNo")))
 				.setReqNo(Integer.parseInt(arg0.getParameter("postNo")))
 				.setMemNo(0);

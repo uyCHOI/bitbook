@@ -48,19 +48,19 @@
         Material Kit by Creative Tim
     </title>
     <!--     Fonts and icons     -->
-   <link rel="stylesheet" type="text/css"
-	href="../assets/assets-for-demo/common.css">
+<!--    <link rel="stylesheet" type="text/css"
+	href="../assets/assets-for-demo/common.css"> -->
 <link rel="stylesheet" type="text/css"
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-<link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
+<!-- <link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2"> -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2">
+<!--     <link rel="stylesheet" href="../assets/css/material-kit.css?v=2.0.2"> -->
     <!-- Documentation extras -->
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" />
+<!--     <link href="../assets/assets-for-demo/demo.css" rel="stylesheet" /> -->
     <!-- iframe removal -->
 </head>
 
@@ -113,12 +113,12 @@
 								<button type="submit" style="margin-bottom:0px;"class="btn btn-white btn-raised btn-fab btn-fab-mini btn-round">
 						              <i class="material-icons" >search</i>
 						          </button>
-						            <select class="select_info">
+						          <!--   <select class="select_info">
 									<option>최근 친구순 보기</option>
 									<option>생일</option>
 									<option>직장</option>
 									<option>대학교</option>
-									</select>
+									</select> -->
 								</form>
 								</div>
 								<!--반복되는 부분 -->
@@ -211,26 +211,14 @@
         </div>
     </footer>
     <!--   Core JS Files   -->
-     <script src="../assets/js/core/jquery.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/bootstrap-material-design.js"></script>
-     <!-- Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="../assets/js/plugins/moment.min.js"></script>
-    	<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-<!--     	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="../assets/js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-   <!--  <script src="../assets/js/material-kit.js?v=2.0.2"></script>  버튼 클릭시 div 생성-->
 
-  <!--   Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script> 
     <script>
     	var memNo = ${member.memNo};           // session에서 가져오게 수정 필요
         var newCnt=10;
     	var myCnt=10;
         $(document).ready(function() {
-	
+        	$(".navbar-nav li").attr("class","nav-item");
+        	$("#nav-friends").attr("class","nav-item active");
             makeReqList();
             
             $("#newDiv").scroll(function() {
@@ -238,11 +226,10 @@
                  var currentScroll =  this.scrollTop; /* + $("#newDiv").height() */ ;
                 if (maxHeight <= currentScroll+620) {
                 	newCnt +=5;
-                	console.log("이걸 타나")
                 	$.ajax({ 
                 		url:"/bitbook/friedns/newList",
                 		data:"name="+$("#newInput")[0].value,
-                		dataType:"json",
+                		dataType:"boolean",
                 		success:function(data){
                 			makeNewList(data);
                 		}
@@ -254,7 +241,6 @@
                  var currentScroll =  this.scrollTop; /* + $("#newDiv").height() */ ;
                 if (maxHeight <= currentScroll+620) {
                 	myCnt +=5;
-                	console.log("이걸 타나")
                 	$.ajax({ 
                 		url:"/bitbook/friedns/myList",
                 		data:"name="+$("#myInput")[0].value,
@@ -301,8 +287,6 @@
         });
         $("#newInput").keyup(function(e){
         	newCnt=10;
-        	console.dir($("#newInput"));
-        	console.log($("#newInput")[0].value);
         	$.ajax({ 
         		url:"/bitbook/friedns/newList",
         		data:"name="+$("#newInput")[0].value,
@@ -353,7 +337,8 @@
  					}
 					$("#reqFriends").css("display","block");
  					for(key in data.list){
- 						//console.log(data.list[key].memNo);
+						let date;
+						data.list[key].login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(data.list[key].logoutDate)+"전까지 활동 했습니다.";
  						html+='<form id="reqForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
  						html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
  						html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
@@ -364,7 +349,7 @@
  						}
  						html+='	class="login"></div>';
  						html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
- 						html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
+ 						html+='		<p class="friendInfo">'+date+'</p>';
  						html+='	<button onclick="javascript:agreeReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-success" style="position: absolute;right:60px;top: 30px;" type="button">수락</button>';
  						html+='	<button onclick="javascript:rejectReq(' + data.list[key].memNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">거절</button></div>';
  						html+='</form>';
@@ -378,13 +363,14 @@
         function makeNewList (data){
 			var html = "";
 			var cnt=0;
-			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
 				cnt++;
 				if(cnt==newCnt){
 					break;
 				}
+				let date;
+				data.list[key].login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(data.list[key].logoutDate)+"전까지 활동 했습니다.";
 				html+='<form id="newForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
 				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
@@ -395,7 +381,7 @@
 				}
 				html+='	class="login"></div>';
 				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
-				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
+				html+='		<p class="friendInfo">'+date+'</p>';
 				if(data.reqList.indexOf(data.list[key].memNo)!=-1){
 					html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
 				}	
@@ -411,13 +397,14 @@
         function makeMyList (data){
 			var html = "";
 			var cnt=0;
-			console.dir(data);
 			for(key in data.list){
 				//console.log(data.list[key].memNo);
 				cnt++;
 				if(cnt==newCnt){
 					break;
 				}
+				let date;
+				data.list[key].login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(data.list[key].logoutDate)+"전까지 활동 했습니다.";
 				html+='<form id="myForm'+data.list[key].memNo+'"  method="get"><div><a class="f_link"style="display: block;" href="/bitbook/member/outline?memNo='+data.list[key].memNo+'">';
 				html+='<input type="hidden" name="memNo" value="'+data.list[key].memNo+'"/>'
 				html+='<img 	src="'+data.list[key].profilePath+'" alt="Circle Image"';
@@ -428,7 +415,7 @@
 				}
 				html+='	class="login"></div>';
 				html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
-				html+='		<p class="friendInfo">'+timeDiff(data.list[key].logoutDate)+'전까지 활동했습니다.</p>';
+				html+='		<p class="friendInfo">'+date+'</p>';
 				if(memNo==${sessionScope.user.memNo}){
 					html+='	<button onclick="javascript:deleteFriends(' + data.list[key].friendsNo + ');" class="btn btn-sm btn-rose" style="position: absolute;right:6px;top: 30px;" type="button">친구 끊기</button>';
 				}else{

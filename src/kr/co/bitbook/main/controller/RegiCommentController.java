@@ -33,7 +33,7 @@ public class RegiCommentController extends HttpServlet{
 		mapper.insertComment(comment);
 		mapper.updatePostCCount(comment);
 		
-		Notification notification = new Notification().setNotType(4)
+		Notification notification = new Notification().setSearchType(4)
 				.setReqMemNo(Integer.parseInt(arg0.getParameter("memNo")))
 				.setReqNo(Integer.parseInt(arg0.getParameter("postNo")))
 				.setMemNo(0);

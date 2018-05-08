@@ -49,6 +49,7 @@
 <!-- <script src="/bitbook/js/topMenu.js"></script> -->
 <style>
 #noti_Container {
+	right:10px;
 	position: relative;
 }
 /* A CIRCLE LIKE BUTTON IN THE TOP MENU. */
@@ -83,7 +84,7 @@
 /* THE NOTIFICAIONS WINDOW. THIS REMAINS HIDDEN WHEN THE PAGE LOADS. */
 #notifications {
 	display: none;
-	width: 430px;
+	width: 480px;
 	position: absolute;
 	top: 30px;
 	left: 0;
@@ -150,7 +151,7 @@ h3 {
 		style="position: fixed; color: #fff; background-color: #9c27b0 !important; -webkit-box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46); box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(156, 39, 176, 0.46);">
 		<div class="container">
 			<div class="navbar-translate">
-				<a class="navbar-brand" href="../main/main.jsp" style="color: #fff;">Bit
+				<a class="navbar-brand" href="/bitbook/main" style="color: #fff;">Bit
 					book </a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					aria-expanded="false" aria-label="Toggle navigation">
@@ -161,20 +162,7 @@ h3 {
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav ml-auto">
-		<li class="nav-item">
-						 <!--  세션이 유지되어있을때는  -->
-							<c:choose>
-									<c:when test="${empty sessionScope.user}">
-										<a class="nav-link" href="<c:url value="/bitbook/login" />">로그인</a>
-									</c:when>
-									<c:otherwise>
-								<div> <a style="color:white;" href='/bitbook/member/outline?memNo=${sessionScope.user.memNo}'> ${sessionScope.user.memName}님 접속 </a></div>
 				
-										<!--      <input type="hidden" name="login" value="N"> -->
-									</c:otherwise>
-								</c:choose>
-							
-							<div class="ripple-container"></div></li>
 					<li id="noti_Container">
 						<div id="noti_Counter"></div> <!--SHOW NOTIFICATIONS COUNT.--> <!--A CIRCLE LIKE BUTTON TO DISPLAY NOTIFICATION DROPDOWN.-->
 						<div id="noti_Button">
@@ -198,12 +186,27 @@ h3 {
 						
 					</li>
 					<li class="nav-item">
+						 <!--  세션이 유지되어있을때는  -->
+							<c:choose>
+									<c:when test="${empty sessionScope.user}">
+										<a class="nav-link" href="<c:url value="/bitbook/login" />">로그인</a>
+									</c:when>
+									<c:otherwise>
+								<div> <a style="color:white;" href='/bitbook/member/outline?memNo=${sessionScope.user.memNo}'> ${sessionScope.user.memName}님 접속 </a></div>
+				
+										<!--      <input type="hidden" name="login" value="N"> -->
+									</c:otherwise>
+								</c:choose>
+							
+							<div class="ripple-container"></div></li>
+					
+					<li class="nav-item">
 					<c:if test="${!empty sessionScope.user }">
 					<a class="nav-link" href="<c:url value="/bitbook/logout" />">로그아웃</a>
 					</c:if>
 					</li>
 					<li class="nav-item"><a class="nav-link"
-						href="../friends/list?memNo=${sessionScope.user.memNo}" onclick="scrollToDownload()"> 친구 찾기
+						href="/bitbook/friends/list?memNo=${sessionScope.user.memNo}" onclick="scrollToDownload()"> 친구 찾기
 							<div class="ripple-container"></div>
 					</a></li>
 				
@@ -254,14 +257,13 @@ $(document).ready(function () {
     });
 
 //      $('#notifications').click(function () {
-//     	 console.dir(this);
-//          return false;       // DO NOTHING WHEN CONTAINER IS CLICKED.
-//      });
+// 	    	 console.dir(this);
+//           return false;       // DO NOTHING WHEN CONTAINER IS CLICKED.
+//       });
 });
 function makeNoti(data){
 	var html="";
 	$("#noti-board").html(html);
-	console.dir(data);
 	for(n in data){
 		var date = new Date(data[n].notRegDate); 
 		var regDate = " "+date.getMonth()+"월 "+date.getDate()+"일 "+date.getHours()+":"+date.getMinutes();
@@ -273,11 +275,10 @@ function makeNoti(data){
 				notCnt++;
 				html+=' style="background-color:#edf2fa"';
 			}
-			if(data[n].reqNo>0){
+			/* if(data[n].reqNo>0){
 		  		html+='><a class="f_link" style="display: block;" href="/bitbook/tagmain?postno='+data[n].reqNo+'"> <img      ';
-			}else{
-		 	 	html+='><a class="f_link" style="display: block;" href="/bitbook/notification/updateNotiRead?memNo='+data[n].reqMemNo+'&notNo='+data[n].notNo+'"> <img      ';
-			}
+			} */
+	 	 	html+='><a class="f_link" style="display: block;" href="/bitbook/notification/updateNotiRead?memNo='+data[n].memNo+'&notNo='+data[n].notNo+'&postno='+data[n].reqNo+'"> <img      ';
 			html+='src="'+data[n].profilePath+'" alt="Circle Image"          ';
 			html+='class="f_img rounded-circle img-fluid">                     ';
 			html+='		<div ';
@@ -286,7 +287,7 @@ function makeNoti(data){
 			}
 			html+='	class="login"></div>';
 			html+='<span class="f_name c_info" style="width: 250px;">'+data[n].memName+'님이 '+data[n].notType+" "+data[n].notMessage+'</span></a>          ';
-			html+='<p style="color:black"class="friendInfo">'+regDate+'</p>               ';
+			html+='<span style="color:black"class="friendInfo">'+regDate+'</span>               ';
 			html+='<button onclick="javascript:updateNotiHide('+data[n].notNo+')" class="btn btn-sm ">이 알림 숨기기</button></div>'; 
 		}
 	}
@@ -307,7 +308,7 @@ function updateNotiHide(notNo){
 			"memNo":memNo
 		},
 		success:function(data){
-			console.dir(data);
+			$("#noti-board").html("  ");
 			makeNoti(data);
 		}
 	});

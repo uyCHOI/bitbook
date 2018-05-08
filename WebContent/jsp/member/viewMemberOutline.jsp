@@ -49,75 +49,71 @@
 								<li class="nav-item"><a class="nav-link"
 									href="introduce?memNo=${memberDetail.memNo }"> 자세한 내 소개</a></li>
 							</ul>
-							<ul class="nav flex-column" style="    border-left: 1px solid #ccc;
-    min-height: 280px;
-    padding: 30px 24px 0;
-    position: relative;
-    width: 408px;
-}">	
-							<div id="outline">
-							<c:if test="${memberDetail.memNo==sessionScope.user.memNo}">
-							
-							<h3>정보 공개 범위</h3>
-							<div style="padding-top:10px;" class="form-check form-check-radio">
-							    <label class="form-check-label">
-							        <input class="form-check-input" type="radio" name="openRange" id="range1" value="1" >
-							        	<i class="material-icons">public</i>전체 공개
-							        <span class="circle">
-							            <span class="check"></span>
-							        </span>
-							    </label>
-							    <label class="form-check-label">
-							        <input class="form-check-input" type="radio" name="openRange" id="range2" value="2" >
-							        	<i class="material-icons">group</i>친구만
-							        <span class="circle">
-							            <span class="check"></span>
-							        </span>
-							    </label>
-							    <label class="form-check-label">
-							        <input class="form-check-input" type="radio" name="openRange" id="range3" value="3" >
-							        	<i class="material-icons">lock</i>나만 보기
-							        <span class="circle">
-							            <span class="check"></span>
-							        </span>
-							    </label>
-							</div>
-							</c:if>
-							<hr>
+							<ul id="rightUl" class="nav flex-column"
+								style="border-left: 1px solid #ccc; min-height: 280px; padding: 30px 24px 0; position: relative; width: 408px;">
+
+								<c:if test="${memberDetail.memNo==sessionScope.user.memNo}">
+
+									<h3>정보 공개 범위</h3>
+									<form id=openForm action="/bitbook/member/updtInfoOpenRange"
+										method="post">
+										<input type="hidden" name="memNo"
+											value="${memberDetail.memNo}">
+										<div style="padding-top: 10px;"
+											class="form-check form-check-radio">
+											<label class="form-check-label"> <input
+												class="form-check-input" type="radio" name="openRange"
+												id="range1" value="1"> <i class="material-icons">public</i>전체
+												공개 <span class="circle"> <span class="check"></span>
+											</span>
+											</label> <label class="form-check-label"> <input
+												class="form-check-input" type="radio" name="openRange"
+												id="range2" value="2"> <i class="material-icons">group</i>친구만
+												<span class="circle"> <span class="check"></span>
+											</span>
+											</label> <label class="form-check-label"> <input
+												class="form-check-input" type="radio" name="openRange"
+												id="range3" value="3"> <i class="material-icons">lock</i>나만
+												보기 <span class="circle"> <span class="check"></span>
+											</span>
+											</label>
+											<button type="submit" class="btn btn-success btn-sm">저장하기</button>
+										</div>
+									</form>
+								</c:if>
+								<hr>
 								<c:if test="${memberDetail.introduce ne null}">
 									<h4>내 소개</h4>
 									<div>
-										<a id="data" style="font-size:24px;">
-											 ${memberDetail.introduce}
-										</a>
+										<a id="data" style="font-size: 24px;">
+											${memberDetail.introduce} </a>
 									</div>
 								</c:if>
 								<c:if test="${memberDetail.birth ne null}">
 									<h4>생일</h4>
-									<div >
-										<a id="data" style="font-size:24px;">
-											 ${memberDetail.birth.year+1900}-${memberDetail.birth.month+1}-${memberDetail.birth.day}
+									<div>
+										<a id="data" style="font-size: 24px;">
+											${memberDetail.birth.year+1900}-${memberDetail.birth.month+1}-${memberDetail.birth.day}
 										</a>
 									</div>
 								</c:if>
 								<c:if test='${memberDetail.blood ne null}'>
 									<h4>혈액형</h4>
-									<div  >
-										<a id="data" style="font-size:24px;">
-											 ${memberDetail.blood}
-										</a>
+									<div>
+										<a id="data" style="font-size: 24px;">
+											${memberDetail.blood} </a>
 									</div>
 								</c:if>
 								<c:if test='${memberDetail.phone ne null}'>
 									<h4>휴대폰</h4>
-									<div >
-										<a id="data" style="font-size:24px;">
-											 ${memberDetail.phone}
-										</a>
+									<div>
+										<a id="data" style="font-size: 24px;">
+											${memberDetail.phone} </a>
 									</div>
 								</c:if>
-							</div>
+							
 						</ul>
+					</div>
 					</div>
 			</div>
           		</div>
@@ -160,15 +156,46 @@
     <script>
         $(document).ready(function() {
         	$(".navbar-nav li").attr("class","nav-item");
-        	$("nav-info").attr("class","nav-item active");
-        	$.ajax({
-        		url:"/bitbook/member/outline"
-        		
-        	});
+        	$("#nav-info").attr("class","nav-item active");
+        	
+        	console.log(`${memberDetail.infoOpenRange}`);
+        	if(`${memberDetail.infoOpenRange}`=='2'){
+        		if(`${memberDetail.memNo}`!=`${sessionScope.user.memNo}`){
+        			return;
+        		}
+	        	$.ajax({
+	        		url:"/bitbook/member/InfoRangeCheck",
+	        		type:"post",
+	        		data:"memNo="+`${memberDetail.memNo}`+"&chk="+`${sessionScope.user.memNo}`,
+	        		dataType:"json",
+	        		success:function(result){
+	        			if(!result){
+	        				$("#rightUl").html("<h3>표시할 정보가 없습니다.</h3>");
+	        			}
+	        		}
+	        	});
+        	}
+        	else if(`${memberDetail.infoOpenRange}`=='3'){
+        		if(`${memberDetail.memNo}`!=`${sessionScope.user.memNo}`){
+        			$("#rightUl").html("<h3>표시할 정보가 없습니다.</h3>");
+        		}
+        	}
         	
         	
         });
         
+       	function radioRangeChk(infoOpenRange){
+       		var range="";
+           	if(infoOpenRange=='1'){
+	           	$('#range1').attr("checked","checked");
+           	}
+           	else if(infoOpenRange=='2'){
+           		$('#range2').attr("checked","checked");
+           	}
+           	else if(infoOpenRange=='3'){
+         	  	$('#range3').attr("checked","checked");
+           	}
+       	}
     </script>
 </body>
 
