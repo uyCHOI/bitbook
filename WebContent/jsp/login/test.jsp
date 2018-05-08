@@ -117,7 +117,8 @@ private String clientSecret = "ernLuCAApI";
 		return result;
 	}%>
 <%
-	String dirPath = request.getServletContext().getRealPath("captchaimg") + "\\";
+	String dirPath = request.getServletContext().getRealPath("img") + "\\";
+   // String uploadPath = "bitbook\\cap";
 	System.out.println(dirPath);
 	
 	String captchaImageName = null;

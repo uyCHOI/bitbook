@@ -156,7 +156,7 @@
 												.log("=========================")
 										$("#div01")
 												.html(
-														"<img algin='center' src='/bitbook/captchaimg/"+data.captchaImageName+"'>");
+														"<img algin='center' src='/bitbook/img/"+data.captchaImageName+"'>");
 									}
 								});
 						$("#btn01").on("click", function() {
