@@ -369,9 +369,13 @@
 				if(cnt==newCnt){
 					break;
 				}
-				for(let i = 0; i< data.list1.length;i++){
-					if(data.list[key].memNo==data.list1[i].memNo){
-						newChk=1;
+				console.log("====ㅣlist1=======");
+				console.dir(data.list1);
+				if(data.list1.length!=undefined){
+					for(let i = 0; i< data.list1.length;i++){
+						if(data.list[key].memNo==data.list1[i].memNo){
+							newChk=1;
+						}
 					}
 				}
 				console.log(newChk);
@@ -389,6 +393,8 @@
 					html+='	class="login"></div>';
 					html+='		<p><span class="f_name c_info" >'+data.list[key].memName+'</span></a></p>';
 					html+='		<p class="friendInfo">'+date+'</p>';
+					console.log("====reqList=======");
+					console.dir(data.reqList);
 					if(data.reqList.indexOf(data.list[key].memNo)!=-1){
 						html+='	<button onclick="javascript:deleteReq(' + data.list[key].memNo + ');" class="btn btn-sm" style="position: absolute;right:6px;top: 30px;" type="button">친구요청중</button></div>';
 					}	

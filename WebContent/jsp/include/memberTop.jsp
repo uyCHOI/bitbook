@@ -32,8 +32,8 @@
 						href="../member/outline?memNo=${member.memNo}">정보</a></li>
 					<li id="nav-friends" class="nav-item"><a class="nav-link"
 						href="../friends/list?memNo=${member.memNo}">친구 <span id="topFriends"></span></a></li>
-					<li id="nav-picture" class="nav-item"><a class="nav-link"
-						href="../gallery/list-pic.jsp">사진(추후 개발)</a></li>
+<!-- 					<li id="nav-picture" class="nav-item"><a class="nav-link"
+						href="../gallery/list-pic.jsp">사진(추후 개발)</a></li> -->
 				</ul>
 			</div>
 		</div>

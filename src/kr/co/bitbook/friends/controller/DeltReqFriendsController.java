@@ -38,10 +38,12 @@ public class DeltReqFriendsController extends HttpServlet{
 		Member member = (Member)session.getAttribute("user");
 		member.setMemName(request.getParameter("name"));
 		List<Member> list = mapper.selectSearchFriends(member);
-		
+		List<Member> list1= mapper.selectMyFriends(member.getMemNo());
 		List<Integer> reqList = mapper.selectReqFriends(Integer.parseInt(request.getParameter("memNo")));
+		
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);
+        result.put("list1", list1);
         result.put("reqList", reqList);
         
         

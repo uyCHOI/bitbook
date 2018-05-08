@@ -92,8 +92,10 @@
 	              					   	 where mem_no = #{memNo}
 	              					   	   and acc_state = 'A'
          					   	 		)
+         			   or post_open_range=2 and p.mem_no = #{memNo}
          			   or post_open_range=3
          			   and p.mem_no = #{memNo}
+         			   
                  </when>
                  <when test="searchType == '2'">
                  		           post_open_range != 3

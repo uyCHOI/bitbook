@@ -55,7 +55,7 @@
 
 	#searchBox{
 		width: 100%;
-		margin-top: 7px;
+		margin-top: 42px;
 		padding:10px;
 	}
 	.friendMember{
@@ -63,7 +63,7 @@
 		height: 80px;
 	}
 	#searchName{
-		width: 86%;
+		width: 100%;
 	}
 
 	#content{
@@ -159,13 +159,17 @@
 
 	}
 	.f_img{
-		height: 30px;
+		height: 50px !important;
+		width: 50px !important;
 		float: left;
 		padding: 0px;
 		margin-top: 10px;
 		margin-right: 10px;
 		margin-left: 10px;
-		
+	}
+	.tag_img{
+		height: 30px !important;
+		width: 30px !important;
 	}
 	.f_name{
 		float:left;
@@ -278,7 +282,7 @@
 	.post{
 		margin-top: 30px;
 		margin-bottom: 80px;
-		border: 1px solid #dedede;
+		border: 1px solid #9c27b0 !important;
 	}
 	#comment_plus{
 		float: right;
@@ -399,7 +403,7 @@
 
 					<div class="row">
 						<div id="create_post" class="col-md-12" style="margin-top: 30px; top:30px;">
-							<div style="background: #ffffff; border:1px solid #dedede;">
+							<div style="background: #ffffff; border:1px solid #9c27b0;">
 
 
 								<div class="title_head">
@@ -466,8 +470,8 @@
 				</div>
 </form>
 
-<div id="">
-<div class="row" style="margin-top: 25px;">
+<div id="" style="background: #9c27b0 !important">
+<div class="row" style="margin-top: 57px;">
 						<div class="col-md-12" style="margin: 1px 1px 1px 1px;">
 							<div class="col-md-12">
 								      <form class="form-inline ml-auto">
@@ -525,7 +529,7 @@
 						style="width: 100%; height: 71%; position: relative; ">
 						<div class="col-md-12"
 
-							style="height:89%; background: #eaeaea; top: 67px; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
+							style="height:89%; background:#9c27b0 !important; top: 67px; right: 0; position: fixed; width: 400px; padding: 0; border: 1px solid #e9eaea;">
 							<div class="friendList" style="height: 95%;">
 									<h5 class="f_title">
 										친구목록
@@ -535,7 +539,7 @@
 									</div>	<%-- 친구목록 종료 --%>
 									<div id="searchBox"> <%-- 내 친구 검색 --%>
 									<span>
-									<i class="material-icons" style="position:absolute; right:35px;">&#xE8B6;</i>
+									<i class="material-icons" style="position:absolute; right:12px;">&#xE8B6;</i>
 									<input type="text" id="searchName" placeholder=" 내 친구 검색하기"></span>
 									</div>	
 								</div>				
@@ -568,7 +572,7 @@
 
 		<script>
 
-
+	
 		
 		//태그 된 게시물 보여주기
 		if('${post}'!= ''){
@@ -1182,7 +1186,7 @@
 		
 		
 	    $(friendsList());
-	    setInterval(friendsList,30000);
+	    setInterval(friendsList,1000);
 		$("#searchName").on("keyup",()=>{friendsList()});
 	     
 	        function friendsList(){
@@ -1194,7 +1198,6 @@
 	                success:(friendslist)=>{
 	                	$("#f_info").html("");
 	                    for(let fl of friendslist){
-	                	console.log(fl.memNo);
 	                    	let date;
 	                    	fl.login == ('i'||'I') ? date = "활동중입니다." : date = timeDiff(fl.logoutDate)+"전까지 활동 했습니다.";
 	                        let login = fl.login == ('i'||'I') ? 'green' : 'gray';
@@ -1282,7 +1285,7 @@
 	                                $("#f_list").append(`
 	                                <div class="search_friends" id="`+fl.friendsNo+`_`+fl.memName+`">
 	                                <div class="f_list_detail">
-	                                <img src="`+fl.profilePath+`" alt="Circle Image" class="f_img rounded-circle img-fluid">
+	                                <img src="`+fl.profilePath+`" alt="Circle Image" class="tag_img f_img rounded-circle img-fluid">
 	                                <a href="#"><span class="f_name">`+fl.memName+`</span></a>
 	                                </div></div>
 	                                `);

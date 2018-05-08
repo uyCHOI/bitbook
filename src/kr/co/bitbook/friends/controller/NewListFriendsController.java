@@ -32,7 +32,7 @@ public class NewListFriendsController extends HttpServlet{
 		member.setMemName(request.getParameter("name"));
 		
 		List<Member> list = mapper.selectSearchFriends(member);
-		List<Integer> reqList = mapper.selectReqFriends(1);
+		List<Integer> reqList = mapper.selectReqFriends(member.getMemNo());
 		List<Member> list1= mapper.selectMyFriends(member.getMemNo());
         Map<String, Object> result = new HashMap<>();
         result.put("list", list);

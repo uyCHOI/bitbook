@@ -194,7 +194,7 @@ h3 {
 										<a class="nav-link" href="<c:url value="/bitbook/login" />">로그인</a>
 									</c:when>
 									<c:otherwise>
-								<div> <a style="color:white;" href='/bitbook/member/outline?memNo=${sessionScope.user.memNo}'> ${sessionScope.user.memName}님 접속 </a></div>
+								<div> <a style="color:white;" href='/bitbook/member/outline?memNo=${sessionScope.user.memNo}'> ${sessionScope.user.memId}님 접속 </a></div>
 				
 										<!--      <input type="hidden" name="login" value="N"> -->
 									</c:otherwise>
@@ -220,7 +220,6 @@ h3 {
 var memNo = ${sessionScope.user.memNo};
 var notCnt = 0;
 $(document).ready(function () {
-
     // ANIMATEDLY DISPLAY THE NOTIFICATION COUNTER.
     $.ajax({
 			url:"/bitbook/notification/list",
@@ -239,7 +238,7 @@ $(document).ready(function () {
 				makeNoti(data);
 			}
 		});
-  	}, 5000);
+  	}, 1000);
 
     $('#noti_Button').click(function () {
 
