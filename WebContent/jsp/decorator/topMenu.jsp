@@ -152,6 +152,9 @@ h3 {
 		<div class="container">
 			<div class="navbar-translate">
 				<a class="navbar-brand" href="/bitbook/main" style="color: #fff;">Bit
+			<a href="${pageContext.request.contextPath}/main"
+							class="btn btn-link btn-primary btn-lg"style="color: #fff;font-size:14px;">
+				Bit
 					book </a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					aria-expanded="false" aria-label="Toggle navigation">
