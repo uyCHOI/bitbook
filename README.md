@@ -41,6 +41,49 @@ SourceTree<br>
 
 ---------------------------------------
 ![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files/1529484717645-%EC%A0%9C%EB%AA%A9+%EC%97%86%EC%9D%8C.jpg)
+---------------------------------------
+
+>**최운영 - 회원 관리, 알림, 친구 기능 개발**
+>---------
+<br>
+
+> **핵심기능**<br>
+    - 회원 부가정보 등록 수정 삭제<br>
+    - 프로필, 커버사진 등록<br>
+    - 친구 관리 및 검색<br>
+    - 실시간 알림 확인<br>
+    <br>
+
+---------------------------------------
+>Member Profile
+>---------
+>![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529565587155-info.gif)
+><br><br>
+>![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529567514316-profile_pic.gif)
+><br><br>
+>
+>**개인정보 관리**<br><br>
+>Toggle 방식으로 손쉽게 개인 정보 수정<br>
+>프로필 사진 및 배경 이미지 손쉽게 변경<br>
+
+---------------------------------------
+>Adding Friends & Friend Requests
+>---------
+>![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529566229170-friends.gif)
+><br><br>
+>
+>**개인정보 관리**<br><br>
+>검색을 통해 친구 요청, 친구 끊기 가능<br>
+
+---------------------------------------
+>Notifications
+>---------
+>![enter image description here](https://s3-eu-west-1.amazonaws.com/froala-eu/temp_files%2F1529567241998-noti.gif)
+><br><br>
+>
+>**알림**<br><br>
+>친구 요청, 친구의 게시물 등록 등<br>
+>읽지 않은 알림 수 표시, 알림을 통한 이동<br>
 
 ---------------------------------------
 
